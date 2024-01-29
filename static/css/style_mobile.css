@@ -1,0 +1,129 @@
+@media (max-width:700px) {
+    :root {
+        --text-color: #FBEAEB;
+        --background-color: #2E3C7E;
+        --accent-color: #f19a96;
+        --white-color: #FCF6F5;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Source Sans Pro";
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--accebt-color);
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    li a {
+        line-height: 2;
+        font-size:1.5rem;
+        padding-left: 20px;
+    }
+
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .navbar_menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        
+    }
+
+    .navbar_menu li {
+        width: 100%;
+        text-align: center;
+        height: 2rem;
+    }
+
+    .navbar_icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar_toggleBtn {
+        position: absolute;
+        top: 20px;
+        right: 32px;
+        font-size: 24px;
+        color: var(--text-color);
+    }
+
+    .navbar_menu.nav_active,
+    .navbar_icons.nav_active {
+        display: flex;
+    }
+
+    .main-text {
+        font-size: 2rem;
+        display: flex;
+        font-weight: 700;
+        color: var(--text-color);
+        position: absolute;
+        margin: 100px 0 0 30px;
+    }
+    #modalOpenButton,
+    #modalCloseButton {
+        cursor: pointer;
+    }
+
+    #modalContainer {
+        z-index: 100000;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #modalContent {
+        display:flex;
+        flex-direction: column;
+        justify-content:space-between;
+        background-color: #ffffff;
+        width: 100%;
+        height: 100%;
+    }
+
+    #modalContainer.hidden {
+        display: none;
+    }
+
+    .navbar_toggleBtn.hidden {
+        display: none;
+    }
+
+    .mobile-nav-top{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding: 15px 30px 0 15px;
+        font-size: 1.5rem;
+    }
+
+    .mobile-nav-bottom{
+        padding: 0 0 20px 20px;
+        font-size: 1.2rem;;
+    }
+
+    
+}
+
+/* ------------ MEDIA END -------------- */

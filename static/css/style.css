@@ -1,0 +1,297 @@
+:root {
+  --text-color: #FCEDDA;
+  --background-color: #EE4E34;
+  --accent-color: #FCEDDA;
+  --white-color:#FCF6F5;
+  --text-color-black: #000000;
+  --line-color: #FCEDDA;
+  --nav-text-color: #EE4E34
+}
+
+@font-face {
+  font-family: 'MaruBuri-Regular';
+  src: url('../font/MaruBuri-Regular.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "MaruBuri-Regular";
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.tocenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depart-line{
+  height:2px;
+  width: 150px;
+  background-color: var(--background-color);
+  margin: 0 0 20px 0;
+}
+
+.navbar {
+  width:100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  z-index: 100;
+}
+
+.navbar_logo{
+  margin:15px 0 15px 15px;
+}
+
+.navbar_menu {
+  color:var(--nav-text-color);
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  
+  font-weight: 700;
+  padding: 8px 25px;
+}
+
+.active{
+  display: block;
+  content: '';
+  border-bottom: solid 2px var(--white-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.navbar_menu_active li::after {
+  display: block;
+  content: '';
+  border-bottom: solid 2px var(--white-color);
+}
+
+.navbar_menu li:hover::after{
+  transform: scaleX(1)
+}
+
+.navbar_icons {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  color:var(--nav-text-color);
+}
+
+.navbar_icons li {
+  padding: 8px 12px 8px 12px;
+}
+
+
+
+.main-container{
+  position:relative;
+  height:100%;
+  display: flex;
+}
+
+.main-img img{
+  width:100%;
+}
+
+.main-text{
+  font-size:5rem;
+  font-weight: 700;
+  color:var(--text-color);
+  position:absolute;
+  margin: 200px 0 0 30px; 
+}
+
+.word {
+  width: 100%;
+  color: white;
+  font: 700 normal 1em 'tahoma';
+  text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+}
+
+/* 텍스트 물컵 효과 */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+.animation-text-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+}
+
+.content h2 {
+  color: #fff;
+  font-size: 1em;
+  position: absolute;
+  
+}
+
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;
+}
+
+.content h2:nth-child(2) {
+  color: #03a9f4;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+
+
+/* 스와이프 */
+.swiper {
+  width: 100%;
+  height: 500px;
+  background: #000;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/main-1.jpg)
+}
+
+.swiper-slide .title {
+  margin:4rem 0 0 30px;
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.swiper-slide .subtitle {
+  margin:0 0 0 30px;
+  font-size: 21px;
+}
+
+.swiper-slide .text {
+  margin:0 0 2rem 30px;
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
+.hi {
+  margin: 40px 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: 700px;
+  color: var(--text-color-black);
+}
+
+.service-card-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card{
+  padding: 20px 10px 20px 10px;
+  margin: 0 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 3px var(--line-color);
+  border-radius: 20px;
+  width: 250px;
+}
+
+.service-card img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.card-title{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-subtitle{
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.card-desc{
+  font-size:1rem;
+  margin-bottom: 10px;
+}
+
+.card-button{
+  color:var(--accent-color);
+  background-color: var(--background-color);
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+}
+
+.form-group{
+  display:flex;
+}
+
+.mb-12{
+  display:flex;
+}
+
+.mb-10 {
+  display: flex;
+}
+
+.col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
