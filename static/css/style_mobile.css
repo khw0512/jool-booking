@@ -54,6 +54,7 @@
     }
 
     .navbar_toggleBtn {
+        display: inline;
         position: absolute;
         top: 20px;
         right: 32px;
