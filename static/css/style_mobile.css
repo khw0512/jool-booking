@@ -1,9 +1,12 @@
 @media (max-width:700px) {
     :root {
-        --text-color: #FBEAEB;
-        --background-color: #2E3C7E;
-        --accent-color: #f19a96;
+        --text-color: #FCF6F5;
+        --background-color: #2BAE66;
+        --accent-color: #FCF6F5;
         --white-color: #FCF6F5;
+        --text-color-black: #000000;
+        --line-color: #FCF6F5;
+        --nav-text-color: #2BAE66;
     }
 
     body {
@@ -13,24 +16,21 @@
 
     a {
         text-decoration: none;
-        color: var(--accebt-color);
     }
 
     li {
         list-style-type: none;
     }
 
-    li a {
+    #modalContent>div.mobile-nav-up>li{
         line-height: 2;
-        font-size:1.5rem;
+        font-size:1.2rem;
         padding-left: 20px;
     }
 
 
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
-        
     }
 
     .navbar_menu {
@@ -53,13 +53,13 @@
         width: 100%;
     }
 
-    .navbar_toggleBtn {
+    #modalOpenButton{
         display: inline;
         position: absolute;
         top: 20px;
         right: 32px;
         font-size: 24px;
-        color: var(--text-color);
+        color: var(--nav-text-color);
     }
 
     .navbar_menu.nav_active,
@@ -71,7 +71,7 @@
         font-size: 2rem;
         display: flex;
         font-weight: 700;
-        color: var(--text-color);
+        color: var(--nav-text-color);
         position: absolute;
         margin: 100px 0 0 30px;
     }
@@ -116,7 +116,7 @@
         justify-content: space-between;
         margin-bottom: 30px;
         padding: 15px 30px 0 15px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .mobile-nav-bottom{

@@ -5,7 +5,7 @@
   --white-color:#FCF6F5;
   --text-color-black: #000000;
   --line-color: #FCF6F5;
-  --nav-text-color: #2BAE66
+  --nav-text-color: #2BAE66;
 }
 
 @font-face {
@@ -23,10 +23,6 @@ body {
 a {
   color: var(--text-color-black);
   text-decoration: none;
-}
-
-a>i {
-  color:white;
 }
 
 .hidden{
@@ -52,8 +48,12 @@ a>i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: white;
   z-index: 100;
+}
+
+.navbar-space{
+  height: 100px;
 }
 
 .navbar_logo{
@@ -74,7 +74,7 @@ a>i {
 }
 
 .navbar_menu li a {
-  color:white;
+  color:var(--nav-text-color);
 }
 
 .active{
@@ -116,7 +116,7 @@ a>i {
   top: 20px;
   right: 32px;
   font-size: 24px;
-  color: var(--text-color);
+  color: var(--background-color);
 }
 
 .main-container{
