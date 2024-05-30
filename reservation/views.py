@@ -10,14 +10,11 @@ from django.db.models import Max
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.core import serializers
+from .forms import ReservationForm
 
 
 def index(request):
     return render(request, 'index.html')
-
-
-def book(request):
-    return render(request, 'book.html')
 
 
 def check(request):
@@ -30,3 +27,18 @@ def info(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def reservation(request):
+    return render(request, 'book.html')
+
+
+def book(request):
+    if request.method == "POST":
+        reservation = Reservation(client=request.POST.get('client'), month=request.POST.get(
+            'month'), desc=request.POST.get('desc'),day=request.POST.get('day'),hour=request.POST.get('hour'),minute=request.POST.get('minute'))
+        
+        reservation.save()
+        return render(request, 'index.html')
+    else:
+        form = ReservationForm()
+        return render(request, 'book.html', {'form': form})

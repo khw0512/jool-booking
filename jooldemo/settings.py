@@ -26,7 +26,9 @@ SECRET_KEY = "django-insecure-5a8k2o6=*1g*4*9&3p!8e!j!pen0xe#$%1uk54sshz+9m+*)1^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['https://jasonblue.gabia.io']
 
 
 # Application definition
