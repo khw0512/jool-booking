@@ -1,1 +1,21 @@
-{% extends "base.html" %} {% load static %} {% block content %} {% endblock %}
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="navbar-space"></div>
+<div style="min-height: 100vh" class="tocenter">
+  <div class="contact">
+    <a href="https://lin.ee/VrtkbZK"
+      ><button class="contact-button">
+        <img
+          class="contact-img"
+          src="{% static 'img/LINE_logo.png' %}"
+          alt=""
+        />
+        <div style="width: 10px"></div>
+        <div class="contact-text">LINE 으로 연락하기 클릭!!</div>
+      </button>
+    </a>
+    <p style="padding-top: 20px; font-size: 1.3rem" class="tocenter">
+      LINE ID : JOOL
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,1 +1,25 @@
-{% extends "base.html" %} {% load static %} {% block content %} {% endblock %}
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="navbar-space"></div>
+<div style="min-height: 100vh" class="tocenter">
+  <div><h1>예약 상태 검색</h1></div>
+  <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+    {% csrf_token %}
+    <input
+      class="search-bar"
+      type="search"
+      placeholder="검색"
+      name="checked"
+      aria-label="Search"
+    />
+    <div>
+      <button
+        style="margin-top: 20px; width: 100%"
+        class="card-button"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

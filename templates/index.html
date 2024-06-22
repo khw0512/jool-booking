@@ -9,27 +9,31 @@
   </div>
 </div>
 -->
-
-<div class="tocenter">
-  <div class="navbar-space"></div>
-  <div class="hi">서비스 소개</div>
-  <div class="depart-line"></div>
-</div>
-
-<div class="service-card-container">
-  <div class="service-card">
-    <img src="{% static 'img/boy.png' %}" alt="" />
-    <div class="card-title">짐 보관하기</div>
-    <div class="card-desc">한국에 나만의 창고를 만들 수 있어요.</div>
-    <div class="card-button">이용하기</div>
+<div style="min-height: 100vh">
+  <div class="tocenter">
+    <div class="navbar-space"></div>
+    <div class="hi">서비스 소개</div>
+    <div class="depart-line"></div>
   </div>
-  <div class="service-card">
-    <img src="{% static 'img/girl1.png' %}" alt="" />
-    <div class="card-title">나에게 짐 보내기</div>
-    <div class="card-desc">
-      나만의 한국 창고에서 나의 집으로 짐을 보낼 수 있어요.
+
+  <div class="service-card-container">
+    <div class="service-card">
+      <img class="card-img" src="{% static 'img/baggage.png' %}" alt="" />
+      <div class="card-title">짐 이동하기</div>
+      <div class="card-desc">공항과 숙소 사이에 짐을 이동할 수 있어요</div>
+      <a href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx" target="_balnk"
+        ><div class="card-button">이용하기</div></a
+      >
     </div>
-    <div class="card-button">이용하기</div>
+
+    <div class="service-card">
+      <img class="card-img" src="{% static 'img/restaurant.png' %}" alt="" />
+      <div class="card-title">맛집 예약하기</div>
+      <div class="card-desc">로컬 맛집을 추천하고 예약해 줘요</div>
+      <a href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx" target="_balnk"
+        ><div class="card-button">이용하기</div></a
+      >
+    </div>
   </div>
 </div>
 {%endblock %}

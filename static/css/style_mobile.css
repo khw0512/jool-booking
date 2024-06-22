@@ -1,12 +1,13 @@
 @media (max-width:700px) {
     :root {
         --text-color: #FCF6F5;
-        --background-color: #2BAE66;
+        --background-color: #1C06FF;
         --accent-color: #FCF6F5;
         --white-color: #FCF6F5;
-        --text-color-black: #000000;
+        --text-color-black: #1d1d1d;
         --line-color: #FCF6F5;
-        --nav-text-color: #2BAE66;
+        --nav-text-color: #1C06FF;
+        --nav-bg-color: #CDFF06;
     }
 
     body {
@@ -124,7 +125,30 @@
         font-size: 1.2rem;;
     }
 
-    
+    div.tabs div {
+        width: 49%;
+        text-align: center;
+        background: none;
+        color: var(--text-color-black);
+        display: inline-block;
+        cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    div.tabs div.current {
+        width: 49%;
+        text-align: center;
+        background: var(--nav-bg-color);
+        color: var(--nav-text-color);
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .card-button {
+        display:flex;
+    }
 }
 
 /* ------------ MEDIA END -------------- */
