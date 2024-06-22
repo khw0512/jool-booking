@@ -58,13 +58,13 @@
             
             <i class="fa solid fa-x" id="modalCloseButton"></i>
         </div>
-        <li><a class= 'modal-list' href="{% url "reservation:index" %}">HOME</a></li>
-        <li><a class= 'modal-list' href="{% url "reservation:info" %}">이용안내</a></li>
-        <li>
-          <a class= 'modal-list' href="{% url "reservation:book" %}">예약</a>
-        </li>
-        <li><a class= 'modal-list' href="{% url "reservation:check" %}">조회</a></li>
-        <li><a class= 'modal-list' href="{% url "reservation:contact" %}">연락하기</a></li>
+        <a class= 'modal-list' href="{% url "reservation:index" %}"><li>HOME</li></a>
+        <a class= 'modal-list' href="{% url "reservation:info" %}"><li>이용안내</li></a>
+        
+        <a class= 'modal-list' href="{% url "reservation:book" %}"><li>예약</li></a>
+        
+        <a class= 'modal-list' href="{% url "reservation:check" %}"><li>조회</li></a>
+        <a class= 'modal-list' href="{% url "reservation:contact" %}"><li>연락하기</li></a>
       </div>
       <div class='mobile-nav-bottom'>로그인</div>
     </div>
