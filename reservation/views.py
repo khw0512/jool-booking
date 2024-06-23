@@ -46,11 +46,10 @@ def book(request):
 
 
 def checked(request):
-    reservstatus = ReservStatus.objects.all()
     reservation = Reservation.objects.all()
     if request.method == 'POST':
         checked = request.POST['checked']
-        results = reservstatus.filter(
+        results = reservation.filter(
             Q(reserv_id=checked))
         context = {'result_amo': len(
             results), 'checked': checked, 'results': results}

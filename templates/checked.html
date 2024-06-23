@@ -11,6 +11,7 @@
       이동중 {% elif result.status == 4 %} 숙소 도착 {% elif result.status == 5
       %} 확인중 {% endif %}
     </p>
+    <p style="font-size: 20px; color: black; margin-bottom: 20px;">짐 내역 : {{result.desc}}</p>
     {% endfor %}
     <div class="tocenter">
       <a href="{% url "reservation:check" %}">
