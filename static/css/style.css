@@ -167,6 +167,7 @@ a {
   align-items: center;
   background-color: var(--nav-bg-color);
   z-index: 100;
+  border-bottom: solid 1px var(--nav-text-color);
 }
 
 .navbar-space{
