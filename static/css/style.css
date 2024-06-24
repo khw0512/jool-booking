@@ -581,9 +581,19 @@ div.tabs div.current {
 }
 
 .reserv-label {
-  width:100%;
+  width:5rem; 
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .reserv-input {
+  padding:3px 0 3px 10px;
+  border: var(--nav-text-color) solid 1px;
+  border-radius: 5px;
+}
 
+.reserv-input-row {
+  display:flex;
+  margin:10px 0 10px 0;
 }

@@ -4,45 +4,46 @@
     <h3>예약하기</h5>
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label"><label for="client"> 닉네임</label></div>
         <input class="reserv-input" type="text" name="client" id="client" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label"><label for="month">도착 월</label></div>
-        <input type="number" name="month" id="month" required>
+        <input class="reserv-input" type="number" name="month" id="month" min="1" max="12" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label"><label for="day">도착 일</label></div>
-        <input type="number" name="day" id="day" required>
+        <input class="reserv-input" type="number" name="day" id="day" min="1" max="31" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label" ><label for="hour">도착 시간</label></div>
-        <input type="number" name="hour" id="hour" min="0" max="23" required>
+        <input class="reserv-input" type="number" name="hour" id="hour" min="0" max="23" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label" ><label for="minute">도착 분</label></div>
-        <input type="number" name="minute" id="minute" min="0" max="59" required>
+        <input class="reserv-input" type="number" name="minute" id="minute" min="0" max="59" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label" ><label for="date">배송 일자</label></div>
-        <input type="date" name="date" id="date" value="{{object.date|date:'Y-m-d'}}" required>
+        <input class="reserv-input" type="date" name="date" id="date" required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0;">
+      <div class="reserv-input-row">
         <div class="reserv-label" ><label for="time">배송 시간</label></div>
-        <input type="time" name="time" id="time" value="{{object.time|time:'%H:%M'}}" required>
+        <input class="reserv-input" type="time" name="time" id="time" =required>
       </div>
-      <div style="display:flex; margin:10px 0 10px 0; flex-direction:column">
+      <div class="reserv-input-row" style="flex-direction:column">
         <div fclass="reserv-label" ><label for="desc">짐의 무게와 수량을 작성해 주세요.</label></div>
-        <input style="height:50px;" type="text" name="desc" id="desc" required>
+        <input class="reserv-input" type="text" name="desc" id="desc" required>
       </div>
       <div class="tocenter">
         <button
-        type="submit"
+        style="margin-top: 20px; width: 100%; display: flex"
         class="card-button"
-        style="width: 200px; margin-top: 20px"
-        >예약하기
-        </button>
+        type="submit"
+      >
+        <div style="width: 100%">예약하기</div>
+      </button>
       </div>
     </form>
   </div>
