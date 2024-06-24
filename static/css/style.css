@@ -575,7 +575,6 @@ div.tabs div.current {
 .check-box {
   padding: 5px 0 5px 0;
   background-color: var(--nav-bg-color);
-  width:600px;
   margin-bottom:30px; 
   text-align: center;
 }
