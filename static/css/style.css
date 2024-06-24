@@ -556,3 +556,34 @@ div.tabs div.current {
   cursor: pointer;
 }
 
+.policy-section {
+  max-width: 600px;
+  height: 300px;
+  overflow: scroll;
+  background-color: var(--accent-color);
+  padding: 5px 10px 5px 10px;
+}
+
+.policy-section>p {
+  font-size:0.7rem; 
+}
+
+.policy-section>h5 {
+  margin-top: 10px;
+}
+
+.check-box {
+  padding: 5px 0 5px 0;
+  background-color: var(--nav-bg-color);
+  width:600px;
+  margin-bottom:30px; 
+  text-align: center;
+}
+
+.reserv-label {
+  width:100%;
+}
+
+.reserv-input {
+
+}

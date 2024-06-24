@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from datetime import datetime, timedelta
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -14,10 +15,12 @@ class Reservation(models.Model):
     day = models.IntegerField()
     hour = models.IntegerField()
     minute = models.IntegerField()
+    date = models.DateField()
+    time = models.TimeField()
     desc = models.TextField()
-    reserv_id = models.CharField(max_length=20, default="HaveToMod")
+    reserv_id = models.CharField(max_length=20, default="HaveToMod!!")
     status = models.IntegerField(default=1)
-    status_bull = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.client + "_" + str(self.month) + str("/") + str(self.day) + " " + str(self.hour)+":"+str(self.minute)
+        return str(self.completed)+" " + self.client + "_" + str(self.month) + str("/") + str(self.day) + " " + str(self.hour)+":"+str(self.minute)

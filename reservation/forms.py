@@ -13,6 +13,8 @@ class ReservationForm(forms.ModelForm):
             'hour': forms.NumberInput(attrs={'class': 'form-control'}),
             'minute': forms.NumberInput(attrs={'class': 'form-control'}),
             'desc': forms.Textarea(attrs={'class': 'form-control', 'rows': 10}),
+            'time': forms.TimeInput(attrs={'type': 'time'}),
+            'date': forms.DateInput(attrs={'type': 'date'}),
         }
         labels = {
             "client": "예약자",

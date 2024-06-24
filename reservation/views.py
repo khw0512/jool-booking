@@ -36,7 +36,7 @@ def reservation(request):
 def book(request):
     if request.method == "POST":
         reservation = Reservation(client=request.POST.get('client'), month=request.POST.get(
-            'month'), desc=request.POST.get('desc'), day=request.POST.get('day'), hour=request.POST.get('hour'), minute=request.POST.get('minute'))
+            'month'), desc=request.POST.get('desc'), day=request.POST.get('day'), hour=request.POST.get('hour'), minute=request.POST.get('minute'), date=request.POST.get('date'), time=request.POST.get('time'))
 
         reservation.save()
         return render(request, 'index.html')

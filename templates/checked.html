@@ -7,9 +7,11 @@
     {% for result in results %}
     <p style="font-size: 20px; color: black; margin-bottom: 20px;">
       예약번호: {{result.reserv_id}} | {% if result.status == 1 %} 접수 대기중
-      {% elif result.status == 2 %} 접수 완료 {% elif result.status == 3 %} 짐
-      이동중 {% elif result.status == 4 %} 숙소 도착 {% elif result.status == 5
-      %} 확인중 {% endif %}
+      {% elif result.status == 2 %} 접수 완료 
+      {% elif result.status == 3 %} 짐 이동중 
+      {% elif result.status == 4 %} 숙소 도착 
+      {% elif result.status == 5 %} 확인중 
+      {% endif %}
     </p>
     <p style="font-size: 20px; color: black; margin-bottom: 20px;">짐 내역 : {{result.desc}}</p>
     {% endfor %}
