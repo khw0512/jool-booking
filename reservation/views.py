@@ -33,6 +33,10 @@ def reservation(request):
     return render(request, 'book.html')
 
 
+def ready(request):
+    return render(request, 'ready.html')
+
+
 def book(request):
     if request.method == "POST":
         reservation = Reservation(client=request.POST.get('client'), month=request.POST.get(

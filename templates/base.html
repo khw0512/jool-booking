@@ -37,10 +37,13 @@
     </ul>
     <ul class="navbar_icons">
       <li>
-        <a href="https://www.instagram.com/joollab/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/joollab/" target="_blank"><i class="fab fa-instagram"></i></a>
       </li>
       <li>
-        <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.x.com/Jason9835958008" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
       </li>
     </ul>
     <a href="#" class="navbar_toggleBtn" id="modalOpenButton"><i class="fas fa-bars"></i></a>
@@ -66,7 +69,20 @@
         <a class= 'modal-list' href="{% url "reservation:check" %}"><li>조회</li></a>
         <a class= 'modal-list' href="{% url "reservation:contact" %}"><li>연락하기</li></a>
       </div>
-      <div class='mobile-nav-bottom'>로그인</div>
+      
+      <div class='mobile-nav-bottom'>
+        <p>로그인</p>
+      <ul class="modal-sns">
+        <li class="modal-sns-list">
+          <a href="https://www.instagram.com/joollab/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li class="modal-sns-list">
+          <a href="https://www.x.com/Jason9835958008" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        </li>
+        <li class="modal-sns-list">
+          <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </li>
+      </ul></div>
     </div>
   </div>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
@@ -82,16 +98,16 @@
 <footer>
   <div class="footer_div">
     <div>
-      <p class="footer_line">줄랩 JoolLab | 대표 : 김현우</p>
+      <p class="footer_line">JoolLab | Leader : Jason Kim</p>
       <p class="footer_line">"He who would travel happily must travel light"</p>
-      <p class="footer_line">주소 :</p>
+      <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
     </div>
     <div>
-      <p class="footer_line">Copyright © 2024 joolLab 모든 권리 보유.</p>
+      <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
       <div>
-        <p class="footer_line">
+        <!--p class="footer_line">
           개인정보 처리방침 | 약관 | 판매 및 환불 | 법적 고지 | 사이트 맵
-        </p>
+        </p-->
       </div>
     </div>
   </div>

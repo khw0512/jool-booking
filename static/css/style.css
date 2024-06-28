@@ -360,6 +360,7 @@ a {
   border: solid 3px var(--line-color);
   border-radius: 20px;
   width: 250px;
+  background-color: ghostwhite;
 }
 
 .card-img {
@@ -424,19 +425,20 @@ a {
 
 }
 
-.reserv_button{
+.reserv-button{
+  min-width:170px;
   transition: 0.3s;
-  padding: 30px 40px 30px 40px;
+  padding: 20px 30px 20px 30px;
   margin-top:20px;
   background-color: var(--nav-bg-color);
   border: solid 3px var(--nav-text-color);
-  border-radius: 10px;
+  border-radius: 40px;
   color: var(--text-color-black);
   cursor: pointer;
   font-weight: 600;
 }
 
-.reserv_button:hover {
+.reserv-button:hover {
   transform:scale(1.2);
   margin-top:20px;
   background-color: var(--background-color);
@@ -478,7 +480,7 @@ div.tabs {
 }
 
 div.tabs div {
-  width: 49.5%;
+  width: 33%;
   text-align: center;
   background: none;
   color: var(--text-color-black);
@@ -491,7 +493,7 @@ div.tabs div {
 }
 
 div.tabs div.current {
-  width: 49.5%;
+  width: 32%;
   text-align: center;
   background: var(--nav-bg-color);
   color: var(--nav-text-color);
@@ -564,11 +566,27 @@ div.tabs div.current {
   padding: 5px 10px 5px 10px;
 }
 
+.refund-section {
+  max-width: 600px;
+  height: 200px;
+  overflow: scroll;
+  background-color: var(--accent-color);
+  padding: 5px 10px 5px 10px;
+}
+
 .policy-section>p {
   font-size:0.7rem; 
 }
 
+.refund-section>p {
+  font-size: 0.7rem;
+}
+
 .policy-section>h5 {
+  margin-top: 10px;
+}
+
+.refund-section>h6 {
   margin-top: 10px;
 }
 

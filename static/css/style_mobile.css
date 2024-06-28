@@ -127,11 +127,14 @@
 
     .mobile-nav-bottom{
         padding: 0 0 20px 20px;
-        font-size: 1.2rem;;
+        font-size: 1.2rem;
+        display:flex;
+        justify-content: space-between;
     }
 
     div.tabs div {
-        width: 49%;
+        width: 33%;
+        font-size: 0.8rem;
         text-align: center;
         background: none;
         color: var(--text-color-black);
@@ -142,7 +145,8 @@
     }
 
     div.tabs div.current {
-        width: 49%;
+        width: 31%;
+        font-size: 0.8rem;
         text-align: center;
         background: var(--nav-bg-color);
         color: var(--nav-text-color);
@@ -153,6 +157,14 @@
 
     .card-button {
         display:flex;
+    }
+
+    .modal-sns {
+        display: flex;
+    }
+
+    .modal-sns-list {
+        margin-right:20px;
     }
 }
 

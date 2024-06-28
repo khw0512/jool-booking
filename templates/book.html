@@ -1,52 +1,111 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div style="min-height: 100vh" class="tocenter">
-  <div class="tocenter" style="margin-top:100px;">
-    <h3>예약하기</h5>
+  <!--div class="tocenter" style="margin-top: 100px">
+    <div class="hi">예약하기(TEST)</div>
+    <div class="depart-line"></div>
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="reserv-input-row">
         <div class="reserv-label"><label for="client"> 닉네임</label></div>
-        <input class="reserv-input" type="text" name="client" id="client" required>
+        <input
+          class="reserv-input"
+          type="text"
+          name="client"
+          id="client"
+          required
+        />
       </div>
       <div class="reserv-input-row">
         <div class="reserv-label"><label for="month">도착 월</label></div>
-        <input class="reserv-input" type="number" name="month" id="month" min="1" max="12" required>
+        <input
+          class="reserv-input"
+          type="number"
+          name="month"
+          id="month"
+          min="1"
+          max="12"
+          required
+        />
       </div>
       <div class="reserv-input-row">
         <div class="reserv-label"><label for="day">도착 일</label></div>
-        <input class="reserv-input" type="number" name="day" id="day" min="1" max="31" required>
+        <input
+          class="reserv-input"
+          type="number"
+          name="day"
+          id="day"
+          min="1"
+          max="31"
+          required
+        />
       </div>
       <div class="reserv-input-row">
-        <div class="reserv-label" ><label for="hour">도착 시간</label></div>
-        <input class="reserv-input" type="number" name="hour" id="hour" min="0" max="23" required>
+        <div class="reserv-label"><label for="hour">도착 시간</label></div>
+        <input
+          class="reserv-input"
+          type="number"
+          name="hour"
+          id="hour"
+          min="0"
+          max="23"
+          required
+        />
       </div>
       <div class="reserv-input-row">
-        <div class="reserv-label" ><label for="minute">도착 분</label></div>
-        <input class="reserv-input" type="number" name="minute" id="minute" min="0" max="59" required>
+        <div class="reserv-label"><label for="minute">도착 분</label></div>
+        <input
+          class="reserv-input"
+          type="number"
+          name="minute"
+          id="minute"
+          min="0"
+          max="59"
+          required
+        />
       </div>
       <div class="reserv-input-row">
-        <div class="reserv-label" ><label for="date">배송 일자</label></div>
-        <input class="reserv-input" type="date" name="date" id="date" required>
+        <div class="reserv-label"><label for="date">배송 일자</label></div>
+        <input
+          class="reserv-input"
+          type="date"
+          name="date"
+          id="date"
+          required
+        />
       </div>
       <div class="reserv-input-row">
-        <div class="reserv-label" ><label for="time">배송 시간</label></div>
-        <input class="reserv-input" type="time" name="time" id="time" =required>
+        <div class="reserv-label"><label for="time">배송 시간</label></div>
+        <input
+          class="reserv-input"
+          type="time"
+          name="time"
+          id="time"
+          ="required"
+        />
       </div>
-      <div class="reserv-input-row" style="flex-direction:column">
-        <div style="padding-left:10px;"><label for="desc">짐의 무게와 수량을 작성해 주세요.</label></div>
-        <input style="width:90%; margin-left:5%;" type="text" name="desc" id="desc" required>
+      <div class="reserv-input-row" style="flex-direction: column">
+        <div style="padding-left: 10px">
+          <label for="desc">짐의 무게와 수량을 작성해 주세요.</label>
+        </div>
+        <input
+          style="width: 90%; margin-left: 5%"
+          type="text"
+          name="desc"
+          id="desc"
+          required
+        />
       </div>
       <div class="tocenter">
         <button
-        style="margin-top: 20px; display: flex; width:90%;"
-        class="card-button"
-        type="submit"
-      >
-        <div style="width: 100%">예약하기</div>
-      </button>
+          style="margin-top: 20px; display: flex; width: 90%"
+          class="card-button"
+          type="submit"
+        >
+          <div style="width: 100%">예약하기</div>
+        </button>
       </div>
     </form>
-  </div>
+  </div-->
   <!--div>
     <img
       class="card-img"
@@ -55,19 +114,20 @@
       alt=""
     />
   </div-->
-  <div style="margin-top: 100px">
+  <div class="navbar-space"></div>
+  <div style="margin-top: 20px">
     <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv_button">짐이동 예약</button></a
+      ><button class="reserv-button">짐이동 예약</button></a
     >
   </div>
   <div style="margin-top: 20px">
     <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv_button">맛집 예약 대행</button></a
+      ><button class="reserv-button">맛집추천&예약</button></a
     >
   </div>
-  <div style="margin-top: 20px">
+  <div style="margin: 20px 0 30px 0">
     <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv_button">운동용품 대여</button></a
+      ><button class="reserv-button">러닝용품 대여</button></a
     >
   </div>
   <div class="hi">개인정보 처리방침</div>
@@ -168,6 +228,35 @@
   <div style="max-width: 700px; display: flex; justify-content: center">
     <div class="check-box">
       짐이동 서비스 예약 시 해당 개인정보 처리방침을 동의한 것으로 간주합니다.
+    </div>
+  </div>
+  <div class="hi">환불 약관</div>
+  <div class="depart-line"></div>
+  <div class="refund-section">
+    <h6>
+      1. 고객이 ‘트립이지’의 [예약 및 취소] 규정에 따라 예약을 취소한 경우
+      트립이지는 서비스이용요금을 전액 환불하여야 한다.
+    </h6>
+    <p>
+      1) 수하물을 맡기는 시간을 기준으로 24시간 이전까지 예약 및 취소가
+      완료되어야 한다.
+    </p>
+    <p>2) 단, 24시간을 계산할 때 주말 및 공휴일은 포함하지 아니한다.</p>
+    <h6>
+      2. 고객이 위탁한 수하물의 규격과 수량이 예약 시 입력한 내용과 달라
+      서비스요금이 예약 시 결제한 금액보다 적은 경우에 트립이지는 그 차액을
+      환불할 의무가 없으며, 서비스요금이 예약 시 결제한 금액보다 많은 경우에는
+      고객은 추가요금을 별도로 결제하여야 한다.
+    </h6>
+    <h6>
+      3. 천재지변, 전쟁, 테러 등 기타 불가항력적인 사유가 발생하여 서비스를
+      정상적으로 제공하기 어려운 경우 트립이지는 일방적으로 이용자의 예약을
+      취소, 변경할 수 있다.
+    </h6>
+  </div>
+  <div style="max-width: 700px; display: flex; justify-content: center">
+    <div class="check-box">
+      짐이동 서비스 예약 시 해당 환불약관을 동의한 것으로 간주합니다.
     </div>
   </div>
 </div>

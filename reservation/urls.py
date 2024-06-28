@@ -10,4 +10,5 @@ urlpatterns = [
     path("check/", views.check, name='check'),
     path("contact/", views.contact, name="contact"),
     path("checked/", views.checked, name="checked"),
+    path("ready/", views.ready, name="ready"),
 ]
