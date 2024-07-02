@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'ckeditor',
     'ckeditor_uploader',
-    'reservation.apps.ReservationConfig'
+    'reservation.apps.ReservationConfig',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -124,8 +125,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/sterna'
+LOGOUT_REDIRECT_URL = '/sterna'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
