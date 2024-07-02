@@ -1,0 +1,262 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>sterna</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li>
+          <a href="https://www.instagram.com/joollab/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-1.png' %}" alt=""/>
+        </a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:book" %}">RESERVATION</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:mypage" %}">MY PAGE</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+
+    </nav>
+    <div class="navbar-space"></div>
+
+    <div class="pc-space"></div>
+
+    <div class="tocenter">
+      <div class="flex-row">
+        <img class="main-img fade-in" src="{% static 'img/shoes-2.png' %}" alt=""/>
+        <div style='width:30px; height:100%;'></div>
+        <div class="flex-column">
+          <div class="main-text fade-in" style="font-family:Bebas Neue;">Borrowing
+            <br>running supplies</div>
+          <div class="flex-row">
+            <a target="_blank" href="{% url "reservation:book" %}">
+              <div class="main-button fade-in">BOOKING</div>
+            </a>
+            <div class="fade-out" style="font-size: 1.7rem; margin: 10px 0 0 20px">
+              <i style="margin-right:10px;" class="fa-solid fa-arrow-down"></i>
+              <p style="font-family:Bebas Neue">
+                How to use service
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-space"></div>
+      <div class="navbar-space"></div>
+    </div>
+
+    <div class="tocenter">
+      <div>
+        <div class='headline-1'>HOW TO USE SERVICE</div>
+        <div style="width:100%" class="underline"></div>
+      </div>
+      <div style="height:20px;"></div>
+      <div class="flex-row">
+        <div class="flex-row">
+
+          <div class="card-box showBox">
+            <div class="flex-column">
+              <div>1</div>
+              <div class="card-img">
+                <img src="{% static "img/illust_nike1.png" %}" alt="">
+              </div>
+              <div class="card-title">Form Submission</div>
+              <div class="card-desc">You click the reservation button on the reservation page, fill out the form, and submit it. You can use below reservation button.</div>
+              <div style="height:10px;"></div>
+              <a target="_blank" href="{% url "reservation:book" %}">
+                <div class="card-button fade-in">BOOKING</div>
+              </a>
+            </div>
+          </div>
+          <div class="card-box showBox">
+            <div class="flex-column">
+              <div>2</div>
+              <div class="card-img">
+                <img src="{% static "img/clothes-2.png" %}" alt="">
+              </div>
+              <div class="card-title">Confirmation</div>
+              <div class="card-desc">You can enter 'My Page' and search using the reservation number received via email to confirm if your reservation has been finalized.
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex-row">
+
+          <div class="card-box showBox">
+            <div class="flex-column">
+              <div>3</div>
+              <div class="card-img">
+                <img src="{% static "img/clothes-2.png" %}" alt="">
+              </div>
+              <div class="card-title">Receiving Items</div>
+              <div class="card-desc">We will deliver the items you reserved to your accommodation on the scheduled date. After the delivery is complete, we will notify you via your message.</div>
+            </div>
+          </div>
+          <div class="card-box showBox">
+            <div class="flex-column">
+              <div>4</div>
+              <div class="card-img">
+                <img src="{% static "img/clothes-2.png" %}" alt="">
+              </div>
+              <div class="card-title">Returning Items</div>
+              <div class="card-desc">Please place the items you used back into the bag you received them in and leave it with the hotel concierge. Workout clothes should be returned daily, while other items should be returned at the end of the reservation period.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile nav modal hedden-->
+    <div id="modalContainer" class="hidden">
+      <div id="modalContent">
+        <div class="mobile-nav-up">
+          <div class='mobile-nav-top'>
+            <a href="{% url "reservation:index" %}">
+              <img style="width:120px; " src="{% static 'img/sterna.png' %}" alt=""/>
+            </a>
+
+            <i class="fa solid fa-x" id="modalCloseButton"></i>
+          </div>
+          <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:book" %}">
+            <li>RESERVATION</li>
+          </a>
+          <a class='modal-list' href="{% url "reservation:mypage" %}">
+            <li>My PAGE</li>
+          </a>
+        </div>
+
+        <div class='mobile-nav-bottom'>
+          <p>로그인</p>
+          <ul class="modal-sns">
+            <li class="modal-sns-list">
+              <a href="https://www.instagram.com/joollab/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="modal-sns-list">
+              <a href="https://www.x.com/Jason9835958008" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </li>
+            <li class="modal-sns-list">
+              <a href="https://www.youtube.com" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // 등장액션 대상: .showBx
+      const showBox = document.querySelectorAll(".showBox");
+      const fadeIn = document.querySelectorAll(".fade-in");
+      // 화면높이값 2/3 구하기
+      const screenH = window.innerHeight * 3 / 4;
+
+      // 등장액션 대상 위치값 리턴함수
+      const retVal = ele => ele
+        .getBoundingClientRect()
+        .top;
+
+      // 클래스 넣기 함수
+      const showTit = x => {
+        let xval = retVal(x);
+        if (xval < screenH && xval > 0) {
+          // 요소가 화면에 나타날 때 opacity를 1로 변경
+          x
+            .classList
+            .add("on");
+        }
+      };
+
+      const fadeInTit = y => {
+        let yval = retVal(y);
+        // 요소가 화면에 나타날 때 opacity를 1로 변경
+        y
+          .classList
+          .add("on");
+      }
+
+      for (let y of fadeIn) 
+        fadeInTit(y);
+      
+      window.addEventListener("scroll", () => {
+        // 스크롤 등장요소 개수만큼 for문 돌리기
+        for (let x of showBox) 
+          showTit(x);
+        }
+      );
+    </script>
+  </body>
+  <footer>
+    <div class="tocenter">
+      <div class="pc-space"></div>
+      <div class="depart-line"></div>
+    </div>
+    <div class="footer_div">
+      <div>
+        <p class="footer_line">JoolLab | 줄랩</p>
+        <p class="footer_line">"He who would travel happily must travel light"</p>
+        <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+      </div>
+      <div>
+        <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+        <div>
+          <!--p class="footer_line"> 개인정보 처리방침 | 약관 | 판매 및 환불 | 법적 고지 | 사이트 맵 </p-->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</html>

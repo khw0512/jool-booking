@@ -443,7 +443,6 @@ a {
   margin-top:20px;
   background-color: var(--background-color);
   border: solid 3px var(--line-color);
-  border-radius: 10px;
   color: var(--accent-color);
   cursor: pointer;
   font-weight: 600;

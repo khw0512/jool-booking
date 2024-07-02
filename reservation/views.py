@@ -37,6 +37,14 @@ def ready(request):
     return render(request, 'ready.html')
 
 
+def sterna(request):
+    return render(request, 'sterna.html')
+
+
+def mypage(request):
+    return render(request, 'mypage.html')
+
+
 def book(request):
     if request.method == "POST":
         reservation = Reservation(client=request.POST.get('client'), month=request.POST.get(

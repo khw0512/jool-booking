@@ -1,263 +1,284 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<div style="min-height: 100vh" class="tocenter">
-  <!--div class="tocenter" style="margin-top: 100px">
-    <div class="hi">예약하기(TEST)</div>
-    <div class="depart-line"></div>
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="client"> 닉네임</label></div>
-        <input
-          class="reserv-input"
-          type="text"
-          name="client"
-          id="client"
-          required
-        />
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="#"/>
+    <link rel="icon" href="{% static 'img/favi16.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>sterna</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li>
+          <a href="https://www.instagram.com/joollab/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-1.png' %}" alt=""/>
+        </a>
       </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="month">도착 월</label></div>
-        <input
-          class="reserv-input"
-          type="number"
-          name="month"
-          id="month"
-          min="1"
-          max="12"
-          required
-        />
-      </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="day">도착 일</label></div>
-        <input
-          class="reserv-input"
-          type="number"
-          name="day"
-          id="day"
-          min="1"
-          max="31"
-          required
-        />
-      </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="hour">도착 시간</label></div>
-        <input
-          class="reserv-input"
-          type="number"
-          name="hour"
-          id="hour"
-          min="0"
-          max="23"
-          required
-        />
-      </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="minute">도착 분</label></div>
-        <input
-          class="reserv-input"
-          type="number"
-          name="minute"
-          id="minute"
-          min="0"
-          max="59"
-          required
-        />
-      </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="date">배송 일자</label></div>
-        <input
-          class="reserv-input"
-          type="date"
-          name="date"
-          id="date"
-          required
-        />
-      </div>
-      <div class="reserv-input-row">
-        <div class="reserv-label"><label for="time">배송 시간</label></div>
-        <input
-          class="reserv-input"
-          type="time"
-          name="time"
-          id="time"
-          ="required"
-        />
-      </div>
-      <div class="reserv-input-row" style="flex-direction: column">
-        <div style="padding-left: 10px">
-          <label for="desc">짐의 무게와 수량을 작성해 주세요.</label>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:sterna" %}">HOME</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:mypage" %}">MY PAGE</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="navbar-space"></div>
+    <div class="navbar-space"></div>
+    <div class="tocenter">
+      <div class="flex-row">
+        <img class="fade-in" style="max-width:200px; margin-right:30px;" src="{% static 'img/illust_nike1.png' %}" alt="">
+        <div class="flex-column">
+          <div style="margin: 20px 0 30px 0">
+            <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx">
+              <button class="reserv-button fade-in">TO RENT SUPPLIES</button>
+            </a>
+          </div>
+          <div class="fade-out" style="font-size: 1.7rem; margin: 0 0 0 20px">
+            <i style="margin-right:10px;" class="fa-solid fa-arrow-down"></i>
+            <p style="font-family:Bebas Neue">
+              Read Policy
+            </p>
+          </div>
         </div>
-        <input
-          style="width: 90%; margin-left: 5%"
-          type="text"
-          name="desc"
-          id="desc"
-          required
-        />
       </div>
+      <div class="navbar-space"></div>
       <div class="tocenter">
-        <button
-          style="margin-top: 20px; display: flex; width: 90%"
-          class="card-button"
-          type="submit"
-        >
-          <div style="width: 100%">예약하기</div>
-        </button>
+        <div class="title">Privacy Policy</div>
+        <div class="underline"></div>
+        <div class="policy-section">
+          <h5>1. Purpose of Processing Personal Information</h5>
+          <p>
+            ('www.joollab.com' hereinafter referred to as 'Joollab') processes personal information for the following purposes and does not use it for any other purpose.
+          </p>
+          <p>
+            Confirmation of customer's intention to sign up, identification and authentication of the customer for the provision of services, maintenance and management of membership, payment for goods or services, supply and delivery of goods or services, etc.
+          </p>
+          <h5>2. Period of Processing and Retention of Personal Information</h5>
+          <p>
+            'Joollab' processes and retains personal information within the period of personal information retention and use agreed upon when collecting personal information from the information subject or within the period prescribed by law.
+          </p>
+          <p>
+            The specific periods of processing and retention of personal information are as follows. Please refer to the examples below and provide the processing tasks for personal information, retention period, relevant laws, and grounds.
+          </p>
+          <p>- Records on consumer complaints or dispute resolution: 3 years</p>
+          <p>- Records on the collection, processing, and use of credit information: 3 years</p>
+          <p>- Records on payment and supply of goods: 5 years</p>
+          <p>- Records on contracts or withdrawal of subscriptions: 5 years</p>
+          <h5>3. Rights and Obligations of Information Subjects and Legal Representatives and How to Exercise Them</h5>
+          <p>As personal information subjects, users can exercise the following rights:</p>
+          <p>
+            The information subject can exercise the following personal information protection rights at any time against 'Joollab.'
+          </p>
+          <p>- Request to view personal information</p>
+          <p>- Request for correction if there are errors</p>
+          <p>- Request for deletion</p>
+          <p>- Request to stop processing</p>
+          <h5>4. Items of Personal Information Processed</h5>
+          <p>'Joollab' processes the following personal information items:</p>
+          <p>
+            - Processed items: Mobile phone number, home address, password, gender, date of birth, name, email address, messenger ID, etc.
+          </p>
+          <h5>5. Destruction of Personal Information</h5>
+          <p>
+            In principle, 'Joollab' destroys personal information without delay when the purpose of processing personal information is achieved. The procedures, deadlines, and methods of destruction are as follows.
+          </p>
+          <p>
+            - Destruction procedure: Information entered by the user is transferred to a separate DB (in the case of paper, a separate document) after the purpose is achieved and stored for a certain period according to internal policies and other relevant laws or destroyed immediately. In this case, the personal information transferred to the DB is not used for other purposes unless required by law.
+          </p>
+          <p>
+            - Destruction deadline: The user's personal information is destroyed within five days from the end date of the retention period if the retention period has expired, or within five days from the date when the personal information becomes unnecessary due to the achievement of the processing purpose, the termination of the service, or the end of the business.
+          </p>
+          <h5>6. Matters Concerning the Installation, Operation, and Rejection of Automatic Personal Information Collection Devices</h5>
+          <p>
+            SDS Tech Co., Ltd. does not use 'cookies' that store and retrieve the user's information from time to time.
+          </p>
+          <h5>7. Personal Information Protection Officer</h5>
+          <p>
+            'Joollab' is responsible for the overall management of personal information processing tasks and has designated a personal information protection officer to handle complaints and remedy damages related to personal information processing.
+          </p>
+          <p>- Department: Joollab Operations Support Team</p>
+          <p>- Person in charge: Hyunwoo Kim</p>
+          <p>- Contact: 010-9241-9007, jasonkim@joollab.com</p>
+          <p>
+            - Information subjects can contact the personal information protection officer and the relevant department for all personal information protection inquiries, complaints, and damage relief arising from using Joollab's services (or business). 'Joollab' will respond and handle the inquiries without delay.
+          </p>
+          <h5>8. Changes to the Privacy Policy</h5>
+          <p>
+            This privacy policy applies from the effective date, and any additions, deletions, or corrections of changes in accordance with laws and policies will be notified through the notice seven days before the implementation of the changes.
+          </p>
+        </div>
+        <!--div style="max-width: 700px; display: flex; justify-content: center"> <div class="check-box"> <input type="checkbox" name="pdpolicy" value="pdpolicy" /> 개인정보 처리방침에 동의합니다. </div> </div-->
+        <div style="max-width: 700px; display: flex; justify-content: center">
+          <div class="check-box">
+            By reserving the rental service, you are deemed to have agreed to this Privacy Policy
+          </div>
+        </div>
+        <div class="title">Refund Policy</div>
+        <div class="underline"></div>
+        <div class="refund-section">
+          <h6>
+            1. If the customer cancels a reservation according to ‘TripEasy’s [Reservation and Cancellation] policy, TripEasy must refund the full service fee.
+          </h6>
+          <p>
+            1) The reservation and cancellation must be completed at least 24 hours prior to the time of checking in the luggage.
+          </p>
+          <p>2) However, weekends and public holidays are not included in the 24-hour calculation.</p>
+          <h6>
+            2. If the specifications and quantity of the luggage entrusted by the customer differ from the information entered at the time of reservation and the service fee is less than the amount paid at the time of reservation, TripEasy is not obligated to refund the difference. If the service fee is more than the amount paid at the time of reservation, the customer must pay the additional fee separately.
+          </h6>
+          <h6>
+            3. If it becomes difficult to provide the service normally due to force majeure such as natural disasters, war, or terrorism, TripEasy may unilaterally cancel or change the user's reservation.
+          </h6>
+        </div>
+        <div style="max-width: 700px; display: flex; justify-content: center">
+          <div class="check-box">
+            By reserving the rental service, you are deemed to have agreed to this refund policy.
+          </div>
+        </div>
       </div>
-    </form>
-  </div-->
-  <!--div>
-    <img
-      class="card-img"
-      style="margin-top: 100px; width: 100%"
-      src="{% static 'img/group_22.png' %}"
-      alt=""
-    />
-  </div-->
-  <div class="navbar-space"></div>
-  <div style="margin-top: 20px">
-    <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv-button">짐이동 예약</button></a
-    >
-  </div>
-  <div style="margin-top: 20px">
-    <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv-button">맛집추천&예약</button></a
-    >
-  </div>
-  <div style="margin: 20px 0 30px 0">
-    <a target="_blank" href="https://y1fggdiq20d.typeform.com/to/QPJJAkBx"
-      ><button class="reserv-button">러닝용품 대여</button></a
-    >
-  </div>
-  <div class="hi">개인정보 처리방침</div>
-  <div class="depart-line"></div>
-  <div class="policy-section">
-    <h5>1. 개인정보의 처리 목적</h5>
-    <p>
-      (‘www.joollab.com’이하 ‘줄랩’) 은(는) 다음의 목적을 위하여 개인정보를
-      처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
-    </p>
-    <p>
-      고객 가입의사 확인, 고객에 대한 서비스 제공에 따른 본인 식별 및 인증,
-      회원자격의 유지 및 관리, 물품 또는 서비스 공급에 따른 금액 결제, 물품 또는
-      서비스의 공급. 배송 등
-    </p>
-    <h5>2. 개인정보의 처리 및 보유 기간</h5>
-    <p>
-      '줄랩'은 정보주체로부터 개인정보를 수집할 때 동의 받은 개인정보
-      보유․이용기간 또는 법령에 따른 개인정보 보유․이용기간 내에서 개인정보를
-      처리․보유합니다.
-    </p>
-    <p>
-      구체적인 개인정보 처리 및 보유 기간은 다음과 같습니다. 아래 예시를
-      참고하여 개인정보 처리업무와 개인정보 처리업무에 대한 보유기간 및 관련
-      법령, 근거 등을 기재합니다.
-    </p>
-    <p>- 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</p>
-    <p>- 신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년</p>
-    <p>- 대금결제 및 재화 등의 공급에 관한 기록 : 5년</p>
-    <p>- 계약 또는 청약철회 등에 관한 기록 : 5년</p>
-    <h5>3. 정보주체와 법정대리인의 권리·의무 및 그 행사방법</h5>
-    <p>이용자는 개인정보주체로써 다음과 같은 권리를 행사할 수 있습니다.</p>
-    <p>
-      정보주체는 '줄랩'에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를
-      행사할 수 있습니다.
-    </p>
-    <p>- 개인정보 열람요구</p>
-    <p>- 오류 등이 있을 경우 정정 요구</p>
-    <p>- 삭제요구</p>
-    <p>- 처리정지 요구</p>
-    <h5>4. 처리하는 개인정보의 항목 작성</h5>
-    <p>'줄랩'은 다음의 개인정보 항목을 처리하고 있습니다.</p>
-    <p>
-      - 처리항목 : 휴대전화번호, 자택주소, 비밀번호, 성별, 생년월일, 이름,
-      이메일 주소, 메신저ID 등
-    </p>
-    <h5>5. 개인정보의 파기</h5>
-    <p>
-      '줄랩'은 원칙적으로 개인정보 처리목적이 달성된 경우에는 지체 없이 해당
-      개인정보를 파기합니다. 파기의 절차, 기한 및 방법은 다음과 같습니다.
-    </p>
-    <p>
-      - 파기절차 이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져(종이의
-      경우 별도의 서류) 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후
-      혹은 즉시 파기됩니다. 이 때, DB로 옮겨진 개인정보는 법률에 의한 경우가
-      아니고서는 다른 목적으로 이용되지 않습니다.
-    </p>
-    <p>
-      - 파기기한 이용자의 개인정보는 개인정보의 보유기간이 경과된 경우에는
-      보유기간의 종료일로부터 5일 이내에, 개인정보의 처리 목적 달성, 해당
-      서비스의 폐지, 사업의 종료 등 그 개인정보가 불필요하게 되었을 때에는
-      개인정보의 처리가 불필요한 것으로 인정되는 날로부터 5일 이내에 그
-      개인정보를 파기합니다.
-    </p>
-    <h5>6. 개인정보 자동 수집 장치의 설치•운영 및 거부에 관한 사항</h5>
-    <p>
-      (주)에스디에스텍은 정보주체의 이용정보를 저장하고 수시로 불러오는 ‘쿠키’를
-      사용하지 않습니다.
-    </p>
-    <h5>7. 개인정보 보호책임자 작성</h5>
-    <p>
-      - '줄랩'은 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와
-      관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보
-      보호책임자를 지정하고 있습니다.
-    </p>
-    <p>- 개인정보 보호책임자 부서명 : 줄랩 운영지원팀</p>
-    <p>- 담당자 : 김현우</p>
-    <p>- 연락처 : 010-9241-9007, joollab6@gmail.com</p>
-    <p>
-      - 정보주체께서는 줄랩(‘www.joollab.com') 의 서비스(또는 사업)을
-      이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에
-      관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다.
-      '줄랩'은 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.
-    </p>
-    <h5>8. 개인정보 처리방침 변경</h5>
-    <p>
-      이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른
-      변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터
-      공지사항을 통하여 고지할 것입니다.
-    </p>
-  </div>
-  <!--div style="max-width: 700px; display: flex; justify-content: center">
-    <div class="check-box">
-      <input type="checkbox" name="pdpolicy" value="pdpolicy" />
-      개인정보 처리방침에 동의합니다.
+
+      <!-- mobile nav modal hedden-->
+      <div id="modalContainer" class="hidden">
+        <div id="modalContent">
+          <div class="mobile-nav-up">
+            <div class='mobile-nav-top'>
+              <a href="{% url "reservation:index" %}">
+                <img style="width:120px; " src="{% static 'img/sterna.png' %}" alt=""/>
+              </a>
+
+              <i class="fa solid fa-x" id="modalCloseButton"></i>
+            </div>
+            <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
+              <li>HOME</li>
+            </a>
+            <a class='modal-list' href="{% url "reservation:mypage" %}">
+              <li>My PAGE</li>
+            </a>
+          </div>
+
+          <div class='mobile-nav-bottom'>
+            <p>로그인</p>
+            <ul class="modal-sns">
+              <li class="modal-sns-list">
+                <a href="https://www.instagram.com/joollab/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="modal-sns-list">
+                <a href="https://www.x.com/Jason9835958008" target="_blank">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+              </li>
+              <li class="modal-sns-list">
+                <a href="https://www.youtube.com" target="_blank">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+      <script src="{% static "js/main.js" %}"></script>
+      <!--jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+        // 등장액션 대상: .showBx
+        const showBox = document.querySelectorAll(".showBox");
+        const fadeIn = document.querySelectorAll(".fade-in");
+        // 화면높이값 2/3 구하기
+        const screenH = window.innerHeight * 3 / 4;
+
+        // 등장액션 대상 위치값 리턴함수
+        const retVal = ele => ele
+          .getBoundingClientRect()
+          .top;
+
+        // 클래스 넣기 함수
+        const showTit = x => {
+          let xval = retVal(x);
+          if (xval < screenH && xval > 0) {
+            // 요소가 화면에 나타날 때 opacity를 1로 변경
+            x
+              .classList
+              .add("on");
+          }
+        };
+
+        const fadeInTit = y => {
+          let yval = retVal(y);
+          // 요소가 화면에 나타날 때 opacity를 1로 변경
+          y
+            .classList
+            .add("on");
+        }
+
+        for (let y of fadeIn) 
+          fadeInTit(y);
+        
+        window.addEventListener("scroll", () => {
+          // 스크롤 등장요소 개수만큼 for문 돌리기
+          for (let x of showBox) 
+            showTit(x);
+          }
+        );
+      </script>
     </div>
-  </div-->
-  <div style="max-width: 700px; display: flex; justify-content: center">
-    <div class="check-box">
-      짐이동 서비스 예약 시 해당 개인정보 처리방침을 동의한 것으로 간주합니다.
+  </body>
+  <footer>
+    <div class="tocenter">
+      <div class="depart-line"></div>
     </div>
-  </div>
-  <div class="hi">환불 약관</div>
-  <div class="depart-line"></div>
-  <div class="refund-section">
-    <h6>
-      1. 고객이 ‘트립이지’의 [예약 및 취소] 규정에 따라 예약을 취소한 경우
-      트립이지는 서비스이용요금을 전액 환불하여야 한다.
-    </h6>
-    <p>
-      1) 수하물을 맡기는 시간을 기준으로 24시간 이전까지 예약 및 취소가
-      완료되어야 한다.
-    </p>
-    <p>2) 단, 24시간을 계산할 때 주말 및 공휴일은 포함하지 아니한다.</p>
-    <h6>
-      2. 고객이 위탁한 수하물의 규격과 수량이 예약 시 입력한 내용과 달라
-      서비스요금이 예약 시 결제한 금액보다 적은 경우에 트립이지는 그 차액을
-      환불할 의무가 없으며, 서비스요금이 예약 시 결제한 금액보다 많은 경우에는
-      고객은 추가요금을 별도로 결제하여야 한다.
-    </h6>
-    <h6>
-      3. 천재지변, 전쟁, 테러 등 기타 불가항력적인 사유가 발생하여 서비스를
-      정상적으로 제공하기 어려운 경우 트립이지는 일방적으로 이용자의 예약을
-      취소, 변경할 수 있다.
-    </h6>
-  </div>
-  <div style="max-width: 700px; display: flex; justify-content: center">
-    <div class="check-box">
-      짐이동 서비스 예약 시 해당 환불약관을 동의한 것으로 간주합니다.
+    <div class="footer_div">
+      <div>
+        <p class="footer_line">JoolLab | 줄랩</p>
+        <p class="footer_line">"He who would travel happily must travel light"</p>
+        <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+      </div>
+      <div>
+        <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+        <div>
+          <!--p class="footer_line"> 개인정보 처리방침 | 약관 | 판매 및 환불 | 법적 고지 | 사이트 맵 </p-->
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-{% include "footer.html" %} {% endblock %}
+  </footer>
+
+</html>
