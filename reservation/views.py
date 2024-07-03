@@ -12,6 +12,10 @@ from django.core.paginator import Paginator
 from django.core import serializers
 from .forms import ReservationForm
 
+def data(request):
+    stuffs = Reservation.objects.all()
+    context = {'reservation': reservation}
+    return render(request, 'admin/data.html', context)
 
 def index(request):
     return render(request, 'index.html')
@@ -47,9 +51,7 @@ def mypage(request):
 
 def book(request):
     if request.method == "POST":
-        reservation = Reservation(client=request.POST.get('client'), month=request.POST.get(
-            'month'), desc=request.POST.get('desc'), day=request.POST.get('day'), hour=request.POST.get('hour'),
-            minute=request.POST.get('minute'), date=request.POST.get('date'), time=request.POST.get('time'))
+        reservation = Reservation(client=request.POST.get('client'), desc=request.POST.get('desc'), date=request.POST.get('start_date'), time=request.POST.get('start_time'))
 
         reservation.save()
         return render(request, 'index.html')
@@ -67,6 +69,6 @@ def checked(request):
         context = {'result_amo': len(
             results), 'checked': checked, 'results': results}
         print(context)
-        return render(request, 'checked.html', context)
+        return render(request, 'mypage.html', context)
     else:
-        return render(request, 'checked.html', {'reservation': reservation, 'checked': False})
+        return render(request, 'mypage.html', {'reservation': reservation, 'checked': False})

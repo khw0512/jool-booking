@@ -50,7 +50,7 @@
           <a href="{% url "reservation:sterna" %}">HOME</a>
         </li>
         <li>
-          <a href="{% url "reservation:mypage" %}">MY PAGE</a>
+          <a href="{% url "reservation:book" %}">RESERVATION</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -59,14 +59,14 @@
     </nav>
     <div class="navbar-space"></div>
     <div class="navbar-space"></div>
-    <div class="navbar-space"></div>
     <div style="min-height: 100vh" class="tocenter">
       <div>
-        <h1>예약 상태 검색</h1>
+        <p class="check-message">Search by the Reservation ID</p>
+        <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
       </div>
       <form class="search" method="POST" action="{% url 'reservation:checked' %}">
         {% csrf_token %}
-        <input class="search-bar" style="width: 100%" type="search" placeholder="검색" name="checked" aria-label="Search"/>
+        <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
         <div>
           <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
             <div style="width: 100%">Search</div>
@@ -89,8 +89,8 @@
           <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
             <li>HOME</li>
           </a>
-          <a class='modal-list' href="{% url "reservation:mypage" %}">
-            <li>My PAGE</li>
+          <a class='modal-list' href="{% url "reservation:book" %}">
+            <li>RESERVATION</li>
           </a>
         </div>
 

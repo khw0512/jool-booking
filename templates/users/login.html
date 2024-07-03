@@ -1,14 +1,48 @@
-<h1>로그인</h1>
-<form method="post" action="{% url 'users:login' %}">
-  {% csrf_token %}
-  {% include 'form_errors.html' %}
-  <div>
-    <label>사용자 ID</label>
-    <input type="text" name="username" id="username">
-  </div>
-  <div>
-    <label>비밀번호</label>
-    <input type="text" name="password" id="password">
-  </div>
-  <button type="submit">로그인</button>
-</form>
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>sterna</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+    <div class="tocenter">
+      <img style="margin:80px 0 30px 0; height:100px;" src="{% static "img/sterun-1.png" %}" alt="">
+      <h1>관리자 로그인</h1>
+      <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {% include 'form_errors.html' %}
+        <div>
+          <label>관리자 ID</label>
+          <input type="text" name="username" id="username">
+        </div>
+        <div style="height:10px;"></div>
+        <div>
+          <label>비밀번호</label>
+          <input type="text" name="password" id="password">
+        </div>
+        <div style="height:10px;"></div>
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+
+  </body>
+
+</html>

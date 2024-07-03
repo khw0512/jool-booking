@@ -51,7 +51,7 @@
           <a href="{% url "reservation:book" %}">RESERVATION</a>
         </li>
         <li>
-          <a href="{% url "reservation:mypage" %}">MY PAGE</a>
+          <a href="{% url "reservation:check" %}">MY PAGE</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -71,7 +71,7 @@
           <div class="main-text fade-in" style="font-family:Bebas Neue;">Borrowing
             <br>running supplies</div>
           <div class="flex-row">
-            <a target="_blank" href="{% url "reservation:book" %}">
+            <a href="{% url "reservation:book" %}">
               <div class="main-button fade-in">BOOKING</div>
             </a>
             <div class="fade-out" style="font-size: 1.7rem; margin: 10px 0 0 20px">
@@ -164,7 +164,7 @@
           <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:book" %}">
             <li>RESERVATION</li>
           </a>
-          <a class='modal-list' href="{% url "reservation:mypage" %}">
+          <a class='modal-list' href="{% url "reservation:check" %}">
             <li>My PAGE</li>
           </a>
         </div>
@@ -202,7 +202,7 @@
       const showBox = document.querySelectorAll(".showBox");
       const fadeIn = document.querySelectorAll(".fade-in");
       // 화면높이값 2/3 구하기
-      const screenH = window.innerHeight * 3 / 4;
+      const screenH = window.innerHeight * 5 / 6;
 
       // 등장액션 대상 위치값 리턴함수
       const retVal = ele => ele

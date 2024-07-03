@@ -1,0 +1,8 @@
+{% load static %}
+
+{% for data in reservation %}
+  <p style="font-size: 20px; color: black; margin-bottom: 20px;">
+    예약번호:
+    {{data.client}}
+  </p>
+{% endfor %}

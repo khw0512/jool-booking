@@ -10,17 +10,19 @@ def image_upload_path(instance, filename):
 
 
 class Reservation(models.Model):
-    client = models.CharField(max_length=20)
-    month = models.IntegerField()
-    day = models.IntegerField()
-    hour = models.IntegerField()
-    minute = models.IntegerField()
-    date = models.DateField()
-    time = models.TimeField()
-    desc = models.TextField()
     reserv_id = models.CharField(max_length=20, default="HaveToMod!!")
+    client = models.CharField(max_length=20)
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end_date = models.DateField()
+    end_time = models.TimeField()
+    top = models.CharField(max_length=50)
+    bottom = models.CharField(max_length=50)
+    shoes = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="", blank=True)
+    desc = models.TextField()
     status = models.IntegerField(default=1)
     completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.completed)+" " + self.client + "_" + str(self.month) + str("/") + str(self.day) + " " + str(self.hour)+":"+str(self.minute)
+        return str(self.completed)+" " + self.client + "_" + self.reserv_id

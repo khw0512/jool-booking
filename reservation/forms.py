@@ -5,16 +5,12 @@ from .models import Reservation
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['client', 'month', 'day', 'hour', 'minute', 'desc']
+        fields = ['client', 'desc', 'start_date', 'start_time']
         widgets = {
             'client': forms.TextInput(attrs={'class': 'form-control'}),
-            'month': forms.NumberInput(attrs={'class': 'form-control'}),
-            'day': forms.NumberInput(attrs={'class': 'form-control'}),
-            'hour': forms.NumberInput(attrs={'class': 'form-control'}),
-            'minute': forms.NumberInput(attrs={'class': 'form-control'}),
             'desc': forms.Textarea(attrs={'class': 'form-control', 'rows': 10}),
-            'time': forms.TimeInput(attrs={'type': 'time'}),
-            'date': forms.DateInput(attrs={'type': 'date'}),
+            'start_time': forms.TimeInput(attrs={'type': 'time'}),
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
         }
         labels = {
             "client": "예약자",

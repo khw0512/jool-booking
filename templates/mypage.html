@@ -55,49 +55,89 @@
     </nav>
     <div class="navbar-space"></div>
     <div style="height:20px;"></div>
-
-    <div class="tocenter">
-      <div style="width:95%;" class="flex-row-notwrap">
-        <div class="flex-column">
-          <p class="reserv-ox">I have a reservation</p>
-          <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="{% static 'img/girl2.png' %}" alt=""/>
+    {% if checked != "" and result_amo != 0 %}
+      {% for result in results %}
+        <div class="tocenter">
+          <div style="width:95%;" class="flex-row-notwrap">
+            <div class="flex-column">
+              <p class="reserv-ox">Reservation ID</p>
+              <p>{{result.reserv_id}}</p>
+              <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+            </div>
+            <div style="width:90%;" class="flex-column fade-in">
+              <div class="reserv-box">{{result.start_date}}
+                to
+                {{result.end_date}}</div>
+              <p class="reserv-title">Duration</p>
+              <p class="reserv-content">{{result.start_date}}
+                ~
+                {{result.end_date}}</p>
+              <div style="height:20px;"></div>
+              <p class="reserv-title">Rental List</p>
+              <div class="flex-row-notwrap">
+                <p class="reserv-content">Running Shoes :
+                  {{result.shoes}}
+                </p>
+                <a target="_blank" href="https://www.nike.com/t/juniper-trail-2-mens-trail-running-shoes-lFQ3lS/DM0822-001">
+                  <div class="info-box">info</div>
+                </a>
+              </div>
+              <div class="flex-row-notwrap">
+                <p class="reserv-content">Top :
+                  {{result.top}}
+                </p>
+                <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EB%9D%BC%EC%9D%B4%EC%A6%88-365-%EB%82%A8%EC%84%B1-%EB%B0%98%ED%8C%94-%EB%9F%AC%EB%8B%9D-%ED%83%91-3RXVhATv/CZ9185-376">
+                  <div class="info-box">info</div>
+                </a>
+              </div>
+              <div class="flex-row-notwrap">
+                <p class="reserv-content">Bottom :
+                  {{result.bottom}}</p>
+                <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EC%B1%8C%EB%A6%B0%EC%A0%80-%EB%82%A8%EC%84%B1-5%EC%9D%B8%EC%B9%98-%EB%B8%8C%EB%A6%AC%ED%94%84-%EB%9D%BC%EC%9D%B8%EB%93%9C-%EB%B2%84%EC%84%9C%ED%83%80%EC%9D%BC-%EC%87%BC%EC%B8%A0-dIUSkmSZ/DV9364-084">
+                  <div class="info-box">info</div>
+                </a>
+              </div>
+              <div style="height:20px;"></div>
+              <p class="reserv-title">Location</p>
+              <p class="reserv-content">Silla Hotel, 249, Dongho-ro, Jung-gu, Seoul, Republic of Korea</p>
+            </div>
+          </div>
         </div>
-        <div style="width:90%;" class="flex-column fade-in">
-          <div class="reserv-box">May 12, 2024 to May 17, 2024</div>
-          <p class="reserv-title">Duration</p>
-          <p class="reserv-content">2024.5.12 ~ 2024.5.17</p>
-          <div style="height:20px;"></div>
-          <p class="reserv-title">Rental List</p>
-          <div class="flex-row-notwrap">
-            <p class="reserv-content">Running Shoes : Nike Juniper Trail 2 / 1 pair
-            </p>
-            <a target="_blank" href="https://www.nike.com/t/juniper-trail-2-mens-trail-running-shoes-lFQ3lS/DM0822-001">
-              <div class="info-box">info</div>
-            </a>
-          </div>
-          <div class="flex-row-notwrap">
-            <p class="reserv-content">Top : nike dry fit raise 365 / 1 ea
-            </p>
-            <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EB%9D%BC%EC%9D%B4%EC%A6%88-365-%EB%82%A8%EC%84%B1-%EB%B0%98%ED%8C%94-%EB%9F%AC%EB%8B%9D-%ED%83%91-3RXVhATv/CZ9185-376">
-              <div class="info-box">info</div>
-            </a>
-          </div>
-          <div class="flex-row-notwrap">
-            <p class="reserv-content">Bottom : Nike dry fit challenger / 1 ea</p>
-            <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EC%B1%8C%EB%A6%B0%EC%A0%80-%EB%82%A8%EC%84%B1-5%EC%9D%B8%EC%B9%98-%EB%B8%8C%EB%A6%AC%ED%94%84-%EB%9D%BC%EC%9D%B8%EB%93%9C-%EB%B2%84%EC%84%9C%ED%83%80%EC%9D%BC-%EC%87%BC%EC%B8%A0-dIUSkmSZ/DV9364-084">
-              <div class="info-box">info</div>
-            </a>
-          </div>
-          <div style="height:20px;"></div>
-          <p class="reserv-title">Location</p>
-          <p class="reserv-content">Silla Hotel, 249, Dongho-ro, Jung-gu, Seoul, Republic of Korea</p>
+      {% endfor %}
+    {% elif checked == "" %}
+      <div class="tocenter">
+        <div>
+          <p class="check-message">Please enter the Reservation ID</p>
+          <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
         </div>
+        <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+          {% csrf_token %}
+          <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+          <div>
+            <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+              <div style="width: 100%">Search</div>
+            </button>
+          </div>
+        </form>
       </div>
-    </div>
+    {% else %}
+      <div class="tocenter">
+        <div>
+          <p class="check-message">There is No Result</p>
+          <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
+        </div>
+        <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+          {% csrf_token %}
+          <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+          <div>
+            <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+              <div style="width: 100%">Search</div>
+            </button>
+          </div>
+        </form>
+      </div>
+    {% endif %}
     <div class="navbar-space"></div>
-    <div class="tocenter">
-      <div class="depart-line"></div>
-    </div>
   </div>
 
   <!-- mobile nav modal hedden-->
@@ -152,7 +192,7 @@
     const showBox = document.querySelectorAll(".showBox");
     const fadeIn = document.querySelectorAll(".fade-in");
     // 화면높이값 2/3 구하기
-    const screenH = window.innerHeight * 3 / 4;
+    const screenH = window.innerHeight * 5 / 6;
 
     // 등장액션 대상 위치값 리턴함수
     const retVal = ele => ele
