@@ -13,5 +13,5 @@ urlpatterns = [
     path("ready/", views.ready, name="ready"),
     path("sterna/", views.sterna, name="sterna"),
     path("sterna/mypage/", views.mypage, name="mypage"),
-    path("data/", views.data, name="data"),
+    path("sterna/data/", views.data, name="data"),
 ]

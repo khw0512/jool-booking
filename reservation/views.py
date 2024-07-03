@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from datetime import datetime, timedelta
@@ -11,9 +12,11 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.core import serializers
 from .forms import ReservationForm
+from django.contrib.auth.models import User
 
+@login_required(login_url='users:login')
 def data(request):
-    stuffs = Reservation.objects.all()
+    reservation = Reservation.objects.all()
     context = {'reservation': reservation}
     return render(request, 'admin/data.html', context)
 

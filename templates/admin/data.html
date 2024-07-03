@@ -1,8 +1,32 @@
 {% load static %}
 
-{% for data in reservation %}
-  <p style="font-size: 20px; color: black; margin-bottom: 20px;">
-    예약번호:
-    {{data.client}}
-  </p>
-{% endfor %}
+<table border="1" bordercolor="green" style="font-size:0.6rem; width:100%">
+  <tr>
+    <th scope="col">예약번호</td>
+    <th scope="col">예약자</td>
+    <th scope="col">시작날짜</td>
+    <th scope="col">종료날짜</td>
+    <th scope="col">상의</td>
+    <th scope="col">하의</td>
+    <th scope="col">운동화</td>
+    <th scope="col">이미지</td>
+    <th scope="col">설명</td>
+    <th scope="col">상태번호</td>
+    <th scope="col">종료여부</td>
+  </tr>
+  {% for data in reservation %}
+    <tr>
+      <td>{{data.reserv_id}}</td>
+      <td>{{data.client}}</td>
+      <td>{{data.start_date}}</td>
+      <td>{{data.end_date}}</td>
+      <td>{{data.top}}</td>
+      <td>{{data.bottom}}</td>
+      <td>{{data.shoes}}</td>
+      <td>{{data.image}}</td>
+      <td>{{data.desc}}</td>
+      <td>{{data.status}}</td>
+      <td>{{data.completed}}</td>
+    </tr>
+  {% endfor %}
+</table>

@@ -6,6 +6,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 def image_upload_path(instance, filename):
+    time=timezone.now()
     return f'{instance}/{filename}'
 
 
