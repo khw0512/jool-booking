@@ -102,6 +102,27 @@
                 <div style="height:20px;"></div>
                 <p class="reserv-title">Location</p>
                 <p class="reserv-content">{{result.location}}</p>
+                <div style="height:20px;"></div>
+                <p class="reserv-title">Cost</p>
+                <p class="reserv-content">{{result.cost}}
+                  won</p>
+                <div style="height:20px;"></div>
+                <p class="reserv-title">Status</p>
+                {% if result.status == 1 %}
+                  <p class="reserv-content">접수 대기중</p>
+                {% elif result.status == 2 %}
+                  <p class="reserv-content">재고 확인중</p>
+                {% elif result.status == 3 %}
+                  <p class="reserv-content">예약 완료 및 결제 대기</p>
+                {% elif result.status == 4 %}
+                  <p class="reserv-content">배송중</p>
+                {% elif result.status == 5 %}
+                  <p class="reserv-content">배송완료</p>
+                {% endif %}
+                <p class="reserv-content"></p>
+                <div style="height:20px;"></div>
+                <p class="reserv-title">Memo</p>
+                <p class="reserv-content">{{result.desc}}</p>
               </div>
             </div>
           </div>
