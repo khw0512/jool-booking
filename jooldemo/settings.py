@@ -126,7 +126,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = '/sterna/data'
-LOGOUT_REDIRECT_URL = '/sterna'
+LOGOUT_REDIRECT_URL = '/users/login'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

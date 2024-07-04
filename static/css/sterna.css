@@ -206,9 +206,15 @@ img {
 }
 
 .search-bar {
-  padding:10px;
-  border: var(--nav-text-color) solid 1px;
-  border-radius: 20px;
+    padding:10px;
+    border: var(--nav-text-color) solid 1px;
+    border-radius: 20px;
+}
+
+.input-bar {
+    padding:5px 0 5px 10px;
+    border: var(--nav-text-color) solid 1px;
+    border-radius: 20px;
 }
 
 .headline-1 {
@@ -543,7 +549,23 @@ img {
     margin: 50px 0 30px 0;
 }
 
+.form-control {
+    margin:5px 0 5px 0;
+}
 
+.contact-button {
+    border: solid 1px var(--text-color-black);
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.contact-img {
+    height:10px;
+}
+
+.contact-text {
+    font-size: 0.7rem;
+}
 
 
 

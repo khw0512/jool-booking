@@ -1,32 +1,88 @@
 {% load static %}
 
-<table border="1" bordercolor="green" style="font-size:0.6rem; width:100%">
-  <tr>
-    <th scope="col">예약번호</td>
-    <th scope="col">예약자</td>
-    <th scope="col">시작날짜</td>
-    <th scope="col">종료날짜</td>
-    <th scope="col">상의</td>
-    <th scope="col">하의</td>
-    <th scope="col">운동화</td>
-    <th scope="col">이미지</td>
-    <th scope="col">설명</td>
-    <th scope="col">상태번호</td>
-    <th scope="col">종료여부</td>
-  </tr>
-  {% for data in reservation %}
-    <tr>
-      <td>{{data.reserv_id}}</td>
-      <td>{{data.client}}</td>
-      <td>{{data.start_date}}</td>
-      <td>{{data.end_date}}</td>
-      <td>{{data.top}}</td>
-      <td>{{data.bottom}}</td>
-      <td>{{data.shoes}}</td>
-      <td>{{data.image}}</td>
-      <td>{{data.desc}}</td>
-      <td>{{data.status}}</td>
-      <td>{{data.completed}}</td>
-    </tr>
-  {% endfor %}
-</table>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>sterna</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="tocenter">
+      <div style="margin: 30px 0 20px 0;">
+        <p>전체 데이터</p>
+      </div>
+    </div>
+    <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
+      <tr>
+        <th scope="col" style="width:30px; text-align:center">수정</td>
+        <th scope="col">종료여부</td>
+        <th scope="col">상태</td>
+        <th scope="col">예약번호</td>
+        <th scope="col">예약자</td>
+        <th scope="col">시작날짜</td>
+        <th scope="col">종료날짜</td>
+        <th scope="col">상의</td>
+        <th scope="col">하의</td>
+        <th scope="col">운동화</td>
+        <th scope="col">장소</th>
+        <th scope="col">가격</th>
+        <th scope="col">이미지</td>
+        <th scope="col">설명</td>
+      </tr>
+      {% for data in reservation %}
+        <tr>
+          <td style="width:30px; text-align:center">
+            <a href="{% url "reservation:update" data.pk %}">
+              <button>수정</button>
+            </a>
+          </td>
+          {% if data.completed == True %}
+            <td style="color:grey">완료</td>
+          {% else %}
+            <td style="color:green; font-weight:bold;">진행중</td>
+          {% endif %}
+          <td>{{data.status}}</td>
+          <td>{{data.reserv_id}}</td>
+          <td>{{data.client}}</td>
+          <td>{{data.start_date}}</td>
+          <td>{{data.end_date}}</td>
+          <td>{{data.top}}</td>
+          <td>{{data.bottom}}</td>
+          <td>{{data.shoes}}</td>
+          <td>{{data.location}}</td>
+          <td>{{data.cost}}</td>
+          <td>{{data.image}}</td>
+          <td>{{data.desc}}</td>
+        {% endfor %}
+      </table>
+      <div class="tocenter" style="margin:20px 0 0 0;">
+        <a href="{% url "reservation:register" %}">
+          <button style="padding: 5px;">예약등록</button>
+        </a>
+      </div>
+
+      <div class="tocenter" style="margin:20px 0 0 0;">
+        <a href="{% url "users:logout" %}">
+          <button style="padding: 5px;">로그아웃</button>
+        </a>
+      </div>
+
+    </body>
+
+  </html>

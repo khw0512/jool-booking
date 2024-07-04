@@ -9,9 +9,12 @@ urlpatterns = [
     path("info/", views.info, name="info"),
     path("sterna/check/", views.check, name='check'),
     path("contact/", views.contact, name="contact"),
-    path("checked/", views.checked, name="checked"),
+    path("sterna/checked/", views.checked, name="checked"),
     path("ready/", views.ready, name="ready"),
     path("sterna/", views.sterna, name="sterna"),
     path("sterna/mypage/", views.mypage, name="mypage"),
     path("sterna/data/", views.data, name="data"),
+    path("sterna/register/", views.register, name="register"),
+    path("sterna/edit/<str:pk>", views.edit, name="edit"),
+    path('sterna/update/<str:pk>', views.update, name='update'),
 ]

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="navbar-space"></div>
+  <div style="min-height: 100vh" class="tocenter">
+    <div>
+      {% if checked != "" and result_amo != 0 %}
+        <div class="tocenter">
+          <h1>예약 현황</h1>
+        </div>
+        {% for result in results %}
+          <p style="font-size: 20px; color: black; margin-bottom: 20px;">
+            예약번호:
+            {{result.reserv_id}}
+            |
+            {% if result.status == 1 %}
+              접수 대기중
+            {% elif result.status == 2 %}
+              접수 완료
+            {% elif result.status == 3 %}
+              짐 이동중
+            {% elif result.status == 4 %}
+              숙소 도착
+            {% elif result.status == 5 %}
+              확인중
+            {% endif %}
+          </p>
+          <p style="font-size: 20px; color: black; margin-bottom: 20px;">짐 내역 :
+            {{result.desc}}</p>
+        {% endfor %}
+        <div class="tocenter">
+          <a href="{% url "reservation:check" %}">
+            <button class="card-button">뒤로 가기
+            </button>
+          </a>
+        </div>
+      {% elif checked == "" %}
+        <div class="tocenter">
+          <p style="
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 20px;
+      ">
+            검색어를 입력해 주세요
+          </p>
+        </div>
+        <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+          {% csrf_token %}
+          <input class="search-bar" style="width:100%;" type="search" placeholder="검색" name="checked" aria-label="Search"/>
+          <div>
+            <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+              <div style="width: 100%">Search</div>
+            </button>
+          </div>
+        </form>
+      {% else %}
+        <div class="tocenter">
+          <p style="
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 20px;
+      ">
+            검색 결과가 없습니다
+          </p>
+        </div>
+        <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+          {% csrf_token %}
+          <input class="search-bar" style="width:100%;" type="search" placeholder="검색" name="checked" aria-label="Search"/>
+          <div>
+            <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+              <div style="width: 100%">Search</div>
+            </button>
+          </div>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
