@@ -271,10 +271,11 @@ img {
 }
 
 .reserv-button {
+    font-size:1.2rem;
     min-width: 170px;
     transition: 0.3s;
     padding: 20px 30px 20px 30px;
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: var(--button-bg-color);
     border: solid 3px var(--nav-text-color);
     border-radius: 40px;
@@ -588,6 +589,12 @@ img {
   padding: 10px 20px 10px 20px;
   border-radius: 30px;
   cursor: pointer;
+}
+
+.reserv-noti {
+    font-size:2rem;
+    font-family: Bebas Neue;
+    max-width: 300px;
 }
 
 
