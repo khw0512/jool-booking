@@ -232,14 +232,13 @@ img {
 }
 
 .main-button {
-    width:200px;
+    width:300px;
     font-size: 1.3rem;
     font-weight: bold;
     transition: 0.2s;
     color: var(--nav-text-color);
     background-color: var(--button-bg-color);
     padding: 30px 20px 30px 20px;
-    margin-left:10px;
     border-radius: 60px;
     border: var(--background-color) solid 1px;
     text-align: center;
@@ -791,7 +790,9 @@ img {
     }
 
     .main-button {
+        width: 200px;
         margin-bottom:30px;
+        font-size: 1rem;
     }
 
     .modal-sns {
