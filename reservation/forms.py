@@ -10,9 +10,9 @@ class ReservationForm(forms.ModelForm):
             'reserv_id' : forms.TextInput(attrs={'class': 'form-control'}),
             'client': forms.TextInput(attrs={'class': 'form-control'}),
             'desc': forms.Textarea(attrs={'class': 'form-control', 'rows': 10}),
-            'start_time': forms.TimeInput(attrs={'type': 'time','class': 'form-control'}),
+            'start_time': forms.TimeInput(attrs={'type': 'time','class': 'form-control'}, format='%H:%M'),
             'start_date': forms.DateInput(attrs={'type': 'date','class': 'form-control'}),
-            'end_time': forms.TimeInput(attrs={'type': 'time','class': 'form-control'}),
+            'end_time': forms.TimeInput(attrs={'type': 'time','class': 'form-control'}, format='%H:%M'),
             'end_date': forms.DateInput(attrs={'type': 'date','class': 'form-control'}),
             'top' : forms.Select(attrs={'class': 'form-control'}),
             'bottom' : forms.Select(attrs={'class': 'form-control'}),
@@ -20,7 +20,7 @@ class ReservationForm(forms.ModelForm):
             'location' : forms.TextInput(attrs={'class': 'form-control'}),
             'cost' : forms.NumberInput(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={"id": "image_field", 'class': 'form-control'}),
-            'status' : forms.NumberInput(attrs={'class': 'form-control'}),
+            'status' : forms.Select(attrs={'class': 'form-control'}),
             'completed' : forms.CheckboxInput(attrs={'class': 'form-control'}),
         }
         labels = {

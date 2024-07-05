@@ -86,7 +86,7 @@ def register(request):
             completed = 'True'
         else:
             completed = 'False'
-        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('start_date'), end_time=request.POST.get('start_time'),top=Top.objects.get(id=request.POST.get('top')),bottom=Bottom.objects.get(id=request.POST.get('bottom')),shoes=Shoes.objects.get(id=request.POST['shoes']),location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
+        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=Top.objects.get(id=request.POST.get('top')),bottom=Bottom.objects.get(id=request.POST.get('bottom')),shoes=Shoes.objects.get(id=request.POST['shoes']),location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
 
         reservation.save()
         return redirect('reservation:data')

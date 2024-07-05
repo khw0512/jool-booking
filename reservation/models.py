@@ -43,6 +43,17 @@ class Bottom(models.Model):
         return self.name
 
 class Reservation(models.Model):
+
+    STATUS_CHOICE = [
+        ('ST1','예약 양식 제출 완료'),
+        ('ST2','예약 완료 및 결제 대기'),
+        ('ST3','결제 완료'),
+        ('ST4','배송 중'),
+        ('ST5','배송 완료'),
+        ('ST6','반납 완료'),
+        ('ST7','입고 완료')
+    ]
+
     reserv_id = models.CharField(max_length=20, primary_key=True)
     client = models.CharField(max_length=20)
     start_date = models.DateField()
@@ -54,7 +65,11 @@ class Reservation(models.Model):
     shoes = models.ForeignKey(Shoes, on_delete=models.CASCADE, related_name="shoesName", blank=True)
     image = models.ImageField(upload_to="", blank=True)
     desc = models.TextField(blank=True, default="-")
-    status = models.IntegerField(default=1)
+    status = models.CharField(
+        max_length=3,
+        choices=STATUS_CHOICE,
+        default='ST1',
+    )
     completed = models.BooleanField(default=False)
     cost = models.IntegerField(default=0)
     location = models.CharField(max_length=50, blank=False)

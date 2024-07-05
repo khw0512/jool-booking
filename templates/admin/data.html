@@ -24,14 +24,22 @@
 
   <body>
     <div class="tocenter">
-      <div style="margin: 30px 0 20px 0;">
-        <p>전체 데이터</p>
+      <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">
+        <div style="width:10px;"></div>
+        <div>
+          <p>전체 데이터</p>
+        </div>
+        <div class="flex-row">
+          <a style="border:solid 1px; font-size:0.8rem;" href="{% url "reservation:sterna" %}">Go home</a>
+          <div style="width:20px;"></div>
+          <a style="border:solid 1px; font-size:0.8rem;" href="{% url "reservation:book" %}">Go reservation</a>
+        </div>
       </div>
     </div>
     <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
       <tr style="background-color:black; color:white;">
         <th scope="col" style="width:30px; text-align:center">수정</td>
-        <th scope="col">종료여부</td>
+        <th scope="col" style="width:30px; text-align:center">종료여부</td>
         <th scope="col">상태</td>
         <th scope="col">예약번호</td>
         <th scope="col">예약자</td>
@@ -53,9 +61,9 @@
             </a>
           </td>
           {% if data.completed == True %}
-            <td style="color:grey">완료</td>
+            <td style="color:black; background-color:grey; text-align:center;">완료</td>
           {% else %}
-            <td style="color:green; font-weight:bold;">진행중</td>
+            <td style="color:green; font-weight:bold; text-align:center;">진행중</td>
           {% endif %}
           <td>{{data.status}}</td>
           <td>{{data.reserv_id}}</td>
@@ -63,17 +71,17 @@
           <td>{{data.start_date | date:"Y-m-d"}}</td>
           <td>{{data.end_date | date:"Y-m-d"}}</td>
           {% if data.top.name == 'None' %}
-            <td style='background-color:grey;'>-</td>
+            <td style='background-color:#DBDBDB;'>-</td>
           {% else %}
             <td>{{data.top}}</td>
           {% endif %}
           {% if data.bottom.name == 'None' %}
-            <td style='background-color:grey;'>-</td>
+            <td style='background-color:#DBDBDB;'>-</td>
           {% else %}
             <td>{{data.bottom}}</td>
           {% endif %}
           {% if data.shoes.name == 'None' %}
-            <td style='background-color:grey;'>-</td>
+            <td style='background-color:#DBDBDB;'>-</td>
           {% else %}
             <td>{{data.shoes}}</td>
           {% endif %}
@@ -83,16 +91,49 @@
           <td>{{data.desc}}</td>
         {% endfor %}
       </table>
-      <div class="tocenter" style="margin:20px 0 0 0;">
-        <a href="{% url "reservation:register" %}">
-          <button style="padding: 5px;">예약등록</button>
-        </a>
-      </div>
-
-      <div class="tocenter" style="margin:20px 0 0 0;">
-        <a href="{% url "users:logout" %}">
-          <button style="padding: 5px;">로그아웃</button>
-        </a>
+      <div class="flex-row">
+        <div class="flex-column">
+          <div class="tocenter" style="margin:20px 0 0 0;">
+            <a href="{% url "reservation:register" %}">
+              <button style="padding: 5px;">예약등록</button>
+            </a>
+          </div>
+          <div class="tocenter" style="margin:20px 0 0 0;">
+            <a href="{% url "users:logout" %}">
+              <button style="padding: 5px;">로그아웃</button>
+            </a>
+          </div>
+        </div>
+        <table style="margin:20px 0 0 20px;" border="1">
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST1</th>
+            <td>예약 양식 제출 완료</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST2</th>
+            <td>예약 완료 및 결제 대기</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST3</th>
+            <td>결제 완료</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST4</th>
+            <td>배송 중</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST5</th>
+            <td>배송 완료</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST6</th>
+            <td>반납 완료</td>
+          </tr>
+          <tr style='font-weight:normal; font-size:0.6rem;'>
+            <th>ST7</th>
+            <td>입고 완료</td>
+          </tr>
+        </table>
       </div>
 
     </body>
