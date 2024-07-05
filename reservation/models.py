@@ -10,12 +10,34 @@ def image_upload_path(instance, filename):
     return f'{instance}/{filename}'
 
 class Shoes(models.Model):
-    name = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=50, blank=False)
     amount250 = models.IntegerField(blank=False)
     amount260 = models.IntegerField(blank=False)
     amount270 = models.IntegerField(blank=False)
     amount280 = models.IntegerField(blank=False)
-    link = models.URLField()
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Top(models.Model):
+    name = models.CharField(max_length=50, blank=False)
+    amount_s = models.IntegerField(blank=False)
+    amount_m = models.IntegerField(blank=False)
+    amount_L = models.IntegerField(blank=False)
+    amount_XL = models.IntegerField(blank=False)
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Bottom(models.Model):
+    name = models.CharField(max_length=50, blank=False)
+    amount_s = models.IntegerField(blank=False)
+    amount_m = models.IntegerField(blank=False)
+    amount_L = models.IntegerField(blank=False)
+    amount_XL = models.IntegerField(blank=False)
+    link = models.URLField(blank=True)
 
     def __str__(self):
         return self.name
@@ -27,9 +49,9 @@ class Reservation(models.Model):
     start_time = models.TimeField(blank=True, default=timezone.now)
     end_date = models.DateField()
     end_time = models.TimeField(blank=True, default=timezone.now)
-    top = models.CharField(max_length=50, blank=True)
-    bottom = models.CharField(max_length=50, blank=True)
-    shoes = models.ForeignKey(Shoes, on_delete=models.CASCADE, related_name="shoesName")
+    top = models.ForeignKey(Top, on_delete=models.CASCADE, related_name="topName", blank=True)
+    bottom = models.ForeignKey(Bottom, on_delete=models.CASCADE, related_name="bottomName", blank=True)
+    shoes = models.ForeignKey(Shoes, on_delete=models.CASCADE, related_name="shoesName", blank=True)
     image = models.ImageField(upload_to="", blank=True)
     desc = models.TextField(blank=True, default="-")
     status = models.IntegerField(default=1)

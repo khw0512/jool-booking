@@ -62,9 +62,21 @@
           <td>{{data.client}}</td>
           <td>{{data.start_date | date:"Y-m-d"}}</td>
           <td>{{data.end_date | date:"Y-m-d"}}</td>
-          <td>{{data.top}}</td>
-          <td>{{data.bottom}}</td>
-          <td>{{data.shoes}}</td>
+          {% if data.top.name == 'None' %}
+            <td style='background-color:grey;'>-</td>
+          {% else %}
+            <td>{{data.top}}</td>
+          {% endif %}
+          {% if data.bottom.name == 'None' %}
+            <td style='background-color:grey;'>-</td>
+          {% else %}
+            <td>{{data.bottom}}</td>
+          {% endif %}
+          {% if data.shoes.name == 'None' %}
+            <td style='background-color:grey;'>-</td>
+          {% else %}
+            <td>{{data.shoes}}</td>
+          {% endif %}
           <td>{{data.location}}</td>
           <td>{{data.cost}}</td>
           <td>{{data.image}}</td>
