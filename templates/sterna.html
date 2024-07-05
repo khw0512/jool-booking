@@ -25,19 +25,20 @@
   <body>
     <nav class="navbar">
       <ul class="navbar-icons">
-        <li>
+        <li style="line-height:2rem;">
           <a href="https://www.instagram.com/joollab/" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
         </li>
-        <li>
+        <li style="line-height:2rem;">
           <a href="https://www.x.com/Jason9835958008" target="_blank">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.youtube.com" target="_blank">
-            <i class="fab fa-youtube"></i>
+          <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+          <a href="{% url "reservation:contact" %}">
+            <p class="contact-button-nav">CONTACT</p>
           </a>
         </li>
       </ul>
@@ -70,7 +71,7 @@
         <div style='width:30px; height:100%;'></div>
         <div class="flex-column">
           <div class="main-text fade-in" style="font-family:Bebas Neue;">Borrowing
-            <br>running supplies</div>
+            <br>running supplies<br>in Seoul</div>
           <div class="flex-row">
 
             <div class="fade-out" style="font-size: 1.7rem; margin: 10px 0 0 20px">
@@ -104,7 +105,7 @@
               <div class="card-title">Form Submission</div>
               <div class="card-desc">You click the reservation button on the reservation page, fill out the form, and submit it. You can use below reservation button.</div>
               <div style="height:10px;"></div>
-              <a target="_blank" href="{% url "reservation:book" %}">
+              <a href="{% url "reservation:book" %}">
                 <div class="card-button fade-in">Reservation</div>
               </a>
             </div>
@@ -189,9 +190,8 @@
               </a>
             </li>
             <li class="modal-sns-list">
-              <a href="https://www.youtube.com" target="_blank">
-                <i class="fab fa-youtube"></i>
-              </a>
+              <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+              <p>CONTACT</p>
             </li>
           </ul>
         </div>

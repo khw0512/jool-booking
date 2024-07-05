@@ -574,7 +574,7 @@ img {
   font-weight: bold;
   transition: 0.2s;
   color:var(--nav-text-color);
-  background-color: var(--nav-bg-color);
+  background-color: var(--button-bg-color);
   padding: 10px 20px 10px 20px;
   border-radius: 30px;
   border: var(--background-color) solid 1px;
@@ -588,6 +588,23 @@ img {
   padding: 10px 20px 10px 20px;
   border-radius: 30px;
   cursor: pointer;
+}
+
+.contact-button-nav {
+    color:var(--text-color-black);
+    transition: 0.2s;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px 10px 5px 10px;   
+    border: solid var(--nav-text-color);
+    border-radius: 20px;
+    background-color:var(--button-bg-color);
+}
+
+.contact-button-nav:hover {
+    color: var(--white-color);
+    border-radius: 20px;
+    background-color: var(--background-color);
 }
 
 .reserv-noti {
@@ -819,6 +836,10 @@ img {
 
     .check-message {
         font-size:1.2rem;
+    }
+
+    .contact-text {
+        font-size: 0.8rem;
     }
     
 }
