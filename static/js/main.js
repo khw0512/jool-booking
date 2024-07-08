@@ -58,8 +58,6 @@ modalCloseButton.addEventListener('click', () => {
   navbtn.classList.remove('hidden');
 });
 
-
-
 // Date Picker
 
 // 선언한 TextBox에 DateTimePicker 위젯을 적용한다.

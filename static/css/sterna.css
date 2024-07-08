@@ -284,7 +284,6 @@ img {
 }
 
 .reserv-button:hover {
-    margin-top: 20px;
     background-color: var(--background-color);
     color: var(--accent-color);
     cursor: pointer;

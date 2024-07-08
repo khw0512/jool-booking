@@ -78,7 +78,7 @@
                 <div style="height:20px;"></div>
                 <p class="reserv-title">Rental List</p>
                 <div class="flex-row-notwrap">
-                  <p class="reserv-content">Running Shoes :
+                  <p class="reserv-content">- Running Shoes :
                     {{result.shoes}}
                   </p>
                   <a target="_blank" href="{{result.shoes.link}}">
@@ -86,17 +86,24 @@
                   </a>
                 </div>
                 <div class="flex-row-notwrap">
-                  <p class="reserv-content">Top :
+                  <p class="reserv-content">- Top :
                     {{result.top}}
                   </p>
-                  <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EB%9D%BC%EC%9D%B4%EC%A6%88-365-%EB%82%A8%EC%84%B1-%EB%B0%98%ED%8C%94-%EB%9F%AC%EB%8B%9D-%ED%83%91-3RXVhATv/CZ9185-376">
+                  <a target="_blank" href="{{result.top.link}}">
                     <div class="info-box">info</div>
                   </a>
                 </div>
                 <div class="flex-row-notwrap">
-                  <p class="reserv-content">Bottom :
+                  <p class="reserv-content">- Bottom :
                     {{result.bottom}}</p>
-                  <a target="_blank" href="https://www.nike.com/kr/t/%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EC%B1%8C%EB%A6%B0%EC%A0%80-%EB%82%A8%EC%84%B1-5%EC%9D%B8%EC%B9%98-%EB%B8%8C%EB%A6%AC%ED%94%84-%EB%9D%BC%EC%9D%B8%EB%93%9C-%EB%B2%84%EC%84%9C%ED%83%80%EC%9D%BC-%EC%87%BC%EC%B8%A0-dIUSkmSZ/DV9364-084">
+                  <a target="_blank" href="{{result.bottom.link}}">
+                    <div class="info-box">info</div>
+                  </a>
+                </div>
+                <div class="flex-row-notwrap">
+                  <p class="reserv-content">- Bag :
+                    {{result.bag}}</p>
+                  <a target="_blank" href="{{result.bag.link}}">
                     <div class="info-box">info</div>
                   </a>
                 </div>
@@ -109,16 +116,20 @@
                   won</p>
                 <div style="height:20px;"></div>
                 <p class="reserv-title">Status</p>
-                {% if result.status == 1 %}
-                  <p class="reserv-content">접수 대기중</p>
-                {% elif result.status == 2 %}
-                  <p class="reserv-content">재고 확인중</p>
-                {% elif result.status == 3 %}
-                  <p class="reserv-content">예약 완료 및 결제 대기</p>
-                {% elif result.status == 4 %}
-                  <p class="reserv-content">배송중</p>
-                {% elif result.status == 5 %}
-                  <p class="reserv-content">배송완료</p>
+                {% if result.status == 'ST1' %}
+                  <p class="reserv-content">Waiting for Processing</p>
+                {% elif result.status == 'ST2' %}
+                  <p class="reserv-content">Checking Inventory</p>
+                {% elif result.status == 'ST3' %}
+                  <p class="reserv-content">Waiting for Payment</p>
+                {% elif result.status == 'ST4' %}
+                  <p class="reserv-content">In Transit</p>
+                {% elif result.status == 'ST5' %}
+                  <p class="reserv-content">Delivery Complete</p>
+                {% elif result.status == 'ST6' %}
+                  <p class="reserv-content">Return Complete</p>
+                {% elif result.status == 'ST6' %}
+                  <p class="reserv-content">Restocking Complete</p>
                 {% endif %}
                 <p class="reserv-content"></p>
                 <div style="height:20px;"></div>

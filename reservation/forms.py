@@ -5,7 +5,7 @@ from .models import Reservation
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['reserv_id','client', 'start_date', 'start_time','end_date','end_time','top','bottom','shoes', 'location','cost','image','desc','status','completed']
+        fields = ['reserv_id','client', 'start_date', 'start_time','end_date','end_time','top','bottom','shoes','bag','location','cost','image','desc','status','completed']
         widgets = {
             'reserv_id' : forms.TextInput(attrs={'class': 'form-control'}),
             'client': forms.TextInput(attrs={'class': 'form-control'}),
@@ -17,6 +17,7 @@ class ReservationForm(forms.ModelForm):
             'top' : forms.Select(attrs={'class': 'form-control'}),
             'bottom' : forms.Select(attrs={'class': 'form-control'}),
             'shoes' : forms.Select(attrs={'class': 'form-control'}),
+            'bag' : forms.Select(attrs={'class': 'form-control'}),
             'location' : forms.TextInput(attrs={'class': 'form-control'}),
             'cost' : forms.NumberInput(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={"id": "image_field", 'class': 'form-control'}),
@@ -34,6 +35,7 @@ class ReservationForm(forms.ModelForm):
             'top' : '상의',
             'bottom' : '하의',
             'shoes' : '운동화',
+            'bag' : '휴대폰 파우치',
             'image': '이미지',
             'status' : '상태',
             'completed' : '완료여부',

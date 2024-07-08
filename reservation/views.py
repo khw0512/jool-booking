@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 from django.core import serializers
 from .forms import ReservationForm
 from django.contrib.auth.models import User
+import os
 
 @login_required(login_url='users:login')
 def data(request):
@@ -86,7 +87,28 @@ def register(request):
             completed = 'True'
         else:
             completed = 'False'
-        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=Top.objects.get(id=request.POST.get('top')),bottom=Bottom.objects.get(id=request.POST.get('bottom')),shoes=Shoes.objects.get(id=request.POST['shoes']),location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
+
+        if Item.objects.filter(pk=request.POST.get('top')).exists():
+            top=Item.objects.get(pk=request.POST.get('top'))
+        else:
+            top=None
+
+        if Item.objects.filter(pk=request.POST.get('bottom')).exists():
+            bottom=Item.objects.get(pk=request.POST.get('bottom'))
+        else:
+            bottom=None
+
+        if Item.objects.filter(pk=request.POST.get('shoes')).exists():
+            shoes=Item.objects.get(pk=request.POST.get('shoes'))
+        else:
+            shoes=None
+
+        if Item.objects.filter(pk=request.POST.get('bag')).exists():
+            bag=Item.objects.get(pk=request.POST.get('bag'))
+        else:
+            bag=None
+
+        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=top,bottom=bottom,shoes=shoes,bag=bag,location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
 
         reservation.save()
         return redirect('reservation:data')
@@ -113,3 +135,15 @@ def update(request, pk):
     else:
         form = ReservationForm(instance=reservation)
         return render(request, 'admin/edit.html', {'form': form})
+
+@login_required(login_url='users:login')
+def delreserv(request, pk):
+    reservation = Reservation.objects.get(pk=pk)
+    reservation.delete()
+    return redirect('reservation:data')
+
+@login_required(login_url='users:login')
+def delpage(request, pk):
+    reservation = Reservation.objects.filter(pk=pk)
+    print(reservation)
+    return render(request, 'admin/delete.html', {'reservation':reservation})

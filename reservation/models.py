@@ -4,43 +4,76 @@ from django.utils import timezone
 from datetime import datetime, timedelta
 from ckeditor_uploader.fields import RichTextUploadingField
 
-
 def image_upload_path(instance, filename):
     time=timezone.now()
-    return f'{instance}/{filename}'
+    return f'{instance}/{titme}+{filename}'
 
-class Shoes(models.Model):
-    name = models.CharField(max_length=50, blank=False)
-    amount250 = models.IntegerField(blank=False)
-    amount260 = models.IntegerField(blank=False)
-    amount270 = models.IntegerField(blank=False)
-    amount280 = models.IntegerField(blank=False)
+class Item(models.Model):
+
+    CATEGORY = [
+        ('shoes','Shoes'),
+        ('top','Top'),
+        ('bottom','Bottom'),
+        ('bag','Bag & Pouch'),
+        ('etc','ETC')
+    ]
+
+    SIZE = [
+        ('Others','free'),
+        ('shoes',(
+            ('220','220mm'),
+            ('225','225mm'),
+            ('230','230mm'),
+            ('235','235mm'),
+            ('240','240mm'),
+            ('245','245mm'),
+            ('250','250mm'),
+            ('255','255mm'),
+            ('260','260mm'),
+            ('265','265mm'),
+            ('270','270mm'),
+            ('275','275mm'),
+            ('280','280mm'),
+            ('285','285mm'),
+            ('290','290mm'),
+            ('295','295mm'),
+            ('300','300mm'),
+        )),
+        ('top',(
+            ('XS','XS'),
+            ('S','S'),
+            ('M','M'),
+            ('L','L'),
+            ('XL','XL'),
+            ('XXL','XXL'),
+        )),
+        ('bottom',(
+            ('XS','XS'),
+            ('S','S'),
+            ('M','M'),
+            ('L','L'),
+            ('XL','XL'),
+            ('XXL','XXL'),
+        ))
+    ]
+
+    GENDER = {
+        ('M','Male'),
+        ('F','Female'),
+        ('E','NO Gender')
+    }
+    
+
+    category = models.CharField(max_length=10, choices=CATEGORY)
+    gender = models.CharField(max_length=1, blank=True, choices=GENDER)
+    name = models.CharField(max_length=20, blank=True)
+    model_num = models.CharField(primary_key=True, max_length=50, blank=True)
+    size = models.CharField(max_length=10, blank=True, choices=SIZE)
+    amount = models.IntegerField(default=0, blank=True)
     link = models.URLField(blank=True)
 
     def __str__(self):
-        return self.name
-
-class Top(models.Model):
-    name = models.CharField(max_length=50, blank=False)
-    amount_s = models.IntegerField(blank=False)
-    amount_m = models.IntegerField(blank=False)
-    amount_L = models.IntegerField(blank=False)
-    amount_XL = models.IntegerField(blank=False)
-    link = models.URLField(blank=True)
-
-    def __str__(self):
-        return self.name
-
-class Bottom(models.Model):
-    name = models.CharField(max_length=50, blank=False)
-    amount_s = models.IntegerField(blank=False)
-    amount_m = models.IntegerField(blank=False)
-    amount_L = models.IntegerField(blank=False)
-    amount_XL = models.IntegerField(blank=False)
-    link = models.URLField(blank=True)
-
-    def __str__(self):
-        return self.name
+        return self.model_num
 
 class Reservation(models.Model):
 
@@ -60,9 +93,10 @@ class Reservation(models.Model):
     start_time = models.TimeField(blank=True, default=timezone.now)
     end_date = models.DateField()
     end_time = models.TimeField(blank=True, default=timezone.now)
-    top = models.ForeignKey(Top, on_delete=models.CASCADE, related_name="topName", blank=True)
-    bottom = models.ForeignKey(Bottom, on_delete=models.CASCADE, related_name="bottomName", blank=True)
-    shoes = models.ForeignKey(Shoes, on_delete=models.CASCADE, related_name="shoesName", blank=True)
+    top = models.ForeignKey(Item, on_delete=models.CASCADE, limit_choices_to={'category':'top'}, related_name="topName", blank=True, null=True)
+    bottom = models.ForeignKey(Item, on_delete=models.CASCADE, limit_choices_to={'category':'bottom'}, related_name="bottomName", blank=True, null=True)
+    shoes = models.ForeignKey(Item, on_delete=models.CASCADE, limit_choices_to={'category':'shoes'}, related_name="shoesName", blank=True, null=True)
+    bag = models.ForeignKey(Item, on_delete=models.CASCADE, limit_choices_to={'category':'bag'}, related_name="bagName", blank=True, null=True)
     image = models.ImageField(upload_to="", blank=True)
     desc = models.TextField(blank=True, default="-")
     status = models.CharField(

@@ -17,4 +17,6 @@ urlpatterns = [
     path("sterna/register/", views.register, name="register"),
     path("sterna/edit/<str:pk>", views.edit, name="edit"),
     path('sterna/update/<str:pk>', views.update, name='update'),
+    path('sterna/delreserv/<str:pk>', views.delreserv, name='delreserv'),
+    path('sterna/delpage/<str:pk>', views.delpage, name='delpage'),
 ]

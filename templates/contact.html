@@ -62,11 +62,17 @@
       <div class="navbar-space"></div>
       <div style="min-height: 100vh" class="tocenter">
         <div class="contact tocenter">
+          <a href="mailto:jasonkim@joollab.com?body=Please Enter Your Name First :)">
+            <button class="contact-button">
+              <div class="contact-text">Contact Via E-mail</div>
+            </button>
+          </a>
+          <div style="height:40px;"></div>
           <a href="https://lin.ee/VrtkbZK">
             <button class="contact-button">
               <img class="contact-img" src="{% static 'img/LINE_logo.png' %}" alt=""/>
               <div style="width: 10px"></div>
-              <div class="contact-text">LINE 으로 연락하기 클릭!!</div>
+              <div class="contact-text">Contact Via LINE</div>
             </button>
           </a>
           <div style="height:40px;"></div>
@@ -74,7 +80,7 @@
             <button class="contact-button">
               <img class="contact-img" src="{% static 'img/kakao_logo.jpg' %}" alt=""/>
               <div style="width: 10px"></div>
-              <div class="contact-text">Kakao Chnnel로 연락하기 클릭!!</div>
+              <div class="contact-text">Contact Via Kakao Chennel</div>
             </button>
           </a>
         </div>
@@ -92,7 +98,6 @@
           <a href="{% url "reservation:index" %}">
             <img style="width:120px; " src="{% static 'img/sterna.png' %}" alt=""/>
           </a>
-
           <i class="fa solid fa-x" id="modalCloseButton"></i>
         </div>
         <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
@@ -100,6 +105,9 @@
         </a>
         <a class='modal-list' href="{% url "reservation:book" %}">
           <li>RESERVATION</li>
+        </a>
+        <a class='modal-list' href="{% url "reservation:check" %}">
+          <li>MY PAGE</li>
         </a>
       </div>
 
