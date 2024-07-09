@@ -556,6 +556,7 @@ img {
 .contact {
   display:flex;
   flex-direction: column;
+  width: 400px;
 }
 
 .contact-img {
@@ -568,8 +569,14 @@ img {
   line-height: 2rem;
 }
 
+.contact a{
+    width:100%;
+}
+
 .contact-button {
+    width:100%;
   display:flex;
+  justify-content: center;
   font-weight: bold;
   transition: 0.2s;
   color:var(--nav-text-color);
@@ -837,8 +844,16 @@ img {
         font-size:1.2rem;
     }
 
+    .contact-button {
+        width: 100%;
+    }
+
     .contact-text {
         font-size: 0.8rem;
+    }
+
+    .contact {
+        width:270px;
     }
     
 }
