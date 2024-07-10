@@ -150,6 +150,18 @@ img {
     transform: translateY(0);
 }
 
+.fade-in-long {
+    opacity: 0;
+    transform: translateY(30%);
+    transition: all .5s ease-in-out;
+    
+}
+
+.fade-in-long.on {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .fade-out {
     animation-name: fade-out; 
     animation-duration: 1.3s;
