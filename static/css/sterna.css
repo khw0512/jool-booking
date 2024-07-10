@@ -1,6 +1,7 @@
 :root {
     --sterun-primary-color: #FFF100;
     --sterun-secondary-color: #3A3A3A;
+    --sterun-thirdary-color: #00539C;
     --sterun-white-color: #FCF6F5;
     --sterun-black-color: #1d1d1d;
     --sterun-grey-color: #E8E8E8;
@@ -503,6 +504,11 @@ img {
     text-align: center;
 }
 
+.reserv-img {
+    max-width:200px; 
+    margin:0 30px 0 30px;
+}
+
 .reserv-label {
     width: 5rem;
     display: flex;
@@ -630,7 +636,6 @@ img {
 }
 
 
-
 /* Mobile Env. */
 @media (max-width:700px) {
 
@@ -664,7 +669,7 @@ img {
         text-align: center;
         color: var(--sterun-black-color);
         border-bottom: solid var(--sterun-secondary-color) 1px;
-        background-color: var(--nav-bg-color);
+        background-color: var(--sterun-primary-color);
     }
 
 
@@ -827,7 +832,8 @@ img {
     }
 
     .headline-1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    text-align: center;
     }
 
     .card-box {
@@ -855,6 +861,10 @@ img {
     .contact {
         width:270px;
     }
+
+    .reserv-box {
+        font-size: 1.2rem;
+    }
     
 }
 
@@ -870,8 +880,9 @@ img {
   border-collapse: collapse;
 }
 
-.table-item{
-    color:var(--sterun-secondary-color);
+.table-item {
+    font-weight: bold;
+    color:var(--sterun-thirdary-color);
 }
 
 .rwd-table tr:first-child {

@@ -89,6 +89,7 @@ class Reservation(models.Model):
 
     reserv_id = models.CharField(max_length=20, primary_key=True)
     client = models.CharField(max_length=20)
+    contact = models.CharField(max_length=50, blank=False)
     start_date = models.DateField()
     start_time = models.TimeField(blank=True, default=timezone.now)
     end_date = models.DateField()

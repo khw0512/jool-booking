@@ -52,6 +52,9 @@ def sterna(request):
 def mypage(request):
     return render(request, 'mypage.html')
 
+def pay(request):
+    return render(request, 'admin/pay.html')
+
 
 def book(request):
     if request.method == "POST":
@@ -108,7 +111,7 @@ def register(request):
         else:
             bag=None
 
-        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=top,bottom=bottom,shoes=shoes,bag=bag,location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
+        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), contact=request.POST.get('contact'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=top,bottom=bottom,shoes=shoes,bag=bag,location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
 
         reservation.save()
         return redirect('reservation:data')

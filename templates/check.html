@@ -74,6 +74,16 @@
           </button>
         </div>
       </form>
+      {% if user.is_staff %}
+        <a href="{% url 'reservation:data' %}">
+          <p class="tocenter" style="margin-top:50px; color:blue;">관리자 전용 버튼 - Data 보기</p>
+        </a>
+      {% endif %}
+      {% if user.is_active %}
+        <a href="{% url 'users:logout' %}">
+          <p class="tocenter" style="margin-top:50px; color:blue;">유저 전용 버튼 - 로그아웃</p>
+        </a>
+      {% endif %}
     </div>
 
     <!-- mobile nav modal hedden-->
@@ -82,7 +92,7 @@
         <div class="mobile-nav-up">
           <div class='mobile-nav-top'>
             <a href="{% url "reservation:index" %}">
-              <img style="width:120px; " src="{% static 'img/sterna.png' %}" alt=""/>
+              <img style="width:120px; " src="{% static 'img/sterun-1.png' %}" alt=""/>
             </a>
 
             <i class="fa solid fa-x" id="modalCloseButton"></i>

@@ -56,126 +56,129 @@
     </nav>
     <div class="navbar-space"></div>
     <div style="height:20px;"></div>
-
-    <div style="min-height:100vh; max-width:1500px;">
-      {% if checked != "" and result_amo != 0 %}
-        {% for result in results %}
-          <div class="tocenter">
-            <div style="width:95%;" class="flex-row-notwrap">
-              <div class="flex-column">
-                <p class="reserv-ox">Reservation ID</p>
-                <div class="underline" style="width:120px; margin-top:-10px"></div>
-                <p>
-                  <i class="fa-solid fa-arrow-right"></i>
-                  {{result.reserv_id}}
-                </p>
-                <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+    <div>
+      <div style="max-width:1000px; margin:auto;">
+        <div style="min-height:100vh;">
+          {% if checked != "" and result_amo != 0 %}
+            {% for result in results %}
+              <div class="tocenter">
+                <div style="width:95%;" class="flex-row-notwrap">
+                  <div class="flex-column">
+                    <p class="reserv-ox">Reservation ID</p>
+                    <div class="underline" style="width:120px; margin-top:-10px"></div>
+                    <p>
+                      <i class="fa-solid fa-arrow-right"></i>
+                      {{result.reserv_id}}
+                    </p>
+                    <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+                  </div>
+                  <div style="width:90%;" class="flex-column fade-in">
+                    <div class="reserv-box">{{result.start_date}}
+                      to
+                      {{result.end_date}}</div>
+                    <p class="reserv-title">Duration</p>
+                    <p class="reserv-content">{{result.start_date}}
+                      ~
+                      {{result.end_date}}</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Rental List</p>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Running Shoes :
+                        {{result.shoes}}
+                      </p>
+                      <a target="_blank" href="{{result.shoes.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Top :
+                        {{result.top}}
+                      </p>
+                      <a target="_blank" href="{{result.top.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Bottom :
+                        {{result.bottom}}</p>
+                      <a target="_blank" href="{{result.bottom.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Bag :
+                        {{result.bag}}</p>
+                      <a target="_blank" href="{{result.bag.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Location</p>
+                    <p class="reserv-content">{{result.location}}</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Cost</p>
+                    <p class="reserv-content">{{result.cost}}
+                      won</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Status</p>
+                    {% if result.status == 'ST1' %}
+                      <p class="reserv-content">Waiting for Processing</p>
+                    {% elif result.status == 'ST2' %}
+                      <p class="reserv-content">Checking Inventory</p>
+                    {% elif result.status == 'ST3' %}
+                      <p class="reserv-content">Waiting for Payment</p>
+                    {% elif result.status == 'ST4' %}
+                      <p class="reserv-content">In Transit</p>
+                    {% elif result.status == 'ST5' %}
+                      <p class="reserv-content">Delivery Complete</p>
+                    {% elif result.status == 'ST6' %}
+                      <p class="reserv-content">Return Complete</p>
+                    {% elif result.status == 'ST6' %}
+                      <p class="reserv-content">Restocking Complete</p>
+                    {% endif %}
+                    <p class="reserv-content"></p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Memo</p>
+                    <p class="reserv-content">{{result.desc}}</p>
+                  </div>
+                </div>
               </div>
-              <div style="width:90%;" class="flex-column fade-in">
-                <div class="reserv-box">{{result.start_date}}
-                  to
-                  {{result.end_date}}</div>
-                <p class="reserv-title">Duration</p>
-                <p class="reserv-content">{{result.start_date}}
-                  ~
-                  {{result.end_date}}</p>
-                <div style="height:20px;"></div>
-                <p class="reserv-title">Rental List</p>
-                <div class="flex-row-notwrap">
-                  <p class="reserv-content">- Running Shoes :
-                    {{result.shoes}}
-                  </p>
-                  <a target="_blank" href="{{result.shoes.link}}">
-                    <div class="info-box">info</div>
-                  </a>
-                </div>
-                <div class="flex-row-notwrap">
-                  <p class="reserv-content">- Top :
-                    {{result.top}}
-                  </p>
-                  <a target="_blank" href="{{result.top.link}}">
-                    <div class="info-box">info</div>
-                  </a>
-                </div>
-                <div class="flex-row-notwrap">
-                  <p class="reserv-content">- Bottom :
-                    {{result.bottom}}</p>
-                  <a target="_blank" href="{{result.bottom.link}}">
-                    <div class="info-box">info</div>
-                  </a>
-                </div>
-                <div class="flex-row-notwrap">
-                  <p class="reserv-content">- Bag :
-                    {{result.bag}}</p>
-                  <a target="_blank" href="{{result.bag.link}}">
-                    <div class="info-box">info</div>
-                  </a>
-                </div>
-                <div style="height:20px;"></div>
-                <p class="reserv-title">Location</p>
-                <p class="reserv-content">{{result.location}}</p>
-                <div style="height:20px;"></div>
-                <p class="reserv-title">Cost</p>
-                <p class="reserv-content">{{result.cost}}
-                  won</p>
-                <div style="height:20px;"></div>
-                <p class="reserv-title">Status</p>
-                {% if result.status == 'ST1' %}
-                  <p class="reserv-content">Waiting for Processing</p>
-                {% elif result.status == 'ST2' %}
-                  <p class="reserv-content">Checking Inventory</p>
-                {% elif result.status == 'ST3' %}
-                  <p class="reserv-content">Waiting for Payment</p>
-                {% elif result.status == 'ST4' %}
-                  <p class="reserv-content">In Transit</p>
-                {% elif result.status == 'ST5' %}
-                  <p class="reserv-content">Delivery Complete</p>
-                {% elif result.status == 'ST6' %}
-                  <p class="reserv-content">Return Complete</p>
-                {% elif result.status == 'ST6' %}
-                  <p class="reserv-content">Restocking Complete</p>
-                {% endif %}
-                <p class="reserv-content"></p>
-                <div style="height:20px;"></div>
-                <p class="reserv-title">Memo</p>
-                <p class="reserv-content">{{result.desc}}</p>
+            {% endfor %}
+          {% elif checked == "" %}
+            <div class="tocenter">
+              <div>
+                <p class="check-message">Please enter the Reservation ID</p>
+                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
               </div>
+              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+                {% csrf_token %}
+                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <div>
+                  <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+                    <div style="width: 100%">Search</div>
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-        {% endfor %}
-      {% elif checked == "" %}
-        <div class="tocenter">
-          <div>
-            <p class="check-message">Please enter the Reservation ID</p>
-            <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
-          </div>
-          <form class="search" method="POST" action="{% url 'reservation:checked' %}">
-            {% csrf_token %}
-            <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
-            <div>
-              <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
-                <div style="width: 100%">Search</div>
-              </button>
+          {% else %}
+            <div class="tocenter">
+              <div>
+                <p class="check-message">There is No Result</p>
+                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
+              </div>
+              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+                {% csrf_token %}
+                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <div>
+                  <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+                    <div style="width: 100%">Search</div>
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          {% endif %}
         </div>
-      {% else %}
-        <div class="tocenter">
-          <div>
-            <p class="check-message">There is No Result</p>
-            <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
-          </div>
-          <form class="search" method="POST" action="{% url 'reservation:checked' %}">
-            {% csrf_token %}
-            <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
-            <div>
-              <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
-                <div style="width: 100%">Search</div>
-              </button>
-            </div>
-          </form>
-        </div>
-      {% endif %}
+      </div>
     </div>
     <div class="navbar-space"></div>
   </div>
@@ -186,7 +189,7 @@
       <div class="mobile-nav-up">
         <div class='mobile-nav-top'>
           <a href="{% url "reservation:index" %}">
-            <img style="width:120px; " src="{% static 'img/sterna.png' %}" alt=""/>
+            <img style="width:120px; " src="{% static 'img/sterun-1.png' %}" alt=""/>
           </a>
 
           <i class="fa solid fa-x" id="modalCloseButton"></i>

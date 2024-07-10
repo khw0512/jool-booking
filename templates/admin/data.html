@@ -36,120 +36,128 @@
         </div>
       </div>
     </div>
-    <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
-      <tr style="background-color:black; color:white;">
-        <th scope="col" style="width:30px; text-align:center">수정</th>
-        <th scope="col" style="width:30px; text-align:center">종료여부</th>
-        <th scope="col">상태</th>
-        <th scope="col">예약번호</th>
-        <th scope="col">예약자</th>
-        <th scope="col">시작날짜</th>
-        <th scope="col">종료날짜</th>
-        <th scope="col">상의</th>
-        <th scope="col">하의</th>
-        <th scope="col">운동화</th>
-        <th scope="col">가방</th>
-        <th scope="col">장소</th>
-        <th scope="col">가격</th>
-        <th scope="col" style="max-width:70px; text-align:center">이미지</th>
-        <th scope="col">설명</th>
-        <th scop="com">삭제</th>
-      </tr>
-      {% for data in reservation %}
-        <tr>
-          <td style="width:30px; text-align:center">
-            <a href="{% url "reservation:update" data.pk %}">
-              <button>수정</button>
-            </a>
-          </td>
-          {% if data.completed == True %}
-            <td style="color:white; font-weight:bold; background-color:grey; text-align:center;">완료</td>
-          {% else %}
-            <td style="color:green; font-weight:bold; text-align:center;">진행중</td>
-          {% endif %}
-          <td>{{data.status}}</td>
-          <td>{{data.reserv_id}}</td>
-          <td>{{data.client}}</td>
-          <td>{{data.start_date | date:"Y-m-d"}}</td>
-          <td>{{data.end_date | date:"Y-m-d"}}</td>
-          {% if data.top.name == None %}
-            <td style='background-color:#DBDBDB;'>-</td>
-          {% else %}
-            <td>{{data.top}}</td>
-          {% endif %}
-          {% if data.bottom.name == None %}
-            <td style='background-color:#DBDBDB;'>-</td>
-          {% else %}
-            <td>{{data.bottom}}</td>
-          {% endif %}
-          {% if data.shoes.name == None %}
-            <td style='background-color:#DBDBDB;'>-</td>
-          {% else %}
-            <td>{{data.shoes}}</td>
-          {% endif %}
-          {% if data.bag.name == None %}
-            <td style='background-color:#DBDBDB;'>-</td>
-          {% else %}
-            <td>{{data.bag}}</td>
-          {% endif %}
-          <td>{{data.location}}</td>
-          <td>{{data.cost}}</td>
-          <td style="max-width:70px; overflow:hidden;">{{data.image}}</td>
-          <td>{{data.desc}}</td>
-          <td style="width:30px; text-align:center">
-            <div class="del-button">
-              <a href="{% url "reservation:delpage" data.pk %}">
-                <button>삭제</button>
+    {% if user.is_staff %}
+      <div>
+        <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
+          <tr style="background-color:black; color:white;">
+            <th scope="col" style="width:30px; text-align:center">수정</th>
+            <th scope="col" style="width:30px; text-align:center">종료여부</th>
+            <th scope="col">상태</th>
+            <th scope="col">예약번호</th>
+            <th scope="col">예약자</th>
+            <th scope="col">연락처</th>
+            <th scope="col">시작날짜</th>
+            <th scope="col">종료날짜</th>
+            <th scope="col">상의</th>
+            <th scope="col">하의</th>
+            <th scope="col">운동화</th>
+            <th scope="col">가방</th>
+            <th scope="col">장소</th>
+            <th scope="col">가격</th>
+            <th scope="col" style="max-width:70px; text-align:center">이미지</th>
+            <th scope="col">설명</th>
+            <th scop="com">삭제</th>
+          </tr>
+          {% for data in reservation %}
+            <tr>
+              <td style="width:30px; text-align:center">
+                <a href="{% url "reservation:update" data.pk %}">
+                  <button>수정</button>
+                </a>
+              </td>
+              {% if data.completed == True %}
+                <td style="color:white; font-weight:bold; background-color:grey; text-align:center;">완료</td>
+              {% else %}
+                <td style="color:green; font-weight:bold; text-align:center;">진행중</td>
+              {% endif %}
+              <td>{{data.status}}</td>
+              <td>{{data.reserv_id}}</td>
+              <td>{{data.client}}</td>
+              <td>{{data.contact}}</td>
+              <td>{{data.start_date | date:"Y-m-d"}}</td>
+              <td>{{data.end_date | date:"Y-m-d"}}</td>
+              {% if data.top.name == None %}
+                <td style='background-color:#DBDBDB;'>-</td>
+              {% else %}
+                <td>{{data.top}}</td>
+              {% endif %}
+              {% if data.bottom.name == None %}
+                <td style='background-color:#DBDBDB;'>-</td>
+              {% else %}
+                <td>{{data.bottom}}</td>
+              {% endif %}
+              {% if data.shoes.name == None %}
+                <td style='background-color:#DBDBDB;'>-</td>
+              {% else %}
+                <td>{{data.shoes}}</td>
+              {% endif %}
+              {% if data.bag.name == None %}
+                <td style='background-color:#DBDBDB;'>-</td>
+              {% else %}
+                <td>{{data.bag}}</td>
+              {% endif %}
+              <td>{{data.location}}</td>
+              <td>{{data.cost}}</td>
+              <td style="max-width:70px; overflow:hidden;">{{data.image}}</td>
+              <td>{{data.desc}}</td>
+              <td style="width:30px; text-align:center">
+                <div class="del-button">
+                  <a href="{% url "reservation:delpage" data.pk %}">
+                    <button>삭제</button>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        <div class="flex-row">
+          <div class="flex-column">
+            <div class="tocenter" style="margin:20px 0 0 0;">
+              <a href="{% url "reservation:register" %}">
+                <button style="padding: 5px;">예약등록</button>
               </a>
             </div>
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
-    <div class="flex-row">
-      <div class="flex-column">
-        <div class="tocenter" style="margin:20px 0 0 0;">
-          <a href="{% url "reservation:register" %}">
-            <button style="padding: 5px;">예약등록</button>
-          </a>
-        </div>
-        <div class="tocenter" style="margin:20px 0 0 0;">
-          <a href="{% url "users:logout" %}">
-            <button style="padding: 5px;">로그아웃</button>
-          </a>
+            <div class="tocenter" style="margin:20px 0 0 0;">
+              <a href="{% url "users:logout" %}">
+                <button style="padding: 5px;">로그아웃</button>
+              </a>
+            </div>
+          </div>
+          <table style="margin:20px 0 0 20px;" border="1">
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST1</th>
+              <td>예약 양식 제출 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST2</th>
+              <td>예약 완료 및 결제 대기</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST3</th>
+              <td>결제 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST4</th>
+              <td>배송 중</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST5</th>
+              <td>배송 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST6</th>
+              <td>반납 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST7</th>
+              <td>입고 완료</td>
+            </tr>
+          </table>
         </div>
       </div>
-      <table style="margin:20px 0 0 20px;" border="1">
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST1</th>
-          <td>예약 양식 제출 완료</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST2</th>
-          <td>예약 완료 및 결제 대기</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST3</th>
-          <td>결제 완료</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST4</th>
-          <td>배송 중</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST5</th>
-          <td>배송 완료</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST6</th>
-          <td>반납 완료</td>
-        </tr>
-        <tr style='font-weight:normal; font-size:0.6rem;'>
-          <th>ST7</th>
-          <td>입고 완료</td>
-        </tr>
-      </table>
-    </div>
+    {% else %}
+      <p class='tocenter' style='margin-top:30px; font-weight:bold; color:blue; font-size:2rem;'>관리자만 열람 가능</p>
+    {% endif %}
 
     <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
     <script src="{% static "js/main.js" %}"></script>

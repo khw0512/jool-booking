@@ -62,29 +62,9 @@
       <div class="navbar-space"></div>
       <div style="min-height: 100vh" class="tocenter">
         <div class="contact tocenter">
-          <a href="mailto:jasonkim@joollab.com?body=Please Enter Your Name First :)">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/email.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via E-mail</div>
-            </button>
-          </a>
-          <div style="height:40px;"></div>
-          <a href="https://lin.ee/VrtkbZK">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/LINE_logo.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via LINE</div>
-            </button>
-          </a>
-          <div style="height:40px;"></div>
-          <a href="http://pf.kakao.com/_hXxbYG/chat">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/kakao_logo.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via Kakao</div>
-            </button>
-          </a>
+
+          <button onclick="serverAuth()">serverAuth 결제하기</button>
+
         </div>
       </div>
 
@@ -142,47 +122,32 @@
   <!--jquery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="https://pay.nicepay.co.kr/v1/js/"></script>
+
   <script>
-    // 등장액션 대상: .showBx
-    const showBox = document.querySelectorAll(".showBox");
-    const fadeIn = document.querySelectorAll(".fade-in-long");
-    // 화면높이값 2/3 구하기
-    const screenH = window.innerHeight * 5 / 6;
-
-    // 등장액션 대상 위치값 리턴함수
-    const retVal = ele => ele
-      .getBoundingClientRect()
-      .top;
-
-    // 클래스 넣기 함수
-    const showTit = x => {
-      let xval = retVal(x);
-      if (xval < screenH && xval > 0) {
-        // 요소가 화면에 나타날 때 opacity를 1로 변경
-        x
-          .classList
-          .add("on");
-      }
-    };
-
-    const fadeInTit = y => {
-      let yval = retVal(y);
-      // 요소가 화면에 나타날 때 opacity를 1로 변경
-      y
-        .classList
-        .add("on");
+    function serverAuth() {
+      AUTHNICE.requestPay({
+        clientId: 'ea78caffee1443e98f92ef552dacc8ca',
+        method: 'card',
+        orderId: random(),
+        amount: 1004,
+        goodsName: '나이스페이-상품',
+        returnUrl: 'http://localhost:8000/sterna/data',
+        fnError: function (result) {
+          alert('고객용메시지 : ' + result.msg + '\n개발자확인용 : ' + result.errorMsg + '')
+        }
+      });
     }
 
-    for (let y of fadeIn) 
-      fadeInTit(y);
-    
-    window.addEventListener("scroll", () => {
-      // 스크롤 등장요소 개수만큼 for문 돌리기
-      for (let x of showBox) 
-        showTit(x);
-      }
-    );
+    const random = (length = 8) => {
+      return Math
+        .random()
+        .toString(16)
+        .substr(2, length);
+    };
   </script>
+
 </body>
 <footer>
   <div class="tocenter">
