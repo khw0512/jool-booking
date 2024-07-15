@@ -1,7 +1,7 @@
 :root {
-    --sterun-primary-color: #FFF100;
+    --sterun-primary-color: #fbff00;
     --sterun-secondary-color: #3A3A3A;
-    --sterun-thirdary-color: #00539C;
+    --sterun-thirdary-color: #4467AF;
     --sterun-white-color: #FCF6F5;
     --sterun-black-color: #1d1d1d;
     --sterun-grey-color: #E8E8E8;
@@ -325,7 +325,7 @@ img {
 }
 
 .navbar-logo>a>img {
-    height:60px;
+    height:50px;
 }
 
 .navbar-menu {
