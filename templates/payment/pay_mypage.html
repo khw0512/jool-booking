@@ -73,9 +73,7 @@
                     <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
                   </div>
                   <div style="width:90%;" class="flex-column fade-in">
-                    <div class="reserv-box">{{result.start_date}}
-                      to
-                      {{result.end_date}}</div>
+                    <div class="reserv-box">Payment Info.</div>
                     <p class="reserv-title">Duration</p>
                     <p class="reserv-content">{{result.start_date}}
                       ~
@@ -143,9 +141,6 @@
                   </div>
                 </div>
               </div>
-              <a href="{% url "payment:payment_pay" result.reserv_id %}">
-                <button>결제하기</button>
-              </a>
             {% endfor %}
           {% elif checked == "" %}
             <div class="tocenter">
@@ -228,6 +223,32 @@
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+  <script>
+    window.PAYMENT_CHECK_URL = "{{payment_result_url}}";
+    console.log(window.PAYMENT_CHECK_URL);
+  </script>
+  <script>
+    (function () {
+      var amount = Number("{{amount}}")
+      var pk = "{{pk}}"
+      console.log(amount)
+      const IMP = window.IMP;
+      const code = "iamport";
+      IMP.init(code);
+
+      const merchant_uid = "merchant_" + new Date().getTime();
+
+      IMP.request_pay({
+        merchant_uid: merchant_uid,
+        name: "Running Essential",
+        amount: amount
+      }, function (response) {
+        location.href = "{% url 'payment:payment_result' pk %}"
+      })
+    })();
+  </script>
 
   <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
   <script src="{% static "js/main.js" %}"></script>

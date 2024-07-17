@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="kr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script>
+      (function () {
+        const IMP = window.IMP;
+        const code = "iamport";
+        IMP.init(code);
+
+        const merchant_uid = "merchant_" + new Date().getTime();
+
+        IMP.request_pay({merchant_uid: merchant_uid, name: "TEST", amount: 100})
+      })();
+    </script>
+
+    <script>
+      async function requestPay() {
+        var amount = Number("{{amount}}")
+        console.log(amount)
+        //const cost = document
+        //  .querySelector("body > div:nth-child(4) > div > div > div > div > div.flex-column.fade-in.on > p:nth-child(15)")
+        //   .textContent;
+
+        //amount = Number(cost.split('\n', 1));
+
+        const response = await PortOne.requestPayment({
+          // Store ID 설정
+          storeId: "store-e2dab1c4-ffe6-42ee-a461-77271ca6b43a",
+          // 채널 키 설정
+          channelKey: "channel-key-f5cdab38-e731-493e-b266-17193a0bfbf1",
+          paymentId: `payment-${crypto.randomUUID()}`,
+          orderName: "Running Essential",
+          totalAmount: amount,
+          currency: "CURRENCY_KRW",
+          payMethod: "CARD"
+        });
+        console.log(response)
+        console.log(response.message)
+        if (response != null) {
+          return alert(response.message);
+        }
+      }
+      //requestPay();
+    </script>
+
+  </body>
+
+</html>
