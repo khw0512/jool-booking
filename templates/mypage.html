@@ -124,7 +124,7 @@
                     {% if result.status == 'ST1' %}
                       <p class="reserv-content">Waiting for Processing</p>
                     {% elif result.status == 'ST2' %}
-                      <div class='flex-row' style='justify-content:start; align-items: center;'>
+                      <div class='flex-row-notwrap'>
                         <p class="reserv-content">Waiting for Payment</p>
                         <a href="{% url "payment:payment_pay" result.reserv_id %}">
                           <button class="payment-button">PAYMENT</button>
