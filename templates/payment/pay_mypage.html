@@ -231,21 +231,36 @@
   </script>
   <script>
     (function () {
-      var amount = Number("{{amount}}")
-      var pk = "{{pk}}"
-      console.log(amount)
+      var amount = Number("{{amount}}");
+      var pk = "{{pk}}";
+      var reserv_id = "{{checked}}";
+      console.log(reserv_id);
+
       const IMP = window.IMP;
       const code = "iamport";
       IMP.init(code);
 
-      const merchant_uid = "merchant_" + new Date().getTime();
+      const merchant_uid = "{{payment.uid}}";
 
       IMP.request_pay({
         merchant_uid: merchant_uid,
         name: "Running Essential",
         amount: amount
       }, function (response) {
+        if (response.success == false) {
+          alert(`결제에 실패하였습니다. 에러 내용: ${response.error_msg}`);
+          //location.href = "{% url 'reservation:check' %}"
+          location.href = "{% url 'payment:payment_result' pk %}"
+        }
+        const imp_uid = response
+          .imp_uid
+          .toString();
+        const merchant_uid = response
+          .merchant_uid
+          .toString();
+
         location.href = "{% url 'payment:payment_result' pk %}"
+        console.log(response);
       })
     })();
   </script>

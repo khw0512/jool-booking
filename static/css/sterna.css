@@ -635,6 +635,14 @@ img {
     max-width: 300px;
 }
 
+.payment-button {
+    margin: 0 0 0 10px;
+    background-color: var(--sterun-primary-color);
+    border: solid var(--sterun-black-color) 1px;
+    padding:5px 10px 5px 10px;
+    border-radius: 20px;
+}
+
 
 /* Mobile Env. */
 @media (max-width:700px) {

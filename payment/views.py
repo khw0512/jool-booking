@@ -16,9 +16,13 @@ def payment_pay(request, pk):
     print(pk)
     reservation = Reservation.objects.get(pk=pk)
     print(reservation.pk)
-    payment = Payment(name=reservation.client, amount=reservation.cost)
+    payment = Payment(
+        res_obj=reservation,
+        reserv_id=reservation.reserv_id,
+        name=reservation.client,
+        amount=reservation.cost,
+    )
     payment.save()
-    print(payment)
 
     results = reservation
     pk = payment.pk
@@ -31,7 +35,6 @@ def payment_pay(request, pk):
         "payment": payment,
         "pk": pk,
     }
-    print(context)
     return render(request, "payment/pay_mypage.html", context)
 
 
@@ -42,6 +45,7 @@ def payment_check(request, pk):
 
 def payment_result(request, pk):
     payment = get_object_or_404(Payment, pk=pk)
-    print(payment)
+    reservation = Reservation.objects.filter(reserv_id=payment.reserv_id)
+    reservation.update(status="ST3")
     context = {"payment": payment}
     return render(request, "payment/pay_result.html", context)

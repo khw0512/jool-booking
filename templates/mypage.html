@@ -124,9 +124,14 @@
                     {% if result.status == 'ST1' %}
                       <p class="reserv-content">Waiting for Processing</p>
                     {% elif result.status == 'ST2' %}
-                      <p class="reserv-content">Checking Inventory</p>
+                      <div class='flex-row' style='justify-content:start; align-items: center;'>
+                        <p class="reserv-content">Waiting for Payment</p>
+                        <a href="{% url "payment:payment_pay" result.reserv_id %}">
+                          <button class="payment-button">PAYMENT</button>
+                        </a>
+                      </div>
                     {% elif result.status == 'ST3' %}
-                      <p class="reserv-content">Waiting for Payment</p>
+                      <p class="reserv-content">Payment Complete</p>
                     {% elif result.status == 'ST4' %}
                       <p class="reserv-content">In Transit</p>
                     {% elif result.status == 'ST5' %}
@@ -136,6 +141,7 @@
                     {% elif result.status == 'ST6' %}
                       <p class="reserv-content">Restocking Complete</p>
                     {% endif %}
+
                     <p class="reserv-content"></p>
                     <div style="height:20px;"></div>
                     <p class="reserv-title">Memo</p>
@@ -143,9 +149,6 @@
                   </div>
                 </div>
               </div>
-              <a href="{% url "payment:payment_pay" result.reserv_id %}">
-                <button>결제하기</button>
-              </a>
             {% endfor %}
           {% elif checked == "" %}
             <div class="tocenter">
