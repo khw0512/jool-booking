@@ -13,7 +13,6 @@ if env_path.exists():
     with env_path.open("rt", encoding="utf8") as f:
         env.read_env(f)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 

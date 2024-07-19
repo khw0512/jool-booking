@@ -126,9 +126,15 @@
                     {% elif result.status == 'ST2' %}
                       <div class='flex-row-notwrap'>
                         <p class="reserv-content">Waiting for Payment</p>
-                        <a href="{% url "payment:payment_pay" result.reserv_id %}">
-                          <button class="payment-button">PAYMENT</button>
-                        </a>
+                        <!--a href="{% url "payment:payment_pay" result.reserv_id %}"> <button class="payment-button">PAYMENT</button> </a-->
+                        {% if result.paypal_link == "free" %}
+                          <p class="reserv-content">
+                            (It's FREE !!)</p>
+                        {% else %}
+                          <a href="{{result.paypal_link}}" target="_blank">
+                            <button class="payment-button">PAYMENT</button>
+                          </a>
+                        {% endif %}
                       </div>
                     {% elif result.status == 'ST3' %}
                       <p class="reserv-content">Payment Complete</p>

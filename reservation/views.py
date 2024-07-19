@@ -15,115 +15,142 @@ from .forms import ReservationForm
 from django.contrib.auth.models import User
 import os
 
-@login_required(login_url='users:login')
+
+@login_required(login_url="users:login")
 def data(request):
-    reservation = Reservation.objects.all().order_by('status')
-    context = {'reservation': reservation}
-    return render(request, 'admin/data.html', context)
+    reservation = Reservation.objects.all().order_by("status")
+    context = {"reservation": reservation}
+    return render(request, "admin/data.html", context)
+
 
 def index(request):
-    return render(request, 'sterna.html')
+    return render(request, "sterna.html")
 
 
 def check(request):
-    return render(request, 'check.html')
+    return render(request, "check.html")
 
 
 def info(request):
-    return render(request, 'info.html')
+    return render(request, "info.html")
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, "contact.html")
 
 
 def reservation(request):
-    return render(request, 'book.html')
+    return render(request, "book.html")
 
 
 def ready(request):
-    return render(request, 'ready.html')
+    return render(request, "ready.html")
 
 
 def sterna(request):
-    return render(request, 'sterna.html')
+    return render(request, "sterna.html")
 
 
 def mypage(request):
-    return render(request, 'mypage.html')
+    return render(request, "mypage.html")
+
 
 def pay(request):
-    return render(request, 'admin/pay.html')
+    return render(request, "admin/pay.html")
 
 
 def book(request):
     if request.method == "POST":
-        reservation = Reservation(client=request.POST.get('client'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), image=request.FILES.get('image'))
+        reservation = Reservation(
+            client=request.POST.get("client"),
+            desc=request.POST.get("desc"),
+            start_date=request.POST.get("start_date"),
+            start_time=request.POST.get("start_time"),
+            image=request.FILES.get("image"),
+        )
 
         reservation.save()
-        return render(request, 'index.html')
+        return render(request, "index.html")
     else:
         form = ReservationForm()
-        return render(request, 'book.html', {'form': form})
+        return render(request, "book.html", {"form": form})
 
 
 def checked(request):
     reservation = Reservation.objects.all()
-    if request.method == 'POST':
-        checked = request.POST['checked']
-        results = reservation.filter(
-            Q(reserv_id=checked))
-        context = {'result_amo': len(
-            results), 'checked': checked, 'results': results}
+    if request.method == "POST":
+        checked = request.POST["checked"]
+        results = reservation.filter(Q(reserv_id=checked))
+        context = {"result_amo": len(results), "checked": checked, "results": results}
         print(context)
-        return render(request, 'mypage.html', context)
+        return render(request, "mypage.html", context)
     else:
-        return render(request, 'mypage.html', {'reservation': reservation, 'checked': False})
+        return render(
+            request, "mypage.html", {"reservation": reservation, "checked": False}
+        )
+
 
 def new(request):
     return render(request, "new.html")
 
-@login_required(login_url='users:login')
+
+@login_required(login_url="users:login")
 def register(request):
     if request.method == "POST":
-        if request.POST.get('completed') =='on':
-            completed = 'True'
+        if request.POST.get("completed") == "on":
+            completed = "True"
         else:
-            completed = 'False'
+            completed = "False"
 
-        if Item.objects.filter(pk=request.POST.get('top')).exists():
-            top=Item.objects.get(pk=request.POST.get('top'))
+        if Item.objects.filter(pk=request.POST.get("top")).exists():
+            top = Item.objects.get(pk=request.POST.get("top"))
         else:
-            top=None
+            top = None
 
-        if Item.objects.filter(pk=request.POST.get('bottom')).exists():
-            bottom=Item.objects.get(pk=request.POST.get('bottom'))
+        if Item.objects.filter(pk=request.POST.get("bottom")).exists():
+            bottom = Item.objects.get(pk=request.POST.get("bottom"))
         else:
-            bottom=None
+            bottom = None
 
-        if Item.objects.filter(pk=request.POST.get('shoes')).exists():
-            shoes=Item.objects.get(pk=request.POST.get('shoes'))
+        if Item.objects.filter(pk=request.POST.get("shoes")).exists():
+            shoes = Item.objects.get(pk=request.POST.get("shoes"))
         else:
-            shoes=None
+            shoes = None
 
-        if Item.objects.filter(pk=request.POST.get('bag')).exists():
-            bag=Item.objects.get(pk=request.POST.get('bag'))
+        if Item.objects.filter(pk=request.POST.get("bag")).exists():
+            bag = Item.objects.get(pk=request.POST.get("bag"))
         else:
-            bag=None
+            bag = None
 
-        reservation = Reservation(reserv_id=request.POST.get('reserv_id'), client=request.POST.get('client'), contact=request.POST.get('contact'), desc=request.POST.get('desc'), start_date=request.POST.get('start_date'), start_time=request.POST.get('start_time'), end_date=request.POST.get('end_date'), end_time=request.POST.get('end_time'),top=top,bottom=bottom,shoes=shoes,bag=bag,location=request.POST.get('location'),cost=request.POST.get('cost'), image=request.FILES.get('image'),status=request.POST.get('status'),completed=completed)
+        reservation = Reservation(
+            reserv_id=request.POST.get("reserv_id"),
+            client=request.POST.get("client"),
+            contact=request.POST.get("contact"),
+            desc=request.POST.get("desc"),
+            start_date=request.POST.get("start_date"),
+            start_time=request.POST.get("start_time"),
+            end_date=request.POST.get("end_date"),
+            end_time=request.POST.get("end_time"),
+            top=top,
+            bottom=bottom,
+            shoes=shoes,
+            bag=bag,
+            location=request.POST.get("location"),
+            cost=request.POST.get("cost"),
+            image=request.FILES.get("image"),
+            status=request.POST.get("status"),
+            paypal_link=request.POST.get("paypal_link"),
+            completed=completed,
+        )
 
         reservation.save()
-        return redirect('reservation:data')
+        return redirect("reservation:data")
     else:
         form = ReservationForm()
-        return render(request, 'admin/register.html', {'form': form})
+        return render(request, "admin/register.html", {"form": form})
 
-@login_required(login_url='users:login')
-def edit(request, pk):
-    return render(request,"admin/edit.html",context)
 
-@login_required(login_url='users:login')
+@login_required(login_url="users:login")
 def update(request, pk):
     reservation = get_object_or_404(Reservation, pk=pk)
     files = request.FILES
@@ -132,21 +159,23 @@ def update(request, pk):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.save()
-            return redirect('reservation:data')
+            return redirect("reservation:data")
         else:
-            return redirect('reservation:data')
+            return redirect("reservation:data")
     else:
         form = ReservationForm(instance=reservation)
-        return render(request, 'admin/edit.html', {'form': form})
+        return render(request, "admin/edit.html", {"form": form})
 
-@login_required(login_url='users:login')
+
+@login_required(login_url="users:login")
 def delreserv(request, pk):
     reservation = Reservation.objects.get(pk=pk)
     reservation.delete()
-    return redirect('reservation:data')
+    return redirect("reservation:data")
 
-@login_required(login_url='users:login')
+
+@login_required(login_url="users:login")
 def delpage(request, pk):
     reservation = Reservation.objects.filter(pk=pk)
     print(reservation)
-    return render(request, 'admin/delete.html', {'reservation':reservation})
+    return render(request, "admin/delete.html", {"reservation": reservation})
