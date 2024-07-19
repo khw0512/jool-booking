@@ -7,7 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 def image_upload_path(instance, filename):
     time = timezone.now()
-    return f"{instance}/{titme}+{filename}"
+    return f"{instance}/{time}+{filename}"
 
 
 class Item(models.Model):
