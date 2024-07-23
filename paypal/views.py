@@ -1,7 +1,5 @@
 from django.shortcuts import redirect, render
-import urllib.request
 import requests
-from django.http import HttpResponse, JsonResponse
 import json
 
 from reservation.models import Reservation
