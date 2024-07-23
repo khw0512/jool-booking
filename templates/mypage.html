@@ -131,8 +131,8 @@
                           <p class="reserv-content">
                             (It's FREE !!)</p>
                         {% else %}
-                          <a href="{{result.paypal_link}}" target="_blank">
-                            <button class="payment-button">PAYMENT</button>
+                          <a href="{% url "paypal:getToken" result.reserv_id %}">
+                            <button class="payment-button">PAYPAL</button>
                           </a>
                         {% endif %}
                       </div>

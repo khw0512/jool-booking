@@ -9,6 +9,7 @@ urlpatterns = [
     path("", include("reservation.urls")),
     path("users/", include("users.urls")),
     path("payment/", include("payment.urls")),
+    path("paypal/", include("paypal.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

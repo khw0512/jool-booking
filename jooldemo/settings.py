@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "reservation.apps.ReservationConfig",
     "payment.apps.PaymentConfig",
     "users",
+    "paypal.apps.PaypalConfig",
 ]
 
 MIDDLEWARE = [

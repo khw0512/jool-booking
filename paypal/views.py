@@ -1,0 +1,59 @@
+from django.shortcuts import redirect, render
+import urllib.request
+import requests
+from django.http import HttpResponse, JsonResponse
+import json
+
+from reservation.models import Reservation
+
+
+def paypal(request):
+    return render(request, "paypal/paypal_test.html")
+
+
+def getToken(request, pk):
+
+    reservation = Reservation.objects.get(pk=pk)
+    print(reservation)
+    # reservation.update(status="ST3")
+    amount = reservation.cost
+
+    data_token = {
+        "grant_type": "client_credentials",
+    }
+
+    response_token = requests.post(
+        "https://api-m.sandbox.paypal.com/v1/oauth2/token",
+        data=data_token,
+        auth=(
+            "AQlqTdcOGeH2fDUDWVNJVguF-ovRUwYBk8r0NAciDMAIki9q8-JEcFazT-79-mQKyWMNOIg9e3JJZRku",
+            "ECZMjMFupOl752UrYbWqOywHubc5cwmyzNtiYV0GP0XbdYV9AfVpRQ7HVaIrtuWsXMWOhH0S6kOObbQO",
+        ),
+    )
+
+    print(json.loads(response_token.text)["access_token"])
+    token = json.loads(response_token.text)["access_token"]
+
+    headers = {
+        "Content-Type": "application/json",
+        # "PayPal-Request-Id": "7b92603e-77ed-4896-8e78-5dea2050476a",
+        "Authorization": "Bearer " + token,
+    }
+
+    data_pay = (
+        '{ "intent": "CAPTURE", "purchase_units": [ { "reference_id": "d9f80740-38f0-11e8-b467-0ed5f89f718b", "amount": { "currency_code": "USD", "value":'
+        + str(amount)
+        + ' } } ], "payment_source": { "paypal": { "experience_context": { "payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED", "brand_name": "Joollab INC", "locale": "en-US", "landing_page": "LOGIN", "shipping_preference": "NO_SHIPPING", "user_action": "PAY_NOW", "return_url": "http://sterun.kr", "cancel_url": "http://sterun.kr" } } } }'
+    )
+
+    response_pay = requests.post(
+        "https://api-m.sandbox.paypal.com/v2/checkout/orders",
+        headers=headers,
+        data=data_pay,
+    )
+
+    print(json.loads(response_pay.text)["links"][1]["href"])
+    url = json.loads(response_pay.text)["links"][1]["href"]
+    print(pk)
+
+    return redirect(url)
