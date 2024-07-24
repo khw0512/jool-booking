@@ -51,10 +51,6 @@ def sterna(request):
     return render(request, "sterna.html")
 
 
-def mypage(request):
-    return render(request, "mypage.html")
-
-
 def pay(request):
     return render(request, "admin/pay.html")
 
@@ -77,12 +73,28 @@ def book(request):
 
 
 def checked(request):
-    reservation = Reservation.objects.all()
     if request.method == "POST":
         checked = request.POST["checked"]
-        results = reservation.filter(Q(reserv_id=checked))
-        context = {"result_amo": len(results), "checked": checked, "results": results}
-        print(context)
+        reservation = Reservation.objects.filter(pk=checked)
+        print(checked)
+        if len(reservation) == 1:
+            results = Reservation.objects.get(pk=checked)
+            return redirect("reservation:mypage", results.pk)
+        elif len(checked) == 0:
+            return redirect("reservation:mypage", "blank")
+        else:
+            return redirect("reservation:mypage", "noresult")
+    else:
+        return render(
+            request, "mypage.html", {"reservation": reservation, "checked": False}
+        )
+
+
+def mypage(request, pk):
+    reservation = Reservation.objects.all()
+    if request.method == "GET":
+        results = reservation.filter(Q(reserv_id=pk))
+        context = {"result_amo": len(results), "checked": pk, "results": results}
         return render(request, "mypage.html", context)
     else:
         return render(
@@ -153,7 +165,6 @@ def register(request):
 @login_required(login_url="users:login")
 def update(request, pk):
     reservation = get_object_or_404(Reservation, pk=pk)
-    files = request.FILES
     form = ReservationForm(request.POST, request.FILES, instance=reservation)
     if request.method == "POST":
         if form.is_valid():

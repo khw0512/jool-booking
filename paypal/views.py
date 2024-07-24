@@ -9,7 +9,7 @@ def paypal(request):
     return render(request, "paypal/paypal_test.html")
 
 
-def getToken(request, pk):
+def payment(request, pk):
 
     reservation = Reservation.objects.get(pk=pk)
     print(reservation)
@@ -55,3 +55,7 @@ def getToken(request, pk):
     print(pk)
 
     return redirect(url)
+
+
+def checkPayment(request, pk):
+    redirect("reservation:mypage", pk)

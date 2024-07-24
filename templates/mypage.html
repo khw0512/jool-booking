@@ -116,7 +116,7 @@
                     <p class="reserv-title">Location</p>
                     <p class="reserv-content">{{result.location}}</p>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Cost</p>
+                    <p class="reserv-title">Amount</p>
                     <p class="reserv-content">{{result.cost}}
                       won</p>
                     <div style="height:20px;"></div>
@@ -131,7 +131,7 @@
                           <p class="reserv-content">
                             (It's FREE !!)</p>
                         {% else %}
-                          <a href="{% url "paypal:getToken" result.reserv_id %}">
+                          <a href="{% url "paypal:payment" result.reserv_id %}">
                             <button class="payment-button">PAYPAL</button>
                           </a>
                         {% endif %}
@@ -156,7 +156,7 @@
                 </div>
               </div>
             {% endfor %}
-          {% elif checked == "" %}
+          {% elif checked == "blank" %}
             <div class="tocenter">
               <div>
                 <p class="check-message">Please enter the Reservation ID</p>
