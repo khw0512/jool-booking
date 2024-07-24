@@ -635,7 +635,7 @@ img {
     max-width: 300px;
 }
 
-.payment-button {
+#payment-button {
     margin: 0 0 0 10px;
     background-color: var(--sterun-primary-color);
     border: solid var(--sterun-black-color) 1px;
@@ -653,7 +653,7 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0);
   z-index: 9999;
-  opacity: .5;
+  opacity: .7;
   transition: 0.5s ease;
 }
 
@@ -667,6 +667,7 @@ img {
 .loadingImg {
   position: relative;
   display: block;
+  margin-left:45%;
   top: 50vh;
   transform: translateY(-50%);
 }

@@ -54,6 +54,11 @@
         <i class="fas fa-bars"></i>
       </a>
     </nav>
+    <!-- 로딩 화면 -->
+    <div class="hidden mask">
+      <img class="loadingImg hidden" src='https://i.ibb.co/20zw80q/1487.gif'>
+    </div>
+    <!-- 로딩화면 끝 -->
     <div class="navbar-space"></div>
     <div style="height:20px;"></div>
     <div>
@@ -132,7 +137,7 @@
                             (It's FREE !!)</p>
                         {% else %}
                           <a href="{% url "paypal:payment" result.reserv_id %}">
-                            <button class="payment-button">PAYPAL</button>
+                            <button id="payment-button">PAYPAL</button>
                           </a>
                         {% endif %}
                       </div>
@@ -283,6 +288,16 @@
         showTit(x);
       }
     );
+
+    const mask = document.querySelector('.mask');
+    const loadingImg = document.querySelector('.loadingImg');
+    const paymentbutton = document.getElementById('payment-button');
+
+    paymentbutton.addEventListener("click", () => {
+      mask
+        .classList
+        .remove('hidden');
+    });
   </script>
 </body>
 <footer>
