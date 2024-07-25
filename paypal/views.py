@@ -60,4 +60,8 @@ def payment(request, pk):
 
 
 def checkPayment(request, pk):
+    reservation = Reservation.objects.filter(reserv_id=pk)
+    print("reserv")
+    print(reservation)
+    reservation.update(status="ST3")
     return redirect("reservation:mypage", pk)
