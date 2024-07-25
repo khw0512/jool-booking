@@ -505,7 +505,7 @@ img {
 }
 
 .reserv-img {
-    max-width:200px; 
+    max-width:400px; 
     margin:0 30px 0 30px;
 }
 
@@ -670,6 +670,10 @@ img {
   margin-left:45%;
   top: 50vh;
   transform: translateY(-50%);
+}
+
+#mainp-reserv-button{
+    display: none;
 }
 
 
@@ -902,6 +906,10 @@ img {
     .reserv-box {
         font-size: 1.2rem;
     }
+
+    #mainp-reserv-button{
+        display:contents;
+}
     
 }
 
