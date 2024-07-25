@@ -41,7 +41,7 @@ def payment(request, pk):
     data_pay = (
         '{ "intent": "CAPTURE", "purchase_units": [ { "reference_id": "d9f80740-38f0-11e8-b467-0ed5f89f718b", "amount": { "currency_code": "USD", "value":'
         + str(amount)
-        + ' } } ], "payment_source": { "paypal": { "experience_context": { "payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED", "brand_name": "Joollab INC", "locale": "en-US", "landing_page": "LOGIN", "shipping_preference": "NO_SHIPPING", "user_action": "PAY_NOW", "return_url": "http://sterun.kr/sterna/mypage/'
+        + ' } } ], "payment_source": { "paypal": { "experience_context": { "payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED", "brand_name": "Joollab INC", "locale": "en-US", "landing_page": "LOGIN", "shipping_preference": "NO_SHIPPING", "user_action": "PAY_NOW", "return_url": "http://sterun.kr/paypal/check-payment/'
         + pk
         + '", "cancel_url": "http://sterun.kr" } } } }'
     )
@@ -60,4 +60,4 @@ def payment(request, pk):
 
 
 def checkPayment(request, pk):
-    redirect("reservation:mypage", pk)
+    return redirect("reservation:mypage", pk)

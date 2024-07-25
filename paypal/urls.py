@@ -4,7 +4,7 @@ from . import views
 app_name = "paypal"
 
 urlpatterns = [
-    path("paypal/", views.paypal, name="paypal"),
-    path("paypal/result/<str:pk>/", views.payment, name="payment"),
-    path("paypal/check-payment/<str:pk>/", views.checkPayment, name="checkPayment"),
+    path("", views.paypal, name="paypal"),
+    path("result/<str:pk>/", views.payment, name="payment"),
+    path("check-payment/<str:pk>/", views.checkPayment, name="checkPayment"),
 ]
