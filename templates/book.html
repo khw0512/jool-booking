@@ -349,7 +349,11 @@
         <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
         <div>
           <p class="footer_line">
-            이용약관 | 개인정보 처리방침 | 고객지원
+            <a href="{% url "reservation:use" %}">이용약관</a>
+            |
+            <a href="{% url "reservation:policy" %}">개인정보 처리방침</a>
+            |
+            <a href="{% url "reservation:cs" %}">고객지원</a>
           </p>
         </div>
       </div>

@@ -55,6 +55,18 @@ def pay(request):
     return render(request, "admin/pay.html")
 
 
+def policy(request):
+    return render(request, "terms/privacy.html")
+
+
+def cs(request):
+    return render(request, "terms/cs.html")
+
+
+def use(request):
+    return render(request, "terms/use.html")
+
+
 def book(request):
     if request.method == "POST":
         reservation = Reservation(
