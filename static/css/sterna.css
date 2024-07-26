@@ -909,7 +909,11 @@ img {
 
     #mainp-reserv-button{
         display:contents;
-}
+    }
+
+    .reserv-img {
+    max-width:200px; 
+    }
     
 }
 
