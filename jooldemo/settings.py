@@ -30,6 +30,10 @@ ALLOWED_HOSTS = env.list(
     "ALLOWED_HOSTS", default=["sterun.kr", "www.sterun.kr", "127.0.0.1"]
 )
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+SECURE_SSL_REDIRECT = True
+
 CSRF_TRUSTED_ORIGINS = env.list(
     "CSRF_TRUSTED_ORIGINS", default=["https://jasonblue.gabia.io"]
 )
