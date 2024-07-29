@@ -1,0 +1,1104 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+
+    <title>STERUN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+    <style type="text/css">
+      .tg {
+        min-width: 650px;
+        margin: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      .tg td {
+        width: 30px;
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg .tg-baqh {
+        position: sticky;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        vertical-align: top;
+        background-color: #E8E8E8;
+        font-weight: bold;
+      }
+
+      .tg .tg-baqhc {
+        width: 100%;
+        text-align: center;
+        vertical-align: top;
+        background-color: #E8E8E8;
+        font-weight: bold;
+      }
+
+      .tg .tg-9ge1 {
+        background-color: #FFF;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .tg .tg-0lax {
+        position: sticky;
+        left: 0;
+        text-align: center;
+        background-color: #E8E8E8;
+        font-weight: bold;
+      }
+
+      thead tr {
+        font-weight: bold;
+        background-color: #E8E8E8;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li style="line-height:2rem;">
+          <a href="https://www.instagram.com/joollab/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li style="line-height:2rem;">
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+          <a href="{% url "reservation:contact" %}">
+            <p class="contact-button-nav">CONTACT</p>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+        </a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:sterna" %}">HOME</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:book" %}">RESERVATION</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="navbar-space"></div>
+    <div style="height:20px;"></div>
+
+    <div style="min-height:100vh; max-width:700px; margin:auto;">
+
+      <div class="flex-column">
+        <div class="title tocenter" style="margin-bottom:40px;">SIZE TABLE</div>
+        <div class="tabs">
+          <div class="tab-link current" data-tab="tab-1">SHOES</div>
+          <div class="tab-link" data-tab="tab-2">MAN</div>
+          <div class="tab-link" data-tab="tab-3">WOMAN</div>
+        </div>
+
+        <div id="tab-1" class="tab-content current" style="overflow:scroll;">
+          <table class="tg">
+
+            <tr>
+              <th class="tg-baqh" colspan="2">KR(mm)</th>
+              <th class="tg-9ge1">
+                <span>220</span></th>
+              <th class="tg-9ge1">
+                <span>225</span></th>
+              <th class="tg-9ge1">
+                <span>230</span></th>
+              <th class="tg-9ge1">
+                <span>235</span></th>
+              <th class="tg-9ge1">
+                <span>240</span></th>
+              <th class="tg-9ge1">
+                <span>245</span></th>
+              <th class="tg-9ge1">
+                <span>250</span></th>
+              <th class="tg-9ge1">
+                <span>255</span></th>
+              <th class="tg-9ge1">
+                <span>260</span></th>
+              <th class="tg-9ge1">
+                <span>265</span></th>
+              <th class="tg-9ge1">
+                <span>270</span></th>
+              <th class="tg-9ge1">
+                <span>275</span></th>
+              <th class="tg-9ge1">
+                <span>280</span></th>
+              <th class="tg-9ge1">
+                <span>285</span></th>
+              <th class="tg-9ge1">
+                <span>290</span></th>
+              <th class="tg-9ge1">
+                <span>295</span></th>
+              <th class="tg-9ge1">
+                <span>300</span></th>
+              <th class="tg-9ge1">
+                <span>305</span></th>
+              <th class="tg-9ge1">
+                <span>310</span></th>
+              <th class="tg-9ge1">
+                <span>315</span></th>
+              <th class="tg-9ge1">
+                <span>320</span></th>
+            </tr>
+
+            <tr>
+              <td class="tg-baqh" colspan="2">JP(cm)</td>
+              <td class="tg-9ge1">
+                <span>22</span></td>
+              <td class="tg-9ge1">
+                <span>22.5</span></td>
+              <td class="tg-9ge1">
+                <span>23</span></td>
+              <td class="tg-9ge1">
+                <span>23.5</span></td>
+              <td class="tg-9ge1">
+                <span>24</span></td>
+              <td class="tg-9ge1">
+                <span>24.5</span></td>
+              <td class="tg-9ge1">
+                <span>25</span></td>
+              <td class="tg-9ge1">
+                <span>25.5</span></td>
+              <td class="tg-9ge1">
+                <span>26</span></td>
+              <td class="tg-9ge1">
+                <span>26.5</span></td>
+              <td class="tg-9ge1">
+                <span>27</span></td>
+              <td class="tg-9ge1">
+                <span>27.5</span></td>
+              <td class="tg-9ge1">
+                <span>28</span></td>
+              <td class="tg-9ge1">
+                <span>28.5</span></td>
+              <td class="tg-9ge1">
+                <span>29</span></td>
+              <td class="tg-9ge1">
+                <span>29.5</span></td>
+              <td class="tg-9ge1">
+                <span>30</span></td>
+              <td class="tg-9ge1">
+                <span>30.5</span></td>
+              <td class="tg-9ge1">
+                <span>31</span></td>
+              <td class="tg-9ge1">
+                <span>31.5</span></td>
+              <td class="tg-9ge1">
+                <span>32</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqh" rowspan="2">International</td>
+              <td class="tg-baqhc">Male</td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXXS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>S</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>M</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>L</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XL</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXL</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqhc">Female</td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXXS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XS</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>S</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>M</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>L</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XL</span></td>
+              <td class="tg-9ge1" colspan="2">
+                <span>XXL</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqh" rowspan="2">US</td>
+              <td class="tg-baqhc">Male</td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>6</span></td>
+              <td class="tg-9ge1">
+                <span>6.5</span></td>
+              <td class="tg-9ge1">
+                <span>7</span></td>
+              <td class="tg-9ge1">
+                <span>7.5</span></td>
+              <td class="tg-9ge1">
+                <span>8</span></td>
+              <td class="tg-9ge1">
+                <span>8.5</span></td>
+              <td class="tg-9ge1">
+                <span>9</span></td>
+              <td class="tg-9ge1">
+                <span>9.5</span></td>
+              <td class="tg-9ge1">
+                <span>10</span></td>
+              <td class="tg-9ge1">
+                <span>10.5</span></td>
+              <td class="tg-9ge1">
+                <span>11</span></td>
+              <td class="tg-9ge1">
+                <span>11.5</span></td>
+              <td class="tg-9ge1">
+                <span>12</span></td>
+              <td class="tg-9ge1">
+                <span>12.5</span></td>
+              <td class="tg-9ge1">
+                <span>13</span></td>
+              <td class="tg-9ge1">
+                <span>13.5</span></td>
+              <td class="tg-9ge1">
+                <span>14</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqhc">Female</td>
+              <td class="tg-9ge1">
+                <span>5</span></td>
+              <td class="tg-9ge1">
+                <span>5.5</span></td>
+              <td class="tg-9ge1">
+                <span>6</span></td>
+              <td class="tg-9ge1">
+                <span>6.5</span></td>
+              <td class="tg-9ge1">
+                <span>7</span></td>
+              <td class="tg-9ge1">
+                <span>7.5</span></td>
+              <td class="tg-9ge1">
+                <span>8</span></td>
+              <td class="tg-9ge1">
+                <span>8.5</span></td>
+              <td class="tg-9ge1">
+                <span>9</span></td>
+              <td class="tg-9ge1">
+                <span>9.5</span></td>
+              <td class="tg-9ge1">
+                <span>10</span></td>
+              <td class="tg-9ge1">
+                <span>10.5</span></td>
+              <td class="tg-9ge1">
+                <span>11</span></td>
+              <td class="tg-9ge1">
+                <span>11.5</span></td>
+              <td class="tg-9ge1">
+                <span>12</span></td>
+              <td class="tg-9ge1">
+                <span>12.5</span></td>
+              <td class="tg-9ge1">
+                <span>13</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqh" rowspan="2">UK</td>
+              <td class="tg-baqhc">Male</td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>5</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>6</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>7</span></td>
+              <td class="tg-9ge1">
+                <span>7.5</span></td>
+              <td class="tg-9ge1">
+                <span>8</span></td>
+              <td class="tg-9ge1">
+                <span>8.5</span></td>
+              <td class="tg-9ge1">
+                <span>9</span></td>
+              <td class="tg-9ge1">
+                <span>9.5</span></td>
+              <td class="tg-9ge1">
+                <span>10</span></td>
+              <td class="tg-9ge1">
+                <span>10.5</span></td>
+              <td class="tg-9ge1">
+                <span>11</span></td>
+              <td class="tg-9ge1">
+                <span>11.5</span></td>
+              <td class="tg-9ge1">
+                <span>12</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>13</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqhc">Female</td>
+              <td class="tg-9ge1">
+                <span>3</span></td>
+              <td class="tg-9ge1">
+                <span>3.5</span></td>
+              <td class="tg-9ge1">
+                <span>4</span></td>
+              <td class="tg-9ge1">
+                <span>4.5</span></td>
+              <td class="tg-9ge1">
+                <span>5</span></td>
+              <td class="tg-9ge1">
+                <span>5.5</span></td>
+              <td class="tg-9ge1">
+                <span>6</span></td>
+              <td class="tg-9ge1">
+                <span>6.5</span></td>
+              <td class="tg-9ge1">
+                <span>7</span></td>
+              <td class="tg-9ge1">
+                <span>7.5</span></td>
+              <td class="tg-9ge1">
+                <span>8</span></td>
+              <td class="tg-9ge1">
+                <span>8.5</span></td>
+              <td class="tg-9ge1">
+                <span>9</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqh" rowspan="2">EU</td>
+              <td class="tg-baqhc">Male</td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>38</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>39</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>40.5</span></td>
+              <td class="tg-9ge1">
+                <span>41</span></td>
+              <td class="tg-9ge1">
+                <span>42</span></td>
+              <td class="tg-9ge1">
+                <span>42.5</span></td>
+              <td class="tg-9ge1">
+                <span>43</span></td>
+              <td class="tg-9ge1">
+                <span>44</span></td>
+              <td class="tg-9ge1">
+                <span>44.5</span></td>
+              <td class="tg-9ge1">
+                <span>45.5</span></td>
+              <td class="tg-9ge1">
+                <span>46</span></td>
+              <td class="tg-9ge1">
+                <span>46.5</span></td>
+              <td class="tg-9ge1">
+                <span>47</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>48</span></td>
+            </tr>
+            <tr>
+              <td class="tg-baqhc">Female</td>
+              <td class="tg-9ge1">
+                <span>36</span></td>
+              <td class="tg-9ge1">
+                <span>36.5</span></td>
+              <td class="tg-9ge1">
+                <span>37</span></td>
+              <td class="tg-9ge1">
+                <span>37.5</span></td>
+              <td class="tg-9ge1">
+                <span>38</span></td>
+              <td class="tg-9ge1">
+                <span>38.5</span></td>
+              <td class="tg-9ge1">
+                <span>39</span></td>
+              <td class="tg-9ge1">
+                <span>39.5</span></td>
+              <td class="tg-9ge1">
+                <span>40</span></td>
+              <td class="tg-9ge1">
+                <span>40.5</span></td>
+              <td class="tg-9ge1">
+                <span>41</span></td>
+              <td class="tg-9ge1">
+                <span>41.5</span></td>
+              <td class="tg-9ge1">
+                <span>42</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+              <td class="tg-9ge1">
+                <span>-</span></td>
+            </tr>
+
+          </table>
+
+        </div>
+        <div id="tab-2" class="tab-content flex-column" style="overflow:scroll;">
+          <div style="font-size:1.2rem; font-weight:bold; padding:20px;">TOP</div>
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0lax">구분</th>
+                <th class="tg-f4yw">
+                  <span>한국</span></th>
+                <th class="tg-vbs7" colspan="2">
+                  <span>미국(US)</span></th>
+                <th class="tg-f4yw">
+                  <span>영국(UK)</span></th>
+                <th class="tg-vbs7" colspan="2">
+                  <span>일본</span></th>
+                <th class="tg-f4yw">
+                  <span>프랑스</span></th>
+                <th class="tg-vbs7">
+                  <span>유럽</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">XS</td>
+                <td class="tg-9ge1">
+                  <span>85</span></td>
+                <td class="tg-tiu0">
+                  <span>85-90</span></td>
+                <td class="tg-tiu0">
+                  <span>14</span></td>
+                <td class="tg-9ge1">
+                  <span>0</span></td>
+                <td class="tg-tiu0">
+                  <span>S</span></td>
+                <td class="tg-tiu0">
+                  <span>36</span></td>
+                <td class="tg-9ge1">
+                  <span>40</span></td>
+                <td class="tg-tiu0">
+                  <span>44-46</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">S</td>
+                <td class="tg-9ge1">
+                  <span>90</span></td>
+                <td class="tg-tiu0">
+                  <span>90-95</span></td>
+                <td class="tg-tiu0">
+                  <span>15</span></td>
+                <td class="tg-9ge1">
+                  <span>1</span></td>
+                <td class="tg-tiu0">
+                  <span>M</span></td>
+                <td class="tg-tiu0">
+                  <span>38</span></td>
+                <td class="tg-9ge1">
+                  <span>42, 44</span></td>
+                <td class="tg-tiu0">
+                  <span>46</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">M</td>
+                <td class="tg-9ge1">
+                  <span>95</span></td>
+                <td class="tg-tiu0">
+                  <span>95-100</span></td>
+                <td class="tg-tiu0">
+                  <span>15.5-16</span></td>
+                <td class="tg-9ge1">
+                  <span>2</span></td>
+                <td class="tg-tiu0">
+                  <span>L</span></td>
+                <td class="tg-tiu0">
+                  <span>40</span></td>
+                <td class="tg-9ge1">
+                  <span>46, 48</span></td>
+                <td class="tg-tiu0">
+                  <span>48</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">L</td>
+                <td class="tg-9ge1">
+                  <span>100</span></td>
+                <td class="tg-tiu0">
+                  <span>100-105</span></td>
+                <td class="tg-tiu0">
+                  <span>16.5</span></td>
+                <td class="tg-9ge1">
+                  <span>3</span></td>
+                <td class="tg-tiu0">
+                  <span>LL, XL</span></td>
+                <td class="tg-tiu0">
+                  <span>42</span></td>
+                <td class="tg-9ge1">
+                  <span>50, 52</span></td>
+                <td class="tg-tiu0">
+                  <span>50</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">XL</td>
+                <td class="tg-9ge1">
+                  <span>105</span></td>
+                <td class="tg-tiu0">
+                  <span>105-110</span></td>
+                <td class="tg-tiu0">
+                  <span>17.5</span></td>
+                <td class="tg-9ge1">
+                  <span>4</span></td>
+                <td class="tg-tiu0">
+                  <span>-</span></td>
+                <td class="tg-tiu0">
+                  <span>44</span></td>
+                <td class="tg-9ge1">
+                  <span>54, 56, 58</span></td>
+                <td class="tg-tiu0">
+                  <span>52</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">XXL</td>
+                <td class="tg-9ge1">
+                  <span>110</span></td>
+                <td class="tg-tiu0">
+                  <span>110-</span></td>
+                <td class="tg-tiu0">
+                  <span>-</span></td>
+                <td class="tg-9ge1">
+                  <span>5</span></td>
+                <td class="tg-tiu0">
+                  <span>-</span></td>
+                <td class="tg-tiu0">
+                  <span>46</span></td>
+                <td class="tg-9ge1">
+                  <span>60, 62</span></td>
+                <td class="tg-tiu0">
+                  <span>54</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size:1.2rem; font-weight:bold; padding:40px 20px 20px 20px;">BOTTOM</div>
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">사이즈</span></th>
+                <th class="tg-cly1">XXS</th>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">XS</span></th>
+                <th class="tg-cly1">S</th>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">M</span></th>
+                <th class="tg-cly1">L</th>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">XL</span></th>
+                <th class="tg-cly1">2XL</th>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">3XL</span></th>
+                <th class="tg-cly1">4XL</th>
+                <th class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">5XL</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">허리둘레(cm)</span></td>
+                <td class="tg-cly1">&lt; 67</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">67 - 73</span></td>
+                <td class="tg-cly1">73 - 79</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">79 - 85</span></td>
+                <td class="tg-cly1">85 - 91</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">91 - 97</span></td>
+                <td class="tg-cly1">97 - 104</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">104 - 112</span></td>
+                <td class="tg-cly1">112 - 120</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">120+</span></td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">엉덩이둘레(cm)</span></td>
+                <td class="tg-cly1">&lt; 81.5</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">81.5 - 86.5</span></td>
+                <td class="tg-cly1">86.5 - 91.5</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">91.5 - 96.5</span></td>
+                <td class="tg-cly1">96.5 - 101.5</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">101.5 - 106.5</span></td>
+                <td class="tg-cly1">106.5 - 112</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">112 - 118</span></td>
+                <td class="tg-cly1">118 - 123</td>
+                <td class="tg-cly1">
+                  <span style="background-color:var(--podium-cds-color-bg-primary)">123+</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div id="tab-3" class="tab-content flex-column" style="overflow:scroll;">
+          <div style="font-size:1.2rem; font-weight:bold; padding:20px;">TOP</div>
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0lax">구분</th>
+                <th class="tg-f4yw">
+                  <span>한국</span></th>
+                <th class="tg-vbs7">
+                  <span>미국(US)</span></th>
+                <th class="tg-f4yw">
+                  <span>일본</span></th>
+                <th class="tg-vbs7">
+                  <span>영국, 호주</span></th>
+                <th class="tg-f4yw">
+                  <span>프랑스</span></th>
+                <th class="tg-vbs7">
+                  <span>이탈리아</span></th>
+                <th class="tg-f4yw">
+                  <span>유럽</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">XS</td>
+                <td class="tg-9ge1">
+                  <span>44(85)</span></td>
+                <td class="tg-tiu0">
+                  <span>2</span></td>
+                <td class="tg-9ge1">
+                  <span>44</span></td>
+                <td class="tg-tiu0">
+                  <span>4-6</span></td>
+                <td class="tg-9ge1">
+                  <span>34</span></td>
+                <td class="tg-tiu0">
+                  <span>80</span></td>
+                <td class="tg-9ge1">
+                  <span>34</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">S</td>
+                <td class="tg-9ge1">
+                  <span>55(90)</span></td>
+                <td class="tg-tiu0">
+                  <span>4</span></td>
+                <td class="tg-9ge1">
+                  <span>55</span></td>
+                <td class="tg-tiu0">
+                  <span>8-10</span></td>
+                <td class="tg-9ge1">
+                  <span>36, 44</span></td>
+                <td class="tg-tiu0">
+                  <span>90</span></td>
+                <td class="tg-9ge1">
+                  <span>36</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">M</td>
+                <td class="tg-9ge1">
+                  <span>66(95)</span></td>
+                <td class="tg-tiu0">
+                  <span>6</span></td>
+                <td class="tg-9ge1">
+                  <span>66</span></td>
+                <td class="tg-tiu0">
+                  <span>10-12</span></td>
+                <td class="tg-9ge1">
+                  <span>38, 48</span></td>
+                <td class="tg-tiu0">
+                  <span>95</span></td>
+                <td class="tg-9ge1">
+                  <span>38</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">L</td>
+                <td class="tg-9ge1">
+                  <span>77(100)</span></td>
+                <td class="tg-tiu0">
+                  <span>8</span></td>
+                <td class="tg-9ge1">
+                  <span>77</span></td>
+                <td class="tg-tiu0">
+                  <span>16-18</span></td>
+                <td class="tg-9ge1">
+                  <span>40, 42</span></td>
+                <td class="tg-tiu0">
+                  <span>100</span></td>
+                <td class="tg-9ge1">
+                  <span>40</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">XL</td>
+                <td class="tg-9ge1">
+                  <span>88(105)</span></td>
+                <td class="tg-tiu0">
+                  <span>10</span></td>
+                <td class="tg-9ge1">
+                  <span>88L</span></td>
+                <td class="tg-tiu0">
+                  <span>20-22</span></td>
+                <td class="tg-9ge1">
+                  <span>44, 46, 48</span></td>
+                <td class="tg-tiu0">
+                  <span>105</span></td>
+                <td class="tg-9ge1">
+                  <span>42</span></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">XXL</td>
+                <td class="tg-9ge1">
+                  <span>110</span></td>
+                <td class="tg-tiu0">
+                  <span>12</span></td>
+                <td class="tg-9ge1">
+                  <span>-</span></td>
+                <td class="tg-tiu0">
+                  <span>-</span></td>
+                <td class="tg-9ge1">
+                  <span>50, 52, 54</span></td>
+                <td class="tg-tiu0">
+                  <span>110</span></td>
+                <td class="tg-9ge1">
+                  <span>44</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </tbody>
+      </table>
+      <div style="font-size:1.2rem; font-weight:bold; padding:40px 20px 20px 20px;">BOTTOM</div>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-203s">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">사이즈</span></th>
+            <th class="tg-81wz">XXS</th>
+            <th class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">XS</span></th>
+            <th class="tg-81wz">S</th>
+            <th class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">M</span></th>
+            <th class="tg-81wz">L</th>
+            <th class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">XL</span></th>
+            <th class="tg-81wz">2XL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">한국 사이즈</span></td>
+            <td class="tg-81wz">-</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">60</span></td>
+            <td class="tg-81wz">65</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">70</span></td>
+            <td class="tg-81wz">75</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">80</span></td>
+            <td class="tg-81wz">85</td>
+          </tr>
+          <tr>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">허리둘레(cm)</span></td>
+            <td class="tg-81wz">62.5 - 65.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">65.5 - 68.5</span></td>
+            <td class="tg-81wz">68.5 - 71.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">71.5 - 75.5</span></td>
+            <td class="tg-81wz">75.5 - 80.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">80.5 - 85.5</span></td>
+            <td class="tg-81wz">85.5 - 90.5</td>
+          </tr>
+          <tr>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">엉덩이둘레(cm)</span></td>
+            <td class="tg-81wz">83.5 - 86.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">86.5 - 89.5</span></td>
+            <td class="tg-81wz">89.5 - 92.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">92.5 - 96.5</span></td>
+            <td class="tg-81wz">96.5 - 101.5</td>
+            <td class="tg-81wz">
+              <span style="background-color:var(--podium-cds-color-bg-primary)">101.5 - 106.5</span></td>
+            <td class="tg-81wz">106.5 - 111.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div class="navbar-space"></div>
+</div>
+
+<!-- mobile nav modal hedden-->
+<div id="modalContainer" class="hidden">
+<div id="modalContent">
+  <div class="mobile-nav-up">
+    <div class='mobile-nav-top'>
+      <a href="{% url "reservation:index" %}">
+        <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+      </a>
+      <i class="fa solid fa-x" id="modalCloseButton"></i>
+    </div>
+    <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
+      <li>HOME</li>
+    </a>
+    <a class='modal-list' href="{% url "reservation:book" %}">
+      <li>RESERVATION</li>
+    </a>
+    <a class='modal-list' href="{% url "reservation:check" %}">
+      <li>MY PAGE</li>
+    </a>
+  </div>
+
+  <div class='mobile-nav-bottom'>
+
+    <ul class="modal-sns">
+      <li class="modal-sns-list">
+        <a href="https://www.instagram.com/joollab/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li class="modal-sns-list">
+        <a href="https://www.x.com/Jason9835958008" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </li>
+      <li class="modal-sns-list">
+        <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+        <a href="{% url "reservation:contact" %}">
+          <p class="contact-button-nav">CONTACT</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+<script src="{% static "js/main.js" %}"></script>
+<!--jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+// 등장액션 대상: .showBx
+const showBox = document.querySelectorAll(".showBox");
+const fadeIn = document.querySelectorAll(".fade-in-long");
+// 화면높이값 2/3 구하기
+const screenH = window.innerHeight * 5 / 6;
+
+// 등장액션 대상 위치값 리턴함수
+const retVal = ele => ele
+  .getBoundingClientRect()
+  .top;
+
+// 클래스 넣기 함수
+const showTit = x => {
+  let xval = retVal(x);
+  if (xval < screenH && xval > 0) {
+    // 요소가 화면에 나타날 때 opacity를 1로 변경
+    x
+      .classList
+      .add("on");
+  }
+};
+
+const fadeInTit = y => {
+  let yval = retVal(y);
+  // 요소가 화면에 나타날 때 opacity를 1로 변경
+  y
+    .classList
+    .add("on");
+}
+
+for (let y of fadeIn) 
+  fadeInTit(y);
+
+window.addEventListener("scroll", () => {
+  // 스크롤 등장요소 개수만큼 for문 돌리기
+  for (let x of showBox) 
+    showTit(x);
+  }
+);
+</script>
+
+<!--tab-->
+<script>
+$(document).ready(function () {
+  $("div.tabs div").click(function () {
+    var tab_id = $(this).attr("data-tab");
+
+    $("div.tabs div").removeClass("current");
+    $(".tab-content").removeClass("current");
+
+    $(this).addClass("current");
+    $("#" + tab_id).addClass("current");
+  });
+});
+</script>
+
+</body>
+<footer>
+<div class="tocenter">
+<div class="depart-line"></div>
+</div>
+<div class="footer_div">
+<div>
+  <p class="footer_line">JoolLab | 줄랩 | 대표자 및 개인정보책임자 : 김현우</p>
+  <p class="footer_line">사업자등록번호 : 189-12-02532 | 통신판매업신고번호 : 추후획득</p>
+  <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+</div>
+<div>
+  <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+  <div>
+    <p class="footer_line">
+      <a href="{% url "reservation:use" %}">이용약관</a>
+      |
+      <a href="{% url "reservation:policy" %}">개인정보 처리방침</a>
+      |
+      <a href="{% url "reservation:cs" %}">고객지원</a>
+    </p>
+  </div>
+</div>
+</div>
+</footer>
+
+</html>

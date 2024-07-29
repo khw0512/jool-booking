@@ -241,15 +241,14 @@ img {
 }
 
 .main-button {
-    width:300px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     transition: 0.2s;
     color: var(--sterun-secondary-color);
     background-color: var(--sterun-primary-color);
-    padding: 30px 20px 30px 20px;
+    padding: 20px 30px 20px 30px;
     border-radius: 60px;
-    border: var(--sterun-secondary-color) solid 1px;
+    border: var(--sterun-secondary-color) solid 2px;
     text-align: center;
 }
 
@@ -274,7 +273,6 @@ img {
     font-weight: bold;
     color: var(--sterun-white-color);
     background-color: var(--sterun-secondary-color);
-    padding: 10px 20px 10px 20px;
     border-radius: 20px;
 }
 
@@ -307,7 +305,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--sterun-white-color);
+    background-color: var(--sterun-grey-color); 
     z-index: 10000;
     border-bottom: solid var(--sterun-black-color) 1px;
 }
@@ -560,7 +558,7 @@ img {
 
 .card-img img {
     width:100%;
-    max-height:200px;
+    height:200px;
 }
 
 .card-title {
@@ -570,7 +568,7 @@ img {
 }
 
 .card-desc {
-    font-size:0.7rem;
+    font-size:1rem;
     font-weight: normal;
     margin-top:10px;
 }
@@ -690,6 +688,50 @@ img {
 
 #mainp-reserv-button{
     display: none;
+}
+
+/* tabs */
+
+div.tabs {  
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+div.tabs div {
+  width: 33%;
+  text-align: center;
+  background: none;
+  color: var(--text-color-black);
+  display: inline-block;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+div.tabs div.current {
+  width: 32%;
+  text-align: center;
+  background: var(--sterun-primary-color);
+  color: var(--nav-text-color);
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 15px;
+  border-top: solid var(--nav-text-color) 2px;
+}
+
+.tab-content.current {
+  display: inherit;
 }
 
 
@@ -862,7 +904,7 @@ img {
         width: 31%;
         font-size: 0.8rem;
         text-align: center;
-        background: var(--nav-bg-color);
+        background: var(--sterun-primary-color);
         color: var(--sterun-secondary-color);
         font-weight: 600;
         padding-top: 10px;
@@ -872,12 +914,6 @@ img {
     .card-button {
         display: flex;
         justify-content: center;
-    }
-
-    .main-button {
-        width: 200px;
-        margin-bottom:30px;
-        font-size: 1rem;
     }
 
     .modal-sns {

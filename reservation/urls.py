@@ -13,6 +13,7 @@ urlpatterns = [
     path("sterna/check/", views.check, name="check"),
     path("sterna/contact/", views.contact, name="contact"),
     path("sterna/checked/", views.checked, name="checked"),
+    path("sterna/size/", views.sizepage, name="sizepage"),
     path("ready/", views.ready, name="ready"),
     path("sterna/", views.sterna, name="sterna"),
     path("sterna/mypage/<str:pk>", views.mypage, name="mypage"),

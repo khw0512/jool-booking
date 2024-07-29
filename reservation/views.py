@@ -67,6 +67,10 @@ def use(request):
     return render(request, "terms/use.html")
 
 
+def sizepage(request):
+    return render(request, "sizepage.html")
+
+
 def book(request):
     if request.method == "POST":
         reservation = Reservation(
