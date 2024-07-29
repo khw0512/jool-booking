@@ -305,7 +305,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--sterun-grey-color); 
+    background-color: var(--sterun-white-color);
     z-index: 10000;
     border-bottom: solid var(--sterun-black-color) 1px;
 }
