@@ -966,6 +966,10 @@ div.tabs div.current {
     .reserv-img {
     max-width:200px; 
     }
+
+    .main-button {
+        margin-bottom:20px;
+    }
     
 }
 
