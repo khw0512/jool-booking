@@ -207,7 +207,10 @@ def register(request):
         response = requests.post(
             url,
             headers={"Authorization": "Bearer " + line_token},
-            data={"message": "새로운 예약이 접수되었습니다."},
+            data={
+                "message": "새로운 예약이 접수되었습니다. 예약번호: "
+                + str(request.POST.get("reserv_id"))
+            },
         )
 
         # 요청 결과 출력
