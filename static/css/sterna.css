@@ -411,7 +411,6 @@ button {
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    height: 120px;
     position: absolute;
     background-color: var(--sterun-white-color);
     padding: 20px 5% 20px 5%;
