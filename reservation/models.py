@@ -94,7 +94,11 @@ class Reservation(models.Model):
         ("ST7", "입고 완료"),
     ]
 
-    reserv_id = models.CharField(max_length=20, primary_key=True)
+    reserv_id = models.CharField(
+        max_length=20,
+        primary_key=True,
+        default="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
+    )
     client = models.CharField(max_length=20)
     contact = models.CharField(max_length=50, blank=False)
     start_date = models.DateField()

@@ -548,7 +548,7 @@ button {
 }   
 
 .card-box {
-    max-width:200px;
+    max-width:250px;
     border: solid 1px gainsboro;
     border-radius: 20px;
     padding: 20px;
@@ -758,6 +758,7 @@ div.tabs div.current {
     .flex-row{
         display: flex;
         flex-direction: column;
+        align-items:center;
     }
 
     .flex-row-notwrap{
@@ -766,8 +767,8 @@ div.tabs div.current {
     }
 
     .modal-list>li {
-        line-height: 2;
-        font-size: 1.4rem;
+        line-height: 3;
+        font-size: 1.5rem;
         font-weight: 600;
         text-align: center;
         color: var(--sterun-black-color);
@@ -973,6 +974,18 @@ div.tabs div.current {
 
     .main-button {
         margin-bottom:20px;
+    }
+
+    .policy-section{
+        margin: 0px 20px 0px 20px;
+    }
+
+    .refund-section{
+        margin: 0px 20px 0px 20px;
+    }
+
+    .check-box{
+        margin: 0px 20px 20px 20px;
     }
     
 }
