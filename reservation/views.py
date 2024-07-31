@@ -35,35 +35,23 @@ def check(request):
 
 def info(request):
 
-    url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
+    # LINE Notify 액세스 토큰
+    token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
 
-    # kapi.kakao.com/v2/api/talk/memo/default/send
+    # LINE Notify API 엔드포인트 URL
+    url = "https://notify-api.line.me/api/notify"
 
-    headers = {
-        "Authorization": "Bearer "
-        + "fTUb6YqeBkJKT_h6zSZEdXT939dRIiUVAAAAAQo8IpsAAAGRB1gm1d0Jz_1t7hqp"
-    }
+    # 이미지 파일 열기
 
-    data = {
-        "template_object": json.dumps(
-            {
-                "object_type": "text",
-                "text": "새로운 예약이 등록되었습니다",
-                "link": {"web_url": "sterun.kr/sterna/data"},
-            }
-        )
-    }
+    # POST 요청 보내기
+    response = requests.post(
+        url,
+        headers={"Authorization": "Bearer " + token},
+        data={"message": "새로운 예약이 접수되었습니다."},
+    )
 
-    response = requests.post(url, headers=headers, data=data)
-    response.status_code
-    print(response.status_code)
-    if response.json().get("result_code") == 0:
-        print("메시지를 성공적으로 보냈습니다.")
-    else:
-        print(
-            "메시지를 성공적으로 보내지 못했습니다. 오류메시지 : "
-            + str(response.json())
-        )
+    # 요청 결과 출력
+    print(response.text)
 
     return render(request, "backup/info.html")
 
@@ -206,6 +194,25 @@ def register(request):
         )
 
         reservation.save()
+
+        # LINE Notify 액세스 토큰
+        line_token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
+
+        # LINE Notify API 엔드포인트 URL
+        url = "https://notify-api.line.me/api/notify"
+
+        # 이미지 파일 열기
+
+        # POST 요청 보내기
+        response = requests.post(
+            url,
+            headers={"Authorization": "Bearer " + line_token},
+            data={"message": "새로운 예약이 접수되었습니다."},
+        )
+
+        # 요청 결과 출력
+        print(response.text)
+
         return redirect("reservation:data")
     else:
         form = ReservationForm()
