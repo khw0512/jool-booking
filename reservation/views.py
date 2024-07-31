@@ -1,6 +1,8 @@
+import json
 from django.shortcuts import render
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
+import requests
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
@@ -32,7 +34,35 @@ def check(request):
 
 
 def info(request):
-    return render(request, "info.html")
+
+    url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
+    token = "C6DvsS-0lU2A0d8m0mXtQX6CDA8mHuaGAAAAAQo9c04AAAGRBxMbfN0Jz_1t7hqp"
+
+    headers = {"Authorization": "Bearer " + token}
+
+    data = {
+        "template_object": json.dumps(
+            {
+                "object_type": "text",
+                "text": "Hello, world!",
+                "link": {"web_url": "https://www.sterun.kr"},
+            }
+        )
+    }
+
+    response = requests.post(url, headers=headers, data=data)
+    response.status_code
+    print(response.status_code)
+
+    if response.json().get("result_code") == 0:
+        print("메시지를 성공적으로 보냈습니다.")
+    else:
+        print(
+            "메시지를 성공적으로 보내지 못했습니다. 오류메시지 : "
+            + str(response.json())
+        )
+
+    return render(request, "backup/info.html")
 
 
 def contact(request):
@@ -125,6 +155,7 @@ def new(request):
 @login_required(login_url="users:login")
 def register(request):
     if request.method == "POST":
+
         if request.POST.get("completed") == "on":
             completed = "True"
         else:

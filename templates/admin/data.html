@@ -20,6 +20,15 @@
     <title>STERUN</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <style>
+      tr th {
+        border: solid 1px grey;
+      }
+
+      tr td {
+        border: solid 1px grey;
+      }
+    </style>
   </head>
 
   <body>
@@ -38,7 +47,7 @@
     </div>
     {% if user.is_staff %}
       <div>
-        <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
+        <table border="1px solid black" bordercolor="green" style="font-size:0.6rem; width:100%;">
           <tr style="background-color:black; color:white;">
             <th scope="col" style="width:30px; text-align:center">수정</th>
             <th scope="col" style="width:30px; text-align:center">종료여부</th>
@@ -114,12 +123,12 @@
           <div class="flex-column">
             <div class="tocenter" style="margin:20px 0 0 0;">
               <a href="{% url "reservation:register" %}">
-                <button style="padding: 5px;">예약등록</button>
+                <button style="padding: 5px; border:solid 2px green;">예약등록</button>
               </a>
             </div>
             <div class="tocenter" style="margin:20px 0 0 0;">
               <a href="{% url "users:logout" %}">
-                <button style="padding: 5px;">로그아웃</button>
+                <button style="padding: 5px; border:solid 2px green;">로그아웃</button>
               </a>
             </div>
           </div>
