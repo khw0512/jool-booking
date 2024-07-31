@@ -1,0 +1,178 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>STERUN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li style="line-height:2rem;">
+          <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li style="line-height:2rem;">
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+          <a href="{% url "reservation:contact" %}">
+            <p class="contact-button-nav">연락처</p>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+        </a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:book" %}">예약하기</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:check" %}">내 예약</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+
+    </nav>
+    <div class="navbar-space"></div>
+
+    {% block content %}{% endblock %}
+
+    <!-- mobile nav modal hedden-->
+    <div id="modalContainer" class="hidden">
+      <div id="modalContent">
+        <div class="mobile-nav-up">
+          <div class='mobile-nav-top'>
+            <a href="{% url "reservation:sterna" %}">
+              <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+            </a>
+
+            <i class="fa solid fa-x" id="modalCloseButton"></i>
+          </div>
+          <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:book" %}">
+            <li>예약하기</li>
+          </a>
+          <a class='modal-list' href="{% url "reservation:check" %}">
+            <li>내 예약</li>
+          </a>
+        </div>
+
+        <div class='mobile-nav-bottom'>
+
+          <ul class="modal-sns">
+            <li class="modal-sns-list">
+              <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="modal-sns-list">
+              <a href="https://www.x.com/Jason9835958008" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </li>
+            <li class="modal-sns-list">
+              <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+              <a href="{% url "reservation:contact" %}">
+                <p class="contact-button-nav">연락처</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // 등장액션 대상: .showBx
+      const showBox = document.querySelectorAll(".showBox");
+      const fadeIn = document.querySelectorAll(".fade-in");
+      // 화면높이값 2/3 구하기
+      const screenH = window.innerHeight * 5 / 6;
+
+      // 등장액션 대상 위치값 리턴함수
+      const retVal = ele => ele
+        .getBoundingClientRect()
+        .top;
+
+      // 클래스 넣기 함수
+      const showTit = x => {
+        let xval = retVal(x);
+        if (xval < screenH && xval > 0) {
+          // 요소가 화면에 나타날 때 opacity를 1로 변경
+          x
+            .classList
+            .add("on");
+        }
+      };
+
+      const fadeInTit = y => {
+        let yval = retVal(y);
+        // 요소가 화면에 나타날 때 opacity를 1로 변경
+        y
+          .classList
+          .add("on");
+      }
+
+      for (let y of fadeIn) 
+        fadeInTit(y);
+      
+      window.addEventListener("scroll", () => {
+        // 스크롤 등장요소 개수만큼 for문 돌리기
+        for (let x of showBox) 
+          showTit(x);
+        }
+      );
+    </script>
+  </body>
+  <footer>
+    <div class="tocenter">
+      <div class="depart-line"></div>
+    </div>
+    <div class="footer_div">
+      <div>
+        <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
+        <p class="footer_line">사업자등록번호 : 189-12-02532
+        </p>
+        <p class="footer_line">주소 : 경기도 부천시 중동로 254번길 78</p>
+      </div>
+      <div style="height:20px;"></div>
+      <div>
+        <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+        <div>
+          <!--p class="footer_line"> <a href="{% url "reservation:use" %}">이용약관</a> | <a href="{% url "reservation:policy" %}">개인정보 정책</a> | <a href="{% url "reservation:cs" %}">고객지원</a> </p-->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</html>

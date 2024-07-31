@@ -1,0 +1,362 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>STERUN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li style="line-height:2rem;">
+          <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li style="line-height:2rem;">
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+          <a href="{% url "reservation:contact" %}">
+            <p class="contact-button-nav">연락처</p>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+        </a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:sternaKO" %}">메인</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:checkKO" %}">내 예약</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="navbar-space"></div>
+    <div class="navbar-space"></div>
+    <div class="tocenter">
+      <div class="flex-row">
+        <img class="fade-in reserv-img" src="{% static 'img/clothes-2.png' %}" alt="">
+        <div class="flex-column">
+          <div style="margin: 20px 0 30px 0">
+            <p class="fade-in" style="font-size:3rem;">모든 러닝 아이템들은<br>언제나 깨끗하게
+              <br>세탁 및 살균처리를 합니다.</p>
+
+          </div>
+          <div class="fade-out" style="font-size: 1.7rem; margin: 0 0 0 20px">
+            <i style="margin-right:10px;" class="fa-solid fa-arrow-down"></i>
+            <p>
+              가격정보 및 정책
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-space"></div>
+
+      <div class="tocenter flex-column showBox">
+        <div style="margin-bottom:20px;">
+          <div class='headline-1'>가격정보</div>
+          <div style="width:100%" class="underline"></div>
+        </div>
+        <table class="rwd-table">
+          <tbody>
+            <tr>
+              <th>Item</th>
+              <th>1 일</th>
+              <th>+1 일</th>
+
+            </tr>
+            <tr>
+              <td class="table-item" data-th="Item">
+                러닝화
+              </td>
+              <td data-th="1 Day">
+                7 $
+              </td>
+              <td data-th="+1 Day">
+                + 2 $
+              </td>
+
+            </tr>
+            <tr>
+              <td class="table-item" data-th="Item">
+                상의
+              </td>
+              <td data-th="1 Day">
+                3 $
+              </td>
+              <td data-th="+1 Day">
+                + 1 $
+              </td>
+
+            </tr>
+            <tr>
+              <td class="table-item" data-th="Item">
+                하의
+              </td>
+              <td data-th="1 Day">
+                3 $
+              </td>
+              <td data-th="+1 Day">
+                + 1 $
+              </td>
+
+            </tr>
+            <tr>
+              <td class="table-item" data-th="Item">
+                핸드폰 파우치
+              </td>
+              <td data-th="1 Day">
+                2 $
+              </td>
+              <td data-th="+1 Day">
+                + 1 $
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="font-size:0.9rem; color:grey; text-align:center; padding-top:10px; line-height:1.3rem;">** 베타서비스 기간 동안 위 가격에서 50% 할인이 진행됩니다.</div>
+
+      <a target="_blank" href="https://c5xvrkanp4y.typeform.com/to/PLLcod07">
+        <button class="reserv-button showBox">예약하기</button>
+      </a>
+
+      <div class="navbar-space"></div>
+
+      <div class="tocenter">
+        <div class="title">개인정보 정책</div>
+        <div class="underline"></div>
+        <div class="policy-section">
+          <h5>1. Purpose of Processing Personal Information</h5>
+          <p>
+            ('www.joollab.com' hereinafter referred to as 'Joollab') processes personal information for the following purposes and does not use it for any other purpose.
+          </p>
+          <p>
+            Confirmation of customer's intention to sign up, identification and authentication of the customer for the provision of services, maintenance and management of membership, payment for goods or services, supply and delivery of goods or services, etc.
+          </p>
+          <h5>2. Period of Processing and Retention of Personal Information</h5>
+          <p>
+            'Joollab' processes and retains personal information within the period of personal information retention and use agreed upon when collecting personal information from the information subject or within the period prescribed by law.
+          </p>
+          <p>
+            The specific periods of processing and retention of personal information are as follows. Please refer to the examples below and provide the processing tasks for personal information, retention period, relevant laws, and grounds.
+          </p>
+          <p>- Records on consumer complaints or dispute resolution: 3 years</p>
+          <p>- Records on the collection, processing, and use of credit information: 3 years</p>
+          <p>- Records on payment and supply of goods: 5 years</p>
+          <p>- Records on contracts or withdrawal of subscriptions: 5 years</p>
+          <h5>3. Rights and Obligations of Information Subjects and Legal Representatives and How to Exercise Them</h5>
+          <p>As personal information subjects, users can exercise the following rights:</p>
+          <p>
+            The information subject can exercise the following personal information protection rights at any time against 'Joollab.'
+          </p>
+          <p>- Request to view personal information</p>
+          <p>- Request for correction if there are errors</p>
+          <p>- Request for deletion</p>
+          <p>- Request to stop processing</p>
+          <h5>4. Items of Personal Information Processed</h5>
+          <p>'Joollab' processes the following personal information items:</p>
+          <p>
+            - Processed items: Mobile phone number, home address, password, gender, date of birth, name, email address, messenger ID, etc.
+          </p>
+          <h5>5. Destruction of Personal Information</h5>
+          <p>
+            In principle, 'Joollab' destroys personal information without delay when the purpose of processing personal information is achieved. The procedures, deadlines, and methods of destruction are as follows.
+          </p>
+          <p>
+            - Destruction procedure: Information entered by the user is transferred to a separate DB (in the case of paper, a separate document) after the purpose is achieved and stored for a certain period according to internal policies and other relevant laws or destroyed immediately. In this case, the personal information transferred to the DB is not used for other purposes unless required by law.
+          </p>
+          <p>
+            - Destruction deadline: The user's personal information is destroyed within five days from the end date of the retention period if the retention period has expired, or within five days from the date when the personal information becomes unnecessary due to the achievement of the processing purpose, the termination of the service, or the end of the business.
+          </p>
+          <h5>6. Matters Concerning the Installation, Operation, and Rejection of Automatic Personal Information Collection Devices</h5>
+          <p>
+            SDS Tech Co., Ltd. does not use 'cookies' that store and retrieve the user's information from time to time.
+          </p>
+          <h5>7. Personal Information Protection Officer</h5>
+          <p>
+            'Joollab' is responsible for the overall management of personal information processing tasks and has designated a personal information protection officer to handle complaints and remedy damages related to personal information processing.
+          </p>
+          <p>- Department: Joollab Operations Support Team</p>
+          <p>- Person in charge: Hyunwoo Kim</p>
+          <p>- Contact: 010-9241-9007, jasonkim@joollab.com</p>
+          <p>
+            - Information subjects can contact the personal information protection officer and the relevant department for all personal information protection inquiries, complaints, and damage relief arising from using Joollab's services (or business). 'Joollab' will respond and handle the inquiries without delay.
+          </p>
+          <h5>8. Changes to the Privacy Policy</h5>
+          <p>
+            This privacy policy applies from the effective date, and any additions, deletions, or corrections of changes in accordance with laws and policies will be notified through the notice seven days before the implementation of the changes.
+          </p>
+        </div>
+        <!--div style="max-width: 700px; display: flex; justify-content: center"> <div class="check-box"> <input type="checkbox" name="pdpolicy" value="pdpolicy" /> 개인정보 처리방침에 동의합니다. </div> </div-->
+        <div style="max-width: 700px; display: flex; justify-content: center">
+          <div class="check-box">
+            By reserving the rental service, you are deemed to have agreed to this Privacy Policy
+          </div>
+        </div>
+        <div class="title">Refund Policy</div>
+        <div class="underline"></div>
+        <div class="refund-section">
+          <h6>
+            1. If the customer cancels a reservation according to ‘JoolLab’s [Reservation and Cancellation] policy, JoolLab must refund the full service fee.
+          </h6>
+          <p>
+            1) The reservation and cancellation must be completed at least 24 hours prior to the time of checking in the luggage.
+          </p>
+          <p>2) However, weekends and public holidays are not included in the 24-hour calculation.</p>
+          <h6>
+            2. If the specifications and quantity of the luggage entrusted by the customer differ from the information entered at the time of reservation and the service fee is less than the amount paid at the time of reservation, JoolLab is not obligated to refund the difference. If the service fee is more than the amount paid at the time of reservation, the customer must pay the additional fee separately.
+          </h6>
+          <h6>
+            3. If it becomes difficult to provide the service normally due to force majeure such as natural disasters, war, or terrorism, JoolLab may unilaterally cancel or change the user's reservation.
+          </h6>
+        </div>
+        <div style="max-width: 700px; display: flex; justify-content: center;">
+          <div class="check-box">
+            By reserving the rental service, you are deemed to have agreed to this refund policy.
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile nav modal hedden-->
+      <div id="modalContainer" class="hidden">
+        <div id="modalContent">
+          <div class="mobile-nav-up">
+            <div class='mobile-nav-top'>
+              <a href="{% url "reservation:index" %}">
+                <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+              </a>
+
+              <i class="fa solid fa-x" id="modalCloseButton"></i>
+            </div>
+            <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
+              <li>HOME</li>
+            </a>
+            <a class='modal-list' href="{% url "reservation:check" %}">
+              <li>My PAGE</li>
+            </a>
+          </div>
+
+          <div class='mobile-nav-bottom'>
+
+            <ul class="modal-sns">
+              <li class="modal-sns-list">
+                <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="modal-sns-list">
+                <a href="https://www.x.com/Jason9835958008" target="_blank">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+              </li>
+              <li class="modal-sns-list">
+                <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+                <a href="{% url "reservation:contact" %}">
+                  <p class="contact-button-nav">CONTACT</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+      <script src="{% static "js/main.js" %}"></script>
+      <!--jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+        // 등장액션 대상: .showBx
+        const showBox = document.querySelectorAll(".showBox");
+        const fadeIn = document.querySelectorAll(".fade-in");
+        // 화면높이값 2/3 구하기
+        const screenH = window.innerHeight * 5 / 6;
+
+        // 등장액션 대상 위치값 리턴함수
+        const retVal = ele => ele
+          .getBoundingClientRect()
+          .top;
+
+        // 클래스 넣기 함수
+        const showTit = x => {
+          let xval = retVal(x);
+          if (xval < screenH && xval > 0) {
+            // 요소가 화면에 나타날 때 opacity를 1로 변경
+            x
+              .classList
+              .add("on");
+          }
+        };
+
+        const fadeInTit = y => {
+          let yval = retVal(y);
+          // 요소가 화면에 나타날 때 opacity를 1로 변경
+          y
+            .classList
+            .add("on");
+        }
+
+        for (let y of fadeIn) 
+          fadeInTit(y);
+        
+        window.addEventListener("scroll", () => {
+          // 스크롤 등장요소 개수만큼 for문 돌리기
+          for (let x of showBox) 
+            showTit(x);
+          }
+        );
+      </script>
+    </div>
+  </body>
+  <footer>
+    <div class="tocenter">
+      <div class="depart-line"></div>
+    </div>
+    <div class="footer_div">
+      <div>
+        <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
+        <p class="footer_line">Business ID : 189-12-02532
+        </p>
+        <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+      </div>
+      <div style="height:20px;"></div>
+      <div>
+        <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+        <div>
+          <!--p class="footer_line"> <a href="{% url "reservation:use" %}">이용약관</a> | <a href="{% url "reservation:policy" %}">개인정보 정책</a> | <a href="{% url "reservation:cs" %}">고객지원</a> </p-->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</html>

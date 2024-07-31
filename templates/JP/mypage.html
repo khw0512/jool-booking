@@ -1,0 +1,330 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+
+    <title>STERUN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-icons">
+        <li style="line-height:2rem;">
+          <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li style="line-height:2rem;">
+          <a href="https://www.x.com/Jason9835958008" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+          <a href="{% url "reservation:contact" %}">
+            <p class="contact-button-nav">CONTACT</p>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-logo">
+        <a href="{% url "reservation:sterna" %}">
+          <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+        </a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url "reservation:sterna" %}">HOME</a>
+        </li>
+        <li>
+          <a href="{% url "reservation:book" %}">RESERVATION</a>
+        </li>
+      </ul>
+      <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <!-- 로딩 화면 -->
+    <div class="hidden mask">
+      <img class="loadingImg hidden" src='https://i.ibb.co/20zw80q/1487.gif'>
+    </div>
+    <!-- 로딩화면 끝 -->
+    <div class="navbar-space"></div>
+    <div style="height:20px;"></div>
+    <div>
+      <div style="max-width:1000px; margin:auto;">
+        <div style="min-height:100vh;">
+          {% if checked != "" and result_amo != 0 %}
+            {% for result in results %}
+              <div class="tocenter">
+                <div style="width:95%;" class="flex-row-notwrap">
+                  <div class="flex-column">
+                    <p class="reserv-ox">Reservation ID</p>
+                    <div class="underline" style="width:120px; margin-top:-10px"></div>
+                    <p>
+                      <i class="fa-solid fa-arrow-right"></i>
+                      {{result.reserv_id}}
+                    </p>
+                    <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+                  </div>
+                  <div style="width:90%;" class="flex-column fade-in">
+                    <div class="reserv-box">{{result.start_date}}
+                      to
+                      {{result.end_date}}</div>
+                    <p class="reserv-title">Duration</p>
+                    <p class="reserv-content">{{result.start_date}}
+                      ~
+                      {{result.end_date}}</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Rental List</p>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Running Shoes :
+                        {{result.shoes}}
+                      </p>
+                      <a target="_blank" href="{{result.shoes.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Top :
+                        {{result.top}}
+                      </p>
+                      <a target="_blank" href="{{result.top.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Bottom :
+                        {{result.bottom}}</p>
+                      <a target="_blank" href="{{result.bottom.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div class="flex-row-notwrap">
+                      <p class="reserv-content">- Bag :
+                        {{result.bag}}</p>
+                      <a target="_blank" href="{{result.bag.link}}">
+                        <div class="info-box">info</div>
+                      </a>
+                    </div>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Location</p>
+                    <p class="reserv-content">{{result.location}}</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Amount</p>
+                    <p class="reserv-content">{{result.cost}}
+                      $</p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Status</p>
+                    {% if result.status == 'ST1' %}
+                      <p class="reserv-content">Waiting for Processing</p>
+                    {% elif result.status == 'ST2' %}
+                      <div class='flex-row-notwrap'>
+                        <p class="reserv-content">Waiting for Payment</p>
+                        <!--a href="{% url "payment:payment_pay" result.reserv_id %}"> <button class="payment-button">PAYMENT</button> </a-->
+                        {% if result.paypal_link == "free" %}
+                          <p class="reserv-content">
+                            (It's FREE !!)</p>
+                        {% else %}
+                          <a href="{% url "paypal:payment" result.reserv_id %}">
+                            <button id="payment-button">PAYPAL</button>
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% elif result.status == 'ST3' %}
+                      <p class="reserv-content">Payment Complete</p>
+                    {% elif result.status == 'ST4' %}
+                      <p class="reserv-content">In Transit</p>
+                    {% elif result.status == 'ST5' %}
+                      <p class="reserv-content">Delivery Complete</p>
+                    {% elif result.status == 'ST6' %}
+                      <p class="reserv-content">Return Complete</p>
+                    {% elif result.status == 'ST6' %}
+                      <p class="reserv-content">Restocking Complete</p>
+                    {% endif %}
+
+                    <p class="reserv-content"></p>
+                    <div style="height:20px;"></div>
+                    <p class="reserv-title">Memo</p>
+                    <p class="reserv-content">{{result.desc}}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% elif checked == "blank" %}
+            <div class="tocenter">
+              <div>
+                <p class="check-message">Please enter the Reservation ID</p>
+                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
+              </div>
+              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+                {% csrf_token %}
+                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <div>
+                  <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+                    <div style="width: 100%">Search</div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          {% else %}
+            <div class="tocenter">
+              <div>
+                <p class="check-message">There is No Result</p>
+                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
+              </div>
+              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+                {% csrf_token %}
+                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <div>
+                  <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
+                    <div style="width: 100%">Search</div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="navbar-space"></div>
+  </div>
+
+  <!-- mobile nav modal hedden-->
+  <div id="modalContainer" class="hidden">
+    <div id="modalContent">
+      <div class="mobile-nav-up">
+        <div class='mobile-nav-top'>
+          <a href="{% url "reservation:index" %}">
+            <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
+          </a>
+
+          <i class="fa solid fa-x" id="modalCloseButton"></i>
+        </div>
+        <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
+          <li>HOME</li>
+        </a>
+        <a class='modal-list' href="{% url "reservation:book" %}">
+          <li>RESERVATION</li>
+        </a>
+      </div>
+
+      <div class='mobile-nav-bottom'>
+
+        <ul class="modal-sns">
+          <li class="modal-sns-list">
+            <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="modal-sns-list">
+            <a href="https://www.x.com/Jason9835958008" target="_blank">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
+          <li class="modal-sns-list">
+            <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
+            <a href="{% url "reservation:contact" %}">
+              <p class="contact-button-nav">CONTACT</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+  <script src="{% static "js/main.js" %}"></script>
+  <!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // 등장액션 대상: .showBx
+    const showBox = document.querySelectorAll(".showBox");
+    const fadeIn = document.querySelectorAll(".fade-in");
+    // 화면높이값 2/3 구하기
+    const screenH = window.innerHeight * 5 / 6;
+
+    // 등장액션 대상 위치값 리턴함수
+    const retVal = ele => ele
+      .getBoundingClientRect()
+      .top;
+
+    // 클래스 넣기 함수
+    const showTit = x => {
+      let xval = retVal(x);
+      if (xval < screenH && xval > 0) {
+        // 요소가 화면에 나타날 때 opacity를 1로 변경
+        x
+          .classList
+          .add("on");
+      }
+    };
+
+    const fadeInTit = y => {
+      let yval = retVal(y);
+      // 요소가 화면에 나타날 때 opacity를 1로 변경
+      y
+        .classList
+        .add("on");
+    }
+
+    for (let y of fadeIn) 
+      fadeInTit(y);
+    
+    window.addEventListener("scroll", () => {
+      // 스크롤 등장요소 개수만큼 for문 돌리기
+      for (let x of showBox) 
+        showTit(x);
+      }
+    );
+
+    const mask = document.querySelector('.mask');
+    const loadingImg = document.querySelector('.loadingImg');
+    const paymentbutton = document.getElementById('payment-button');
+
+    paymentbutton.addEventListener("click", () => {
+      mask
+        .classList
+        .remove('hidden');
+    });
+  </script>
+</body>
+<footer>
+  <div class="tocenter">
+    <div class="depart-line"></div>
+  </div>
+  <div class="footer_div">
+    <div>
+      <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
+      <p class="footer_line">Business ID : 189-12-02532
+      </p>
+      <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+    </div>
+    <div style="height:20px;"></div>
+    <div>
+      <p class="footer_line">Copyright © 2024 joolLab All rights reserved</p>
+      <div>
+        <p class="footer_line">
+          <a href="{% url "reservation:use" %}">Terms of Use</a>
+          |
+          <a href="{% url "reservation:policy" %}">Privacy Policy</a>
+          |
+          <a href="{% url "reservation:cs" %}">Customer Service</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

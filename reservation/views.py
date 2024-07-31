@@ -26,50 +26,51 @@ def data(request):
 
 
 def index(request):
-    return render(request, "sterna.html")
+    return render(request, "EN/sterna.html")
+
+
+def indexKO(request):
+    return render(request, "KO/sterna.html")
 
 
 def check(request):
-    return render(request, "check.html")
+    return render(request, "EN/check.html")
+
+
+def checkKO(request):
+    return render(request, "KO/check.html")
 
 
 def info(request):
-
-    # LINE Notify 액세스 토큰
-    token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
-
-    # LINE Notify API 엔드포인트 URL
-    url = "https://notify-api.line.me/api/notify"
-
-    # 이미지 파일 열기
-
-    # POST 요청 보내기
-    response = requests.post(
-        url,
-        headers={"Authorization": "Bearer " + token},
-        data={"message": "새로운 예약이 접수되었습니다."},
-    )
-
-    # 요청 결과 출력
-    print(response.text)
-
     return render(request, "backup/info.html")
 
 
 def contact(request):
-    return render(request, "contact.html")
+    return render(request, "EN/contact.html")
+
+
+def contactKO(request):
+    return render(request, "KO/contact.html")
 
 
 def reservation(request):
-    return render(request, "book.html")
+    return render(request, "EN/book.html")
+
+
+def reservationKO(request):
+    return render(request, "KO/book.html")
 
 
 def ready(request):
-    return render(request, "ready.html")
+    return render(request, "backup/ready.html")
 
 
 def sterna(request):
-    return render(request, "sterna.html")
+    return render(request, "EN/sterna.html")
+
+
+def sternaKO(request):
+    return render(request, "KO/sterna.html")
 
 
 def pay(request):
@@ -89,7 +90,11 @@ def use(request):
 
 
 def sizepage(request):
-    return render(request, "sizepage.html")
+    return render(request, "EN/sizepage.html")
+
+
+def sizepageKO(request):
+    return render(request, "KO/sizepage.html")
 
 
 def book(request):
@@ -106,7 +111,11 @@ def book(request):
         return render(request, "index.html")
     else:
         form = ReservationForm()
-        return render(request, "book.html", {"form": form})
+        return render(request, "EN/book.html", {"form": form})
+
+
+def bookKO(request):
+    return render(request, "KO/book.html")
 
 
 def checked(request):
@@ -123,7 +132,7 @@ def checked(request):
             return redirect("reservation:mypage", "noresult")
     else:
         return render(
-            request, "mypage.html", {"reservation": reservation, "checked": False}
+            request, "EN/mypage.html", {"reservation": reservation, "checked": False}
         )
 
 
@@ -132,10 +141,10 @@ def mypage(request, pk):
     if request.method == "GET":
         results = reservation.filter(Q(reserv_id=pk))
         context = {"result_amo": len(results), "checked": pk, "results": results}
-        return render(request, "mypage.html", context)
+        return render(request, "EN/mypage.html", context)
     else:
         return render(
-            request, "mypage.html", {"reservation": reservation, "checked": False}
+            request, "EN/mypage.html", {"reservation": reservation, "checked": False}
         )
 
 

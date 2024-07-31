@@ -1,0 +1,102 @@
+{% extends 'EN/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="pc-space"></div>
+  <div class="pc-space"></div>
+
+  <div class="tocenter">
+    <div class="flex-row">
+      <img class="main-img fade-in" src="{% static 'img/shoes-2.png' %}" alt=""/>
+      <div style='width:30px; height:100%;'></div>
+      <div class="flex-column">
+        <div class="main-text fade-in" style="font-family:Bebas Neue;">Borrowing
+          <br>running essentials<br>in Seoul</div>
+        <div class="flex-row">
+
+          <div class="fade-out" style="font-size: 1.7rem; margin: 10px 0 0 20px">
+            <i style="margin-right:10px;" class="fa-solid fa-arrow-down"></i>
+            <p style="font-family:Bebas Neue">
+              How to use the service
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pc-space"></div>
+    <div class="navbar-space"></div>
+  </div>
+
+  <div class="tocenter">
+    <div>
+      <div class='headline-1'>HOW TO USE THE SERVICE</div>
+      <div style="width:100%" class="underline"></div>
+    </div>
+    <div style="height:20px;"></div>
+    <div class="flex-row">
+      <div class="flex-row">
+
+        <div class="card-box showBox">
+          <div class="flex-column">
+            <div>1</div>
+            <div class="card-img">
+              <img src="{% static "img/survey.png" %}" alt="">
+            </div>
+            <div class="card-title">Form Submission</div>
+            <div class="card-desc">You click the reservation button on the reservation page, fill out the form, and submit it. You can use below reservation button.</div>
+            <div style="height:10px;"></div>
+            <a id="mainp-reserv-button" href="{% url "reservation:book" %}">
+              <div class="card-button fade-in">Reservation</div>
+            </a>
+          </div>
+        </div>
+        <div class="card-box showBox">
+          <div class="flex-column">
+            <div>2</div>
+            <div class="card-img">
+              <img src="{% static "img/clothes-2.png" %}" alt="">
+            </div>
+            <div class="card-title">Confirmation</div>
+            <div class="card-desc">You can enter 'My Page' and search using the reservation number received via email to confirm if your reservation has been completed.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex-row">
+
+        <div class="card-box showBox">
+          <div class="flex-column">
+            <div>3</div>
+            <div class="card-img">
+              <img src="{% static "img/running.png" %}" alt="">
+            </div>
+            <div class="card-title">Receiving Items</div>
+            <div class="card-desc">We will deliver the items you reserved to your accommodation on the scheduled date. After the delivery is complete, we will notify you via your message.</div>
+          </div>
+        </div>
+        <div class="card-box showBox">
+          <div class="flex-column">
+            <div>4</div>
+            <div class="card-img">
+              <img src="{% static "img/bag.png" %}" alt="">
+            </div>
+            <div class="card-title">Returning Items</div>
+            <div class="card-desc">Please place the items you used back into the bag you received them in and leave it with the hotel concierge.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="height:30px;"></div>
+  <div class="tocenter">
+    <a href="{% url "reservation:book" %}">
+      <div class="main-button fade-in">Go Reservation Page</div>
+    </a>
+  </div>
+  <div class="pc-space"></div>
+
+{% endblock content %}
