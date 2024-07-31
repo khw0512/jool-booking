@@ -36,16 +36,20 @@ def check(request):
 def info(request):
 
     url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
-    token = "C6DvsS-0lU2A0d8m0mXtQX6CDA8mHuaGAAAAAQo9c04AAAGRBxMbfN0Jz_1t7hqp"
 
-    headers = {"Authorization": "Bearer " + token}
+    # kapi.kakao.com/v2/api/talk/memo/default/send
+
+    headers = {
+        "Authorization": "Bearer "
+        + "fTUb6YqeBkJKT_h6zSZEdXT939dRIiUVAAAAAQo8IpsAAAGRB1gm1d0Jz_1t7hqp"
+    }
 
     data = {
         "template_object": json.dumps(
             {
                 "object_type": "text",
-                "text": "Hello, world!",
-                "link": {"web_url": "https://www.sterun.kr"},
+                "text": "새로운 예약이 등록되었습니다",
+                "link": {"web_url": "sterun.kr/sterna/data"},
             }
         )
     }
@@ -53,7 +57,6 @@ def info(request):
     response = requests.post(url, headers=headers, data=data)
     response.status_code
     print(response.status_code)
-
     if response.json().get("result_code") == 0:
         print("메시지를 성공적으로 보냈습니다.")
     else:
