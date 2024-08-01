@@ -231,9 +231,24 @@ button {
     border-radius: 20px;
 }
 
+.headline {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
 .headline-1 {
     font-size: 2.5rem;
     font-weight: 900;
+}
+
+.headline-2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.check-title {
+    font-size: 2.rem;
+    font-weight: 400;
 }
 
 .title {
@@ -453,8 +468,8 @@ button {
     font-size: 1rem;
     font-weight: 300;
     color: grey;
-    margin-bottom: 5px;
-    padding-left: 15px;
+    padding: 5px 0 5px 15px;
+    align-content:center;
 }
 
 .info-box {
@@ -462,7 +477,7 @@ button {
     border-radius: 10px;
     color: var(--sterun-secondary-color);
     padding: 2px 5px 0 5px;
-    margin-left: 10px;
+    margin: 5px 0 0 5px;
     font-size: 0.7rem;
 }
 
@@ -647,9 +662,9 @@ button {
 }
 
 .reserv-noti {
-    font-size:2rem;
+    font-size:2.5rem;
     font-family: Bebas Neue;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 #payment-button {
@@ -922,14 +937,25 @@ div.tabs div.current {
 
     .modal-sns {
         display: flex;
+        align-items: center;
     }
 
     .modal-sns-list {
         margin-right: 20px;
     }
 
+    .headline {
+    font-size: 1.8rem;
+    font-weight: bold;
+    }
+
     .headline-1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    }
+
+    .headline-2 {
+    font-size: 1.4rem;
     text-align: center;
     }
 
@@ -985,6 +1011,23 @@ div.tabs div.current {
 
     .check-box{
         margin: 0px 20px 20px 20px;
+    }
+
+    .reserv-noti {
+        font-size:1.8rem;
+        font-family: Bebas Neue;
+        max-width: 400px;
+        padding:20px 0 0 10px;
+    }
+
+    .contact-button-nav {
+        color:var(--sterun-black-color);
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px 20px 10px 20px;   
+        border: solid var(--sterun-secondary-color);
+        border-radius: 20px;
+        background-color:var(--sterun-primary-color);
     }
     
 }

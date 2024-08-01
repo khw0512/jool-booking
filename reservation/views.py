@@ -53,14 +53,6 @@ def contactKO(request):
     return render(request, "KO/contact.html")
 
 
-def reservation(request):
-    return render(request, "EN/book.html")
-
-
-def reservationKO(request):
-    return render(request, "KO/book.html")
-
-
 def ready(request):
     return render(request, "backup/ready.html")
 
@@ -98,20 +90,7 @@ def sizepageKO(request):
 
 
 def book(request):
-    if request.method == "POST":
-        reservation = Reservation(
-            client=request.POST.get("client"),
-            desc=request.POST.get("desc"),
-            start_date=request.POST.get("start_date"),
-            start_time=request.POST.get("start_time"),
-            image=request.FILES.get("image"),
-        )
-
-        reservation.save()
-        return render(request, "index.html")
-    else:
-        form = ReservationForm()
-        return render(request, "EN/book.html", {"form": form})
+    return render(request, "EN/book.html")
 
 
 def bookKO(request):
@@ -136,6 +115,24 @@ def checked(request):
         )
 
 
+def checkedKO(request):
+    if request.method == "POST":
+        checked = request.POST["checked"]
+        reservation = Reservation.objects.filter(pk=checked)
+        print(checked)
+        if len(reservation) == 1:
+            results = Reservation.objects.get(pk=checked)
+            return redirect("reservation:mypageKO", results.pk)
+        elif len(checked) == 0:
+            return redirect("reservation:mypageKO", "blank")
+        else:
+            return redirect("reservation:mypageKO", "noresult")
+    else:
+        return render(
+            request, "KO/mypage.html", {"reservation": reservation, "checked": False}
+        )
+
+
 def mypage(request, pk):
     reservation = Reservation.objects.all()
     if request.method == "GET":
@@ -145,6 +142,18 @@ def mypage(request, pk):
     else:
         return render(
             request, "EN/mypage.html", {"reservation": reservation, "checked": False}
+        )
+
+
+def mypageKO(request, pk):
+    reservation = Reservation.objects.all()
+    if request.method == "GET":
+        results = reservation.filter(Q(reserv_id=pk))
+        context = {"result_amo": len(results), "checked": pk, "results": results}
+        return render(request, "KO/mypage.html", context)
+    else:
+        return render(
+            request, "KO/mypage.html", {"reservation": reservation, "checked": False}
         )
 
 

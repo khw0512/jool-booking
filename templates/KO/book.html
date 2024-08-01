@@ -36,13 +36,13 @@
         </li>
         <li>
           <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-          <a href="{% url "reservation:contact" %}">
-            <p class="contact-button-nav">연락처</p>
+          <a href="{% url "reservation:contactKO" %}">
+            <p class="contact-button-nav">연락하기</p>
           </a>
         </li>
       </ul>
       <div class="navbar-logo">
-        <a href="{% url "reservation:sterna" %}">
+        <a href="{% url "reservation:sternaKO" %}">
           <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
         </a>
       </div>
@@ -65,7 +65,7 @@
         <img class="fade-in reserv-img" src="{% static 'img/clothes-2.png' %}" alt="">
         <div class="flex-column">
           <div style="margin: 20px 0 30px 0">
-            <p class="fade-in" style="font-size:3rem;">모든 러닝 아이템들은<br>언제나 깨끗하게
+            <p class="headline fade-in">모든 러닝 아이템들은<br>언제나 깨끗하게
               <br>세탁 및 살균처리를 합니다.</p>
 
           </div>
@@ -81,7 +81,7 @@
 
       <div class="tocenter flex-column showBox">
         <div style="margin-bottom:20px;">
-          <div class='headline-1'>가격정보</div>
+          <div class="headline-2">가격정보</div>
           <div style="width:100%" class="underline"></div>
         </div>
         <table class="rwd-table">
@@ -97,10 +97,10 @@
                 러닝화
               </td>
               <td data-th="1 Day">
-                7 $
+                10,000 원
               </td>
               <td data-th="+1 Day">
-                + 2 $
+                + 2,000 원
               </td>
 
             </tr>
@@ -109,10 +109,10 @@
                 상의
               </td>
               <td data-th="1 Day">
-                3 $
+                3,000 원
               </td>
               <td data-th="+1 Day">
-                + 1 $
+                + 1,000 원
               </td>
 
             </tr>
@@ -121,10 +121,10 @@
                 하의
               </td>
               <td data-th="1 Day">
-                3 $
+                3,000 원
               </td>
               <td data-th="+1 Day">
-                + 1 $
+                + 1,000 원
               </td>
 
             </tr>
@@ -133,10 +133,10 @@
                 핸드폰 파우치
               </td>
               <td data-th="1 Day">
-                2 $
+                2,000 원
               </td>
               <td data-th="+1 Day">
-                + 1 $
+                + 500 원
               </td>
 
             </tr>
@@ -252,16 +252,16 @@
         <div id="modalContent">
           <div class="mobile-nav-up">
             <div class='mobile-nav-top'>
-              <a href="{% url "reservation:index" %}">
+              <a href="{% url "reservation:sternaKO" %}">
                 <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
               </a>
 
               <i class="fa solid fa-x" id="modalCloseButton"></i>
             </div>
-            <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
+            <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sternaKO" %}">
               <li>HOME</li>
             </a>
-            <a class='modal-list' href="{% url "reservation:check" %}">
+            <a class='modal-list' href="{% url "reservation:checkKO" %}">
               <li>My PAGE</li>
             </a>
           </div>
@@ -281,7 +281,7 @@
               </li>
               <li class="modal-sns-list">
                 <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-                <a href="{% url "reservation:contact" %}">
+                <a href="{% url "reservation:contactKO" %}">
                   <p class="contact-button-nav">CONTACT</p>
                 </a>
               </li>
@@ -344,10 +344,10 @@
     </div>
     <div class="footer_div">
       <div>
-        <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
-        <p class="footer_line">Business ID : 189-12-02532
+        <p class="footer_line">JoolLab | 줄랩 | 대표 및 개인정보 관리자 : 김현우</p>
+        <p class="footer_line">사업자등록번호 : 189-12-02532
         </p>
-        <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+        <p class="footer_line">주소 : 경기도 부천시 중동로 254번길 78</p>
       </div>
       <div style="height:20px;"></div>
       <div>

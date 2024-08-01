@@ -36,7 +36,7 @@
         </li>
         <li>
           <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-          <a href="{% url "reservation:contact" %}">
+          <a href="{% url "reservation:contactKO" %}">
             <p class="contact-button-nav">연락하기</p>
           </a>
         </li>
@@ -51,7 +51,7 @@
           <a href="{% url "reservation:sternaKO" %}">메인</a>
         </li>
         <li>
-          <a href="{% url "reservation:book" %}">예약</a>
+          <a href="{% url "reservation:bookKO" %}">내 예약</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -65,9 +65,9 @@
         <p class="check-message">예약번호로 예약정보 찾기</p>
         <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
       </div>
-      <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+      <form class="search" method="POST" action="{% url 'reservation:checkedKO' %}">
         {% csrf_token %}
-        <input class="search-bar" style="width: 100%" type="search" placeholder="Reservation ID" name="checked" aria-label="Search"/>
+        <input class="search-bar" style="width: 100%" type="search" placeholder="예약 번호를 입력해 주세요" name="checked" aria-label="Search"/>
         <div>
           <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
             <div style="width: 100%">검색</div>
@@ -91,17 +91,17 @@
       <div id="modalContent">
         <div class="mobile-nav-up">
           <div class='mobile-nav-top'>
-            <a href="{% url "reservation:index" %}">
+            <a href="{% url "reservation:sternaKO" %}">
               <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
             </a>
 
             <i class="fa solid fa-x" id="modalCloseButton"></i>
           </div>
-          <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
-            <li>HOME</li>
+          <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sternaKO" %}">
+            <li>메인</li>
           </a>
-          <a class='modal-list' href="{% url "reservation:book" %}">
-            <li>RESERVATION</li>
+          <a class='modal-list' href="{% url "reservation:bookKO" %}">
+            <li>내 예약</li>
           </a>
         </div>
 
@@ -119,8 +119,8 @@
             </li>
             <li class="modal-sns-list">
               <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-              <a href="{% url "reservation:contact" %}">
-                <p class="contact-button-nav">CONTACT</p>
+              <a href="{% url "reservation:contactKO" %}">
+                <p class="contact-button-nav">연락하기</p>
               </a>
             </li>
           </ul>
@@ -182,10 +182,10 @@
   </div>
   <div class="footer_div">
     <div>
-      <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
-      <p class="footer_line">Business ID : 189-12-02532
+      <p class="footer_line">JoolLab | 줄랩 | 대표 및 개인정보 관리자 : 김현우</p>
+      <p class="footer_line">사업자등록번호 : 189-12-02532
       </p>
-      <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+      <p class="footer_line">주소 : 경기도 부천시 중동로 254번길 78</p>
     </div>
     <div style="height:20px;"></div>
     <div>

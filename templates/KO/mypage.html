@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
   <head>
     <meta charset="UTF-8"/>
@@ -32,22 +32,22 @@
         </li>
         <li>
           <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-          <a href="{% url "reservation:contact" %}">
-            <p class="contact-button-nav">CONTACT</p>
+          <a href="{% url "reservation:contactKO" %}">
+            <p class="contact-button-nav">연락하기</p>
           </a>
         </li>
       </ul>
       <div class="navbar-logo">
-        <a href="{% url "reservation:sterna" %}">
+        <a href="{% url "reservation:sternaKO" %}">
           <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
         </a>
       </div>
       <ul class="navbar-menu">
         <li>
-          <a href="{% url "reservation:sterna" %}">HOME</a>
+          <a href="{% url "reservation:sternaKO" %}">메인</a>
         </li>
         <li>
-          <a href="{% url "reservation:book" %}">RESERVATION</a>
+          <a href="{% url "reservation:bookKO" %}">예약하기</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -69,7 +69,7 @@
               <div class="tocenter">
                 <div style="width:95%;" class="flex-row-notwrap">
                   <div class="flex-column">
-                    <p class="reserv-ox">Reservation ID</p>
+                    <p class="reserv-ox">예약번호</p>
                     <div class="underline" style="width:120px; margin-top:-10px"></div>
                     <p>
                       <i class="fa-solid fa-arrow-right"></i>
@@ -78,59 +78,59 @@
                     <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
                   </div>
                   <div style="width:90%;" class="flex-column fade-in">
-                    <div class="reserv-box">{{result.start_date}}
-                      to
-                      {{result.end_date}}</div>
-                    <p class="reserv-title">Duration</p>
-                    <p class="reserv-content">{{result.start_date}}
+                    <div class="reserv-box">{{result.client}}
+                      님의 예약내용입니다 :)
+                    </div>
+                    <p class="reserv-title">대여 기간</p>
+                    <p class="reserv-content">{{result.start_date|date:'Y.m.d'}}
                       ~
-                      {{result.end_date}}</p>
+                      {{result.end_date|date:'Y.m.d'}}</p>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Rental List</p>
+                    <p class="reserv-title">대여 아이템 리스트</p>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Running Shoes :
+                      <p class="reserv-content">- 러닝화 :
                         {{result.shoes}}
                       </p>
                       <a target="_blank" href="{{result.shoes.link}}">
-                        <div class="info-box">info</div>
+                        <div class="info-box">정보링크</div>
                       </a>
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Top :
+                      <p class="reserv-content">- 상의 :
                         {{result.top}}
                       </p>
                       <a target="_blank" href="{{result.top.link}}">
-                        <div class="info-box">info</div>
+                        <div class="info-box">정보링크</div>
                       </a>
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Bottom :
+                      <p class="reserv-content">- 하의 :
                         {{result.bottom}}</p>
                       <a target="_blank" href="{{result.bottom.link}}">
-                        <div class="info-box">info</div>
+                        <div class="info-box">정보링크</div>
                       </a>
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Bag :
+                      <p class="reserv-content">- 파우치 :
                         {{result.bag}}</p>
                       <a target="_blank" href="{{result.bag.link}}">
-                        <div class="info-box">info</div>
+                        <div class="info-box">정보링크</div>
                       </a>
                     </div>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Location</p>
+                    <p class="reserv-title">숙소 위치</p>
                     <p class="reserv-content">{{result.location}}</p>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Amount</p>
+                    <p class="reserv-title">가격</p>
                     <p class="reserv-content">{{result.cost}}
                       $</p>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Status</p>
+                    <p class="reserv-title">진행상황</p>
                     {% if result.status == 'ST1' %}
-                      <p class="reserv-content">Waiting for Processing</p>
+                      <p class="reserv-content">예약 체크중</p>
                     {% elif result.status == 'ST2' %}
                       <div class='flex-row-notwrap'>
-                        <p class="reserv-content">Waiting for Payment</p>
+                        <p class="reserv-content">결제 대기중</p>
                         <!--a href="{% url "payment:payment_pay" result.reserv_id %}"> <button class="payment-button">PAYMENT</button> </a-->
                         {% if result.paypal_link == "free" %}
                           <p class="reserv-content">
@@ -142,20 +142,20 @@
                         {% endif %}
                       </div>
                     {% elif result.status == 'ST3' %}
-                      <p class="reserv-content">Payment Complete</p>
+                      <p class="reserv-content">결제 완료</p>
                     {% elif result.status == 'ST4' %}
-                      <p class="reserv-content">In Transit</p>
+                      <p class="reserv-content">배송중</p>
                     {% elif result.status == 'ST5' %}
-                      <p class="reserv-content">Delivery Complete</p>
+                      <p class="reserv-content">배송완료</p>
                     {% elif result.status == 'ST6' %}
-                      <p class="reserv-content">Return Complete</p>
+                      <p class="reserv-content">반납 완료</p>
                     {% elif result.status == 'ST6' %}
-                      <p class="reserv-content">Restocking Complete</p>
+                      <p class="reserv-content">재고 준비</p>
                     {% endif %}
 
                     <p class="reserv-content"></p>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Memo</p>
+                    <p class="reserv-title">메모</p>
                     <p class="reserv-content">{{result.desc}}</p>
                   </div>
                 </div>
@@ -164,15 +164,15 @@
           {% elif checked == "blank" %}
             <div class="tocenter">
               <div>
-                <p class="check-message">Please enter the Reservation ID</p>
+                <p class="check-message">예약 번호를 입력해 주세요 :)</p>
                 <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
               </div>
-              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+              <form class="search" method="POST" action="{% url 'reservation:checkedKO' %}">
                 {% csrf_token %}
-                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <input class="search-bar" style="width: 100%" type="search" placeholder="예약 번호 입력" name="checked" aria-label="Search"/>
                 <div>
                   <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
-                    <div style="width: 100%">Search</div>
+                    <div style="width: 100%">검색</div>
                   </button>
                 </div>
               </form>
@@ -180,15 +180,15 @@
           {% else %}
             <div class="tocenter">
               <div>
-                <p class="check-message">There is No Result</p>
+                <p class="check-message">검색 결과가 없습니다</p>
                 <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
               </div>
-              <form class="search" method="POST" action="{% url 'reservation:checked' %}">
+              <form class="search" method="POST" action="{% url 'reservation:checkedKO' %}">
                 {% csrf_token %}
-                <input class="search-bar" style="width: 100%" type="search" placeholder="Search" name="checked" aria-label="Search"/>
+                <input class="search-bar" style="width: 100%" type="search" placeholder="예약 번호 입력" name="checked" aria-label="Search"/>
                 <div>
                   <button style="margin-top: 20px; width: 100%; display: flex" class="card-button" type="submit">
-                    <div style="width: 100%">Search</div>
+                    <div style="width: 100%">검색</div>
                   </button>
                 </div>
               </form>
@@ -205,17 +205,17 @@
     <div id="modalContent">
       <div class="mobile-nav-up">
         <div class='mobile-nav-top'>
-          <a href="{% url "reservation:index" %}">
+          <a href="{% url "reservation:sternaKO" %}">
             <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
           </a>
 
           <i class="fa solid fa-x" id="modalCloseButton"></i>
         </div>
         <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
-          <li>HOME</li>
+          <li>메인</li>
         </a>
-        <a class='modal-list' href="{% url "reservation:book" %}">
-          <li>RESERVATION</li>
+        <a class='modal-list' href="{% url "reservation:bookKO" %}">
+          <li>예약하기</li>
         </a>
       </div>
 
@@ -234,8 +234,8 @@
           </li>
           <li class="modal-sns-list">
             <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-            <a href="{% url "reservation:contact" %}">
-              <p class="contact-button-nav">CONTACT</p>
+            <a href="{% url "reservation:contactKO" %}">
+              <p class="contact-button-nav">연락하기</p>
             </a>
           </li>
         </ul>
@@ -306,10 +306,10 @@
   </div>
   <div class="footer_div">
     <div>
-      <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
-      <p class="footer_line">Business ID : 189-12-02532
+      <p class="footer_line">JoolLab | 줄랩 | 대표 및 개인정보 관리자 : 김현우</p>
+      <p class="footer_line">사업자등록번호 : 189-12-02532
       </p>
-      <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+      <p class="footer_line">주소 : 경기도 부천시 중동로 254번길 78</p>
     </div>
     <div style="height:20px;"></div>
     <div>

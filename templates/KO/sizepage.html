@@ -101,22 +101,22 @@
         </li>
         <li>
           <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-          <a href="{% url "reservation:contact" %}">
+          <a href="{% url "reservation:contactKO" %}">
             <p class="contact-button-nav">CONTACT</p>
           </a>
         </li>
       </ul>
       <div class="navbar-logo">
-        <a href="{% url "reservation:sterna" %}">
+        <a href="{% url "reservation:sternaKO" %}">
           <img src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
         </a>
       </div>
       <ul class="navbar-menu">
         <li>
-          <a href="{% url "reservation:sterna" %}">HOME</a>
+          <a href="{% url "reservation:sternaKO" %}">HOME</a>
         </li>
         <li>
-          <a href="{% url "reservation:book" %}">RESERVATION</a>
+          <a href="{% url "reservation:bookKO" %}">RESERVATION</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -969,19 +969,19 @@
           <div id="modalContent">
             <div class="mobile-nav-up">
               <div class='mobile-nav-top'>
-                <a href="{% url "reservation:index" %}">
+                <a href="{% url "reservation:sternaKO" %}">
                   <img style="width:120px; " src="{% static 'img/sterun-logo-3.png' %}" alt=""/>
                 </a>
                 <i class="fa solid fa-x" id="modalCloseButton"></i>
               </div>
-              <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sterna" %}">
-                <li>HOME</li>
+              <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sternaKO" %}">
+                <li>메인</li>
               </a>
-              <a class='modal-list' href="{% url "reservation:book" %}">
-                <li>RESERVATION</li>
+              <a class='modal-list' href="{% url "reservation:bookKO" %}">
+                <li>예약하기</li>
               </a>
-              <a class='modal-list' href="{% url "reservation:check" %}">
-                <li>MY PAGE</li>
+              <a class='modal-list' href="{% url "reservation:checkKO" %}">
+                <li>내 예약</li>
               </a>
             </div>
 
@@ -1000,7 +1000,7 @@
                 </li>
                 <li class="modal-sns-list">
                   <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
-                  <a href="{% url "reservation:contact" %}">
+                  <a href="{% url "reservation:contactKO" %}">
                     <p class="contact-button-nav">CONTACT</p>
                   </a>
                 </li>
@@ -1079,10 +1079,10 @@
     </div>
     <div class="footer_div">
       <div>
-        <p class="footer_line">JoolLab | 줄랩 | Leader : Hyunwoo Kim</p>
-        <p class="footer_line">Business ID : 189-12-02532
+        <p class="footer_line">JoolLab | 줄랩 | 대표 및 개인정보 관리자 : 김현우</p>
+        <p class="footer_line">사업자등록번호 : 189-12-02532
         </p>
-        <p class="footer_line">Address : 78, Jungdong-ro 254beon-gil, Republic of Korea</p>
+        <p class="footer_line">주소 : 경기도 부천시 중동로 254번길 78</p>
       </div>
       <div style="height:20px;"></div>
       <div>
