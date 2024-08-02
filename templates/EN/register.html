@@ -56,11 +56,11 @@
       </a>
     </nav>
     <div class="navbar-space"></div>
-    <div style="height:20px;"></div>
+    <div style="pc-space"></div>
 
     <div style="min-height:100vh;">
 
-      <div class="tocenter" style="margin:30px 0 0 0">
+      <div class="tocenter">
         <div class="formstyle">
           <div class="main_image">
             <img class="form-img" src="{% static 'img/running-2.jpg' %}" alt=""/>
@@ -68,7 +68,7 @@
           </div>
           <div class="form-box">
 
-            <form style="line-height:20px; display:flex; flex-wrap: wrap; flex-direction:column;" method="POST" enctype="multipart/form-data">
+            <form style="padding-left:10px; line-height:20px; display:flex; flex-wrap: wrap; flex-direction:column;" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form.media }}
               <div class="label-head">Please let me know your details :)</div>
@@ -639,7 +639,7 @@
 
               </p>
 
-              <div style="display:flex; justify-content:center; margin: 20px 0 0 0;">
+              <div style="margin:auto;">
                 <button type="submit" style="width:200px; display:flex;" class="tocenter card-button">
                   Submit
                 </button>
