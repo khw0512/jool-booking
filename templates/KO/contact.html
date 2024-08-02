@@ -44,10 +44,10 @@
       </div>
       <ul class="navbar-menu">
         <li>
-          <a href="{% url "reservation:sternaKO" %}">HOME</a>
+          <a href="{% url "reservation:sternaKO" %}">메인</a>
         </li>
         <li>
-          <a href="{% url "reservation:bookKO" %}">RESERVATION</a>
+          <a href="{% url "reservation:bookKO" %}">예약하기</a>
         </li>
       </ul>
       <a href="#" class="navbar-toggleBtn" id="modalOpenButton">
@@ -66,7 +66,7 @@
             <button class="contact-button fade-in-long">
               <img class="contact-img" src="{% static 'img/email.png' %}" alt=""/>
               <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via E-mail</div>
+              <div class="contact-text">이메일로 연락하기</div>
             </button>
           </a>
           <div style="height:40px;"></div>
@@ -74,7 +74,7 @@
             <button class="contact-button fade-in-long">
               <img class="contact-img" src="{% static 'img/LINE_logo.png' %}" alt=""/>
               <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via LINE</div>
+              <div class="contact-text">라인으로 연락하기</div>
             </button>
           </a>
           <div style="height:40px;"></div>
@@ -82,7 +82,7 @@
             <button class="contact-button fade-in-long">
               <img class="contact-img" src="{% static 'img/kakao_logo.png' %}" alt=""/>
               <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via Kakao</div>
+              <div class="contact-text">카카오톡으로 연락하기</div>
             </button>
           </a>
         </div>
@@ -103,13 +103,13 @@
           <i class="fa solid fa-x" id="modalCloseButton"></i>
         </div>
         <a style="border-top:1px solid blue;" class='modal-list' href="{% url "reservation:sternaKO" %}">
-          <li>HOME</li>
+          <li>메인</li>
         </a>
         <a class='modal-list' href="{% url "reservation:bookKO" %}">
-          <li>RESERVATION</li>
+          <li>예약하기</li>
         </a>
         <a class='modal-list' href="{% url "reservation:checkKO" %}">
-          <li>MY PAGE</li>
+          <li>내 예약</li>
         </a>
       </div>
 
@@ -129,7 +129,7 @@
           <li class="modal-sns-list">
             <!--a href="https://www.youtube.com" target="_blank"> <i class="fab fa-youtube"></i> </a-->
             <a href="{% url "reservation:contactKO" %}">
-              <p class="contact-button-nav">CONTACT</p>
+              <p class="contact-button-nav">연락하기</p>
             </a>
           </li>
         </ul>

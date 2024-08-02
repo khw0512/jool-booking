@@ -241,6 +241,74 @@ def register(request):
 
 
 @login_required(login_url="users:login")
+def register2(request):
+    if request.method == "POST":
+
+        if Item.objects.filter(pk=request.POST.get("top")).exists():
+            top = Item.objects.get(pk=request.POST.get("top"))
+        else:
+            top = None
+
+        if Item.objects.filter(pk=request.POST.get("bottom")).exists():
+            bottom = Item.objects.get(pk=request.POST.get("bottom"))
+        else:
+            bottom = None
+
+        if Item.objects.filter(pk=request.POST.get("shoes")).exists():
+            shoes = Item.objects.get(pk=request.POST.get("shoes"))
+        else:
+            shoes = None
+
+        if Item.objects.filter(pk=request.POST.get("bag")).exists():
+            bag = Item.objects.get(pk=request.POST.get("bag"))
+        else:
+            bag = None
+
+        reservation = Reservation(
+            client=request.POST.get("client"),
+            contact=request.POST.get("contact"),
+            desc=request.POST.get("desc"),
+            start_date=request.POST.get("start_date"),
+            start_time=request.POST.get("start_time"),
+            end_date=request.POST.get("end_date"),
+            end_time=request.POST.get("end_time"),
+            top=top,
+            bottom=bottom,
+            shoes=shoes,
+            bag=bag,
+            location=request.POST.get("location"),
+            image=request.FILES.get("image"),
+        )
+
+        reservation.save()
+
+        # LINE Notify 액세스 토큰
+        line_token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
+
+        # LINE Notify API 엔드포인트 URL
+        url = "https://notify-api.line.me/api/notify"
+
+        # 이미지 파일 열기
+
+        # POST 요청 보내기
+        response = requests.post(
+            url,
+            headers={"Authorization": "Bearer " + line_token},
+            data={
+                "message": "새로운 예약이 접수되었습니다. 예약번호: "
+                + str(request.POST.get("client"))
+            },
+        )
+
+        # 요청 결과 출력
+        print(response.text)
+
+        return redirect("reservation:data")
+    else:
+        return render(request, "EN/register.html")
+
+
+@login_required(login_url="users:login")
 def update(request, pk):
     reservation = get_object_or_404(Reservation, pk=pk)
     form = ReservationForm(request.POST, request.FILES, instance=reservation)
@@ -258,13 +326,15 @@ def update(request, pk):
 
 @login_required(login_url="users:login")
 def delreserv(request, pk):
-    reservation = Reservation.objects.get(pk=pk)
-    reservation.delete()
-    return redirect("reservation:data")
+    if request.method == "GET":
+        reservation = Reservation.objects.get(pk=pk)
+        reservation.delete()
+        return redirect("reservation:data")
+    else:
+        return redirect("reservation:data")
 
 
 @login_required(login_url="users:login")
 def delpage(request, pk):
     reservation = Reservation.objects.filter(pk=pk)
-    print(reservation)
     return render(request, "admin/delete.html", {"reservation": reservation})

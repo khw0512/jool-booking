@@ -25,6 +25,7 @@ urlpatterns = [
     path("KO/mypage/<str:pk>", views.mypageKO, name="mypageKO"),
     path("data/", views.data, name="data"),
     path("EN/register/", views.register, name="register"),
+    path("EN/register2/", views.register2, name="register2"),
     path("EN/pay/", views.pay, name="pay"),
     path("EN/update/<str:pk>", views.update, name="update"),
     path("EN/delreserv/<str:pk>", views.delreserv, name="delreserv"),

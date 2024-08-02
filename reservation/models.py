@@ -147,7 +147,7 @@ class Reservation(models.Model):
     completed = models.BooleanField(default=False)
     cost = models.IntegerField(default=0)
     location = models.CharField(max_length=50, blank=False)
-    paypal_link = models.CharField(max_length=50, blank=False, default="free")
+    paypal_link = models.CharField(max_length=50, blank=False, default="-")
 
     def __str__(self):
         return str(self.completed) + " " + self.client + "_" + self.reserv_id
