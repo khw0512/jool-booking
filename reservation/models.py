@@ -97,7 +97,7 @@ class Reservation(models.Model):
     reserv_id = models.CharField(
         max_length=20,
         primary_key=True,
-        default="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
+        default="Required_pk",
     )
     client = models.CharField(max_length=20)
     contact = models.CharField(max_length=50, blank=False)

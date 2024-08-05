@@ -192,7 +192,7 @@ def register(request):
             bag = None
 
         reservation = Reservation(
-            reserv_id="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
+            reserv_id=request.POST.get("reserv_id"),
             client=request.POST.get("client"),
             contact=request.POST.get("contact"),
             desc=request.POST.get("desc"),

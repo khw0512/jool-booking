@@ -67,16 +67,22 @@
     padding:5px 10px 5px 10px;
 }
 
-.main_image {
-    position: relative;
+.background-wrap{
+    background-image: url('https://sterun.kr/static/img/running-2.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.main_image_text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate( -50%, -50% );
-    color: white;
+.content {
+  display: flex;
+  flex-direction: column;
+  color:white;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 #sizeOpenButton{
@@ -131,6 +137,9 @@
 
   /* Mobile Env. */
 @media (max-width:700px) {
+    .indentation{
+        padding-left:10px;
+    }
     .form-img{
         width:100%;
     }
@@ -144,8 +153,7 @@
     }
 
     .form-box{
-        padding:0;
-        width: 100%;
+        padding: 0;
     }
 
     #id_location{

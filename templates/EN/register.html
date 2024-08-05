@@ -62,52 +62,54 @@
 
       <div class="tocenter">
         <div class="formstyle">
-          <div class="main_image">
-            <img class="form-img" src="{% static 'img/running-2.jpg' %}" alt=""/>
-            <h2 class="main_image_text">Reservation From</h2>
+          <div class="text-on-img" style="margin-bottom:20px;">
+            <div class="background-wrap">
+              <div class="content">
+                <span>Reservation Form</span>
+              </div>
+            </div>
           </div>
           <div class="form-box">
-
-            <form style="padding-left:10px; line-height:20px; display:flex; flex-wrap: wrap; flex-direction:column;" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form.media }}
-              <div class="label-head">Please let me know your details :)</div>
+              <div class="label-head indentation">Please let me know your details :)</div>
               <div class="flex-row-start">
-                <p>
+                <p class="indentation">
                   <label for="id_client" class="label-title forced">Name</label>
                   <input type="text" name="client" class="form-control" maxlength="20" required="" id="id_client">
                 </p>
-                <p>
+                <p class="indentation">
                   <label for="id_contact" class="label-title forced">E-mail</label>
                   <input type="text" name="contact" class="form-control" maxlength="50" required="" id="id_contact">
                 </p>
               </div>
 
-              <p>
+              <p class="indentation">
                 <label for="id_start_date" class="label-title forced">Start Date</label>
                 <input type="date" name="start_date" class="form-control-date" required="" id="id_start_date">
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_start_time" class="label-title forced">Chech-in Time</label>
                 <input type="time" name="start_time" value="00:51" class="form-control-time" id="id_start_time"><input type="hidden" name="initial-start_time" value="2024-08-02 00:51:14+00:00" id="initial-id_start_time">
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_end_date" class="label-title forced">End Date</label>
                 <input type="date" name="end_date" class="form-control-date" required="" id="id_end_date">
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_end_time" class="label-title forced">Check-out Time</label>
                 <input type="time" name="end_time" value="00:51" class="form-control-time" id="id_end_time"><input type="hidden" name="initial-end_time" value="2024-08-02 00:51:14+00:00" id="initial-id_end_time">
 
               </p>
               <div class="flex-row-start">
-                <div class="label-head">Choice items you wnat to book.</div>
+                <div class="label-head indentation">Choice items you wnat to book.</div>
               </div>
               <div id="sizeContainer" class="hidden">
                 <div id="sizeContent">
@@ -546,7 +548,7 @@
                   </div>
                 </div>
               </div>
-              <p>
+              <p class="indentation">
                 <label for="id_top" class="label-title">Top</label>
 
                 <select name="top" class="form-control" id="id_top">
@@ -564,7 +566,7 @@
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_bottom" class="label-title">Bottom</label>
                 <select name="bottom" class="form-control" id="id_bottom">
                   <option value="" selected="">---------</option>
@@ -581,7 +583,7 @@
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_shoes" class="label-title">Running Shoes</label>
                 <a id="sizeOpenButton">
                   Size check
@@ -609,7 +611,7 @@
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_bag" class="label-title">Phone Pouch</label>
                 <select name="bag" class="form-control" id="id_bag">
                   <option value="" selected="">---------</option>
@@ -622,25 +624,25 @@
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_location" class="label-title forced">Location</label>
                 <input type="text" name="location" class="form-control" maxlength="50" required="" id="id_location">
               </p>
-              <div class="label-head">Please upload a any image you want</div>
-              <p>
+              <div class="label-head indentation">Please upload a any image you want</div>
+              <p class="indentation">
                 <label for="image_field" class="label-title">Click the button 'Select file'</label>
                 <input type="file" name="image" id="image_field" class="form-control" accept="image/*">
 
               </p>
 
-              <p>
+              <p class="indentation">
                 <label for="id_desc" class="label-title">Note</label>
                 <textarea name="desc" cols="40" rows="10" class="form-control" id="id_desc">-</textarea>
 
               </p>
 
-              <div style="margin:auto;">
-                <button type="submit" style="width:200px; display:flex;" class="tocenter card-button">
+              <div style="margin:auto;" class="tocenter">
+                <button type="submit" style="width:200px; display:flex; " class="tocenter card-button">
                   Submit
                 </button>
               </div>
@@ -649,7 +651,7 @@
           </div>
           <div style="margin-top:20px; display:flex; justify-content:center;">
             <a href="{% url "reservation:data" %}">
-              <button style="padding: 5px; width:200px; height:40px;" class="card-button">Previous</button>
+              <button style="padding-left:5%; width:200px; height:40px;" class="card-button">Previous</button>
             </a>
           </div>
         </div>
