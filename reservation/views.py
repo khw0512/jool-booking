@@ -163,6 +163,7 @@ def new(request):
 
 @login_required(login_url="users:login")
 def register(request):
+
     if request.method == "POST":
 
         if request.POST.get("completed") == "on":
@@ -191,7 +192,7 @@ def register(request):
             bag = None
 
         reservation = Reservation(
-            reserv_id=request.POST.get("reserv_id"),
+            reserv_id="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
             client=request.POST.get("client"),
             contact=request.POST.get("contact"),
             desc=request.POST.get("desc"),
@@ -265,6 +266,7 @@ def register2(request):
             bag = None
 
         reservation = Reservation(
+            reserv_id="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
             client=request.POST.get("client"),
             contact=request.POST.get("contact"),
             desc=request.POST.get("desc"),
