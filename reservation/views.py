@@ -245,7 +245,6 @@ def register(request):
         return render(request, "admin/register.html", {"form": form})
 
 
-@login_required(login_url="users:login")
 def register2(request):
     if request.method == "POST":
 
