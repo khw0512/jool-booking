@@ -47,7 +47,16 @@ td, th{
 .label-head{
     font-size:1.2rem;
     font-weight:bold;
-    padding:30px 0 20px 0;
+    padding:30px 0 0 0;
+}
+
+.label-sub{
+    font-size:0.8rem;
+    color:red;
+}
+
+.label-space{
+    height:20px;
 }
 
 .label-title{
