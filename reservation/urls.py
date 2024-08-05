@@ -12,6 +12,7 @@ urlpatterns = [
     path("EN/use/", views.use, name="use"),
     path("EN/book/", views.book, name="book"),
     path("KO/book/", views.bookKO, name="bookKO"),
+    path("EN/booked/<str:id>", views.booked, name="booked"),
     path("EN/check/", views.check, name="check"),
     path("KO/check/", views.checkKO, name="checkKO"),
     path("EN/contact/", views.contact, name="contact"),

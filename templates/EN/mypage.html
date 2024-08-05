@@ -118,12 +118,17 @@
                       </a>
                     </div>
                     <div style="height:20px;"></div>
-                    <p class="reserv-title">Location</p>
+                    <p class="reserv-title">Place to Stay</p>
                     <p class="reserv-content">{{result.location}}</p>
                     <div style="height:20px;"></div>
                     <p class="reserv-title">Amount</p>
-                    <p class="reserv-content">{{result.cost}}
-                      $</p>
+                    {% if result.cost != 0 %}
+                      <p class="reserv-content">{{result.cost}}
+                        $</p>
+                    {% else %}
+                      <p class="reserv-content">
+                        Checking Price</p>
+                    {% endif %}
                     <div style="height:20px;"></div>
                     <p class="reserv-title">Status</p>
                     {% if result.status == 'ST1' %}

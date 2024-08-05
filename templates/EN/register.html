@@ -64,7 +64,7 @@
         <div class="formstyle">
           <div class="text-on-img" style="margin-bottom:20px;">
             <div class="background-wrap">
-              <div class="content">
+              <div class="content tocenter">
                 <span>Reservation Form</span>
               </div>
             </div>
@@ -73,7 +73,7 @@
             <form method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form.media }}
-              <div class="label-head indentation">Please let me know your details :)</div>
+              <div class="label-head">Please let me know your details :)</div>
               <div class="flex-row-start">
                 <p class="indentation">
                   <label for="id_client" class="label-title forced">Name</label>
@@ -84,39 +84,468 @@
                   <input type="text" name="contact" class="form-control" maxlength="50" required="" id="id_contact">
                 </p>
               </div>
-
+              <div class="depart-items"></div>
               <p class="indentation">
-                <label for="id_start_date" class="label-title forced">Start Date</label>
-                <input type="date" name="start_date" class="form-control-date" required="" id="id_start_date">
-
+                <label for="id_location" class="label-title forced">Place to Stay</label>
+                <input type="text" name="location" class="form-control" maxlength="50" required="" id="id_location">
               </p>
-
-              <p class="indentation">
-                <label for="id_start_time" class="label-title forced">Chech-in Time</label>
-                <input type="time" name="start_time" value="00:51" class="form-control-time" id="id_start_time"><input type="hidden" name="initial-start_time" value="2024-08-02 00:51:14+00:00" id="initial-id_start_time">
-
-              </p>
-
-              <p class="indentation">
-                <label for="id_end_date" class="label-title forced">End Date</label>
-                <input type="date" name="end_date" class="form-control-date" required="" id="id_end_date">
-
-              </p>
-
-              <p class="indentation">
-                <label for="id_end_time" class="label-title forced">Check-out Time</label>
-                <input type="time" name="end_time" value="00:51" class="form-control-time" id="id_end_time"><input type="hidden" name="initial-end_time" value="2024-08-02 00:51:14+00:00" id="initial-id_end_time">
-
-              </p>
+              <div class="depart-sec"></div>
+              <div class="label-head">Please Check the Date&Time below</div>
               <div class="flex-row-start">
-                <div class="label-head indentation">Choice items you wnat to book.</div>
+                <p class="indentation">
+                  <label for="id_start_date" class="label-title forced">Start Date</label>
+                  <input type="date" name="start_date" class="form-control-date" required="" id="id_start_date">
+
+                </p>
+
+                <p class="indentation">
+                  <label for="id_start_time" class="label-title forced">Chech-in Time</label>
+                  <input type="time" name="start_time" value="00:51" class="form-control-time" id="id_start_time"><input type="hidden" name="initial-start_time" value="2024-08-02 00:51:14+00:00" id="initial-id_start_time">
+
+                </p>
               </div>
-              <div id="sizeContainer" class="hidden">
-                <div id="sizeContent">
-                  <a id="sizeCloseButton">
-                    <p>X</p>
+              <div class="flex-row-start">
+                <p class="indentation">
+                  <label for="id_end_date" class="label-title forced">End Date</label>
+                  <input type="date" name="end_date" class="form-control-date" required="" id="id_end_date">
+
+                </p>
+
+                <p class="indentation">
+                  <label for="id_end_time" class="label-title forced">Check-out Time</label>
+                  <input type="time" name="end_time" value="00:51" class="form-control-time" id="id_end_time"><input type="hidden" name="initial-end_time" value="2024-08-02 00:51:14+00:00" id="initial-id_end_time">
+
+                </p>
+              </div>
+
+              <div class="label-head">Please select the sizes for the items you wish to reserve</div>
+              <!-- size table modal -->
+              <div id="sizeContainer-top" class="hidden">
+                <div id="sizeContent-top">
+                  <div class="tocenter" style="font-weight:bold; font-size:1.2rem;">TOP SIZE</div>
+                  <a id="sizeCloseButton-top">
+                    <p>CLOSE</p>
                   </a>
-                  <div id="tab-1" class="tab-content current" style="overflow:scroll;">
+                  <div id="tab-1" style="height:85%; overflow:scroll;">
+                    <div class="gender-title">
+                      MAN
+                    </div>
+                    <table class="tg">
+                      <thead>
+                        <tr>
+                          <th class="tg-0lax">Category</th>
+                          <th class="tg-f4yw">
+                            <span>KOR</span></th>
+                          <th class="tg-vbs7" colspan="2">
+                            <span>US</span></th>
+                          <th class="tg-f4yw">
+                            <span>UK</span></th>
+                          <th class="tg-vbs7" colspan="2">
+                            <span>JP</span></th>
+                          <th class="tg-f4yw">
+                            <span>FR</span></th>
+                          <th class="tg-vbs7">
+                            <span>EU</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tg-0lax">XS</td>
+                          <td class="tg-9ge1">
+                            <span>85</span></td>
+                          <td class="tg-tiu0">
+                            <span>85-90</span></td>
+                          <td class="tg-tiu0">
+                            <span>14</span></td>
+                          <td class="tg-9ge1">
+                            <span>0</span></td>
+                          <td class="tg-tiu0">
+                            <span>S</span></td>
+                          <td class="tg-tiu0">
+                            <span>36</span></td>
+                          <td class="tg-9ge1">
+                            <span>40</span></td>
+                          <td class="tg-tiu0">
+                            <span>44-46</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">S</td>
+                          <td class="tg-9ge1">
+                            <span>90</span></td>
+                          <td class="tg-tiu0">
+                            <span>90-95</span></td>
+                          <td class="tg-tiu0">
+                            <span>15</span></td>
+                          <td class="tg-9ge1">
+                            <span>1</span></td>
+                          <td class="tg-tiu0">
+                            <span>M</span></td>
+                          <td class="tg-tiu0">
+                            <span>38</span></td>
+                          <td class="tg-9ge1">
+                            <span>42, 44</span></td>
+                          <td class="tg-tiu0">
+                            <span>46</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">M</td>
+                          <td class="tg-9ge1">
+                            <span>95</span></td>
+                          <td class="tg-tiu0">
+                            <span>95-100</span></td>
+                          <td class="tg-tiu0">
+                            <span>15.5-16</span></td>
+                          <td class="tg-9ge1">
+                            <span>2</span></td>
+                          <td class="tg-tiu0">
+                            <span>L</span></td>
+                          <td class="tg-tiu0">
+                            <span>40</span></td>
+                          <td class="tg-9ge1">
+                            <span>46, 48</span></td>
+                          <td class="tg-tiu0">
+                            <span>48</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">L</td>
+                          <td class="tg-9ge1">
+                            <span>100</span></td>
+                          <td class="tg-tiu0">
+                            <span>100-105</span></td>
+                          <td class="tg-tiu0">
+                            <span>16.5</span></td>
+                          <td class="tg-9ge1">
+                            <span>3</span></td>
+                          <td class="tg-tiu0">
+                            <span>LL, XL</span></td>
+                          <td class="tg-tiu0">
+                            <span>42</span></td>
+                          <td class="tg-9ge1">
+                            <span>50, 52</span></td>
+                          <td class="tg-tiu0">
+                            <span>50</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">XL</td>
+                          <td class="tg-9ge1">
+                            <span>105</span></td>
+                          <td class="tg-tiu0">
+                            <span>105-110</span></td>
+                          <td class="tg-tiu0">
+                            <span>17.5</span></td>
+                          <td class="tg-9ge1">
+                            <span>4</span></td>
+                          <td class="tg-tiu0">
+                            <span>-</span></td>
+                          <td class="tg-tiu0">
+                            <span>44</span></td>
+                          <td class="tg-9ge1">
+                            <span>54, 56, 58</span></td>
+                          <td class="tg-tiu0">
+                            <span>52</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">XXL</td>
+                          <td class="tg-9ge1">
+                            <span>110</span></td>
+                          <td class="tg-tiu0">
+                            <span>110-</span></td>
+                          <td class="tg-tiu0">
+                            <span>-</span></td>
+                          <td class="tg-9ge1">
+                            <span>5</span></td>
+                          <td class="tg-tiu0">
+                            <span>-</span></td>
+                          <td class="tg-tiu0">
+                            <span>46</span></td>
+                          <td class="tg-9ge1">
+                            <span>60, 62</span></td>
+                          <td class="tg-tiu0">
+                            <span>54</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="gender-title">
+                      WOMAN
+                    </div>
+
+                    <table class="tg">
+                      <thead>
+                        <tr>
+                          <th class="tg-0lax">Category</th>
+                          <th class="tg-f4yw">
+                            <span>KOR</span></th>
+                          <th class="tg-vbs7">
+                            <span>US</span></th>
+                          <th class="tg-f4yw">
+                            <span>JP</span></th>
+                          <th class="tg-vbs7">
+                            <span>UK, AU</span></th>
+                          <th class="tg-f4yw">
+                            <span>FR</span></th>
+                          <th class="tg-vbs7">
+                            <span>IT</span></th>
+                          <th class="tg-f4yw">
+                            <span>EU</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tg-0lax">XS</td>
+                          <td class="tg-9ge1">
+                            <span>44(85)</span></td>
+                          <td class="tg-tiu0">
+                            <span>2</span></td>
+                          <td class="tg-9ge1">
+                            <span>44</span></td>
+                          <td class="tg-tiu0">
+                            <span>4-6</span></td>
+                          <td class="tg-9ge1">
+                            <span>34</span></td>
+                          <td class="tg-tiu0">
+                            <span>80</span></td>
+                          <td class="tg-9ge1">
+                            <span>34</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">S</td>
+                          <td class="tg-9ge1">
+                            <span>55(90)</span></td>
+                          <td class="tg-tiu0">
+                            <span>4</span></td>
+                          <td class="tg-9ge1">
+                            <span>55</span></td>
+                          <td class="tg-tiu0">
+                            <span>8-10</span></td>
+                          <td class="tg-9ge1">
+                            <span>36, 44</span></td>
+                          <td class="tg-tiu0">
+                            <span>90</span></td>
+                          <td class="tg-9ge1">
+                            <span>36</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">M</td>
+                          <td class="tg-9ge1">
+                            <span>66(95)</span></td>
+                          <td class="tg-tiu0">
+                            <span>6</span></td>
+                          <td class="tg-9ge1">
+                            <span>66</span></td>
+                          <td class="tg-tiu0">
+                            <span>10-12</span></td>
+                          <td class="tg-9ge1">
+                            <span>38, 48</span></td>
+                          <td class="tg-tiu0">
+                            <span>95</span></td>
+                          <td class="tg-9ge1">
+                            <span>38</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">L</td>
+                          <td class="tg-9ge1">
+                            <span>77(100)</span></td>
+                          <td class="tg-tiu0">
+                            <span>8</span></td>
+                          <td class="tg-9ge1">
+                            <span>77</span></td>
+                          <td class="tg-tiu0">
+                            <span>16-18</span></td>
+                          <td class="tg-9ge1">
+                            <span>40, 42</span></td>
+                          <td class="tg-tiu0">
+                            <span>100</span></td>
+                          <td class="tg-9ge1">
+                            <span>40</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">XL</td>
+                          <td class="tg-9ge1">
+                            <span>88(105)</span></td>
+                          <td class="tg-tiu0">
+                            <span>10</span></td>
+                          <td class="tg-9ge1">
+                            <span>88L</span></td>
+                          <td class="tg-tiu0">
+                            <span>20-22</span></td>
+                          <td class="tg-9ge1">
+                            <span>44, 46, 48</span></td>
+                          <td class="tg-tiu0">
+                            <span>105</span></td>
+                          <td class="tg-9ge1">
+                            <span>42</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0lax">XXL</td>
+                          <td class="tg-9ge1">
+                            <span>110</span></td>
+                          <td class="tg-tiu0">
+                            <span>12</span></td>
+                          <td class="tg-9ge1">
+                            <span>-</span></td>
+                          <td class="tg-tiu0">
+                            <span>-</span></td>
+                          <td class="tg-9ge1">
+                            <span>50, 52, 54</span></td>
+                          <td class="tg-tiu0">
+                            <span>110</span></td>
+                          <td class="tg-9ge1">
+                            <span>44</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+              <div id="sizeContainer-bottom" class="hidden">
+                <div id="sizeContent-bottom">
+                  <div class="tocenter" style="font-weight:bold; font-size:1.2rem;">BOTTOM SIZE</div>
+                  <a id="sizeCloseButton-bottom">
+                    <p>CLOSE</p>
+                  </a>
+                  <div id="tab-2" style="height:85%; overflow:scroll;">
+                    <div class="gender-title">MAN</div>
+
+                    <table class="tg">
+                      <thead>
+                        <tr>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">SIZE</span></th>
+                          <th class="tg-cly1">XXS</th>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">XS</span></th>
+                          <th class="tg-cly1">S</th>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">M</span></th>
+                          <th class="tg-cly1">L</th>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">XL</span></th>
+                          <th class="tg-cly1">2XL</th>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">3XL</span></th>
+                          <th class="tg-cly1">4XL</th>
+                          <th class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">5XL</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">WAIST(cm)</span></td>
+                          <td class="tg-cly1">&lt; 67</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">67 - 73</span></td>
+                          <td class="tg-cly1">73 - 79</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">79 - 85</span></td>
+                          <td class="tg-cly1">85 - 91</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">91 - 97</span></td>
+                          <td class="tg-cly1">97 - 104</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">104 - 112</span></td>
+                          <td class="tg-cly1">112 - 120</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">120+</span></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">HIP(cm)</span></td>
+                          <td class="tg-cly1">&lt; 81.5</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">81.5 - 86.5</span></td>
+                          <td class="tg-cly1">86.5 - 91.5</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">91.5 - 96.5</span></td>
+                          <td class="tg-cly1">96.5 - 101.5</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">101.5 - 106.5</span></td>
+                          <td class="tg-cly1">106.5 - 112</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">112 - 118</span></td>
+                          <td class="tg-cly1">118 - 123</td>
+                          <td class="tg-cly1">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">123+</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="gender-title">WOMAN</div>
+
+                    <table class="tg">
+                      <thead>
+                        <tr>
+                          <th class="tg-203s">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">SIZE</span></th>
+                          <th class="tg-81wz">XXS</th>
+                          <th class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">XS</span></th>
+                          <th class="tg-81wz">S</th>
+                          <th class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">M</span></th>
+                          <th class="tg-81wz">L</th>
+                          <th class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">XL</span></th>
+                          <th class="tg-81wz">2XL</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">KOR SIZE</span></td>
+                          <td class="tg-81wz">-</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">60</span></td>
+                          <td class="tg-81wz">65</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">70</span></td>
+                          <td class="tg-81wz">75</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">80</span></td>
+                          <td class="tg-81wz">85</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">WAIST(cm)</span></td>
+                          <td class="tg-81wz">62.5 - 65.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">65.5 - 68.5</span></td>
+                          <td class="tg-81wz">68.5 - 71.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">71.5 - 75.5</span></td>
+                          <td class="tg-81wz">75.5 - 80.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">80.5 - 85.5</span></td>
+                          <td class="tg-81wz">85.5 - 90.5</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">HIP(cm)</span></td>
+                          <td class="tg-81wz">83.5 - 86.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">86.5 - 89.5</span></td>
+                          <td class="tg-81wz">89.5 - 92.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">92.5 - 96.5</span></td>
+                          <td class="tg-81wz">96.5 - 101.5</td>
+                          <td class="tg-81wz">
+                            <span style="background-color:var(--podium-cds-color-bg-primary)">101.5 - 106.5</span></td>
+                          <td class="tg-81wz">106.5 - 111.5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+              <div id="sizeContainer-shoes" class="hidden">
+                <div id="sizeContent-shoes">
+                  <div class="tocenter" style="font-weight:bold; font-size:1.2rem;">SHOES SIZE</div>
+                  <a id="sizeCloseButton-shoes">
+                    <p>CLOSE</p>
+                  </a>
+                  <div id="tab-3" class="tab-content current" style="overflow:scroll;">
                     <table class="tg">
 
                       <tr>
@@ -550,7 +979,9 @@
               </div>
               <p class="indentation">
                 <label for="id_top" class="label-title">Top</label>
-
+                <a id="sizeOpenButton-top">
+                  Size check
+                </a>
                 <select name="top" class="form-control" id="id_top">
                   <option value="" selected="">---------</option>
 
@@ -565,9 +996,12 @@
                 </select>
 
               </p>
-
+              <div class='depart-items'></div>
               <p class="indentation">
                 <label for="id_bottom" class="label-title">Bottom</label>
+                <a id="sizeOpenButton-bottom">
+                  Size check
+                </a>
                 <select name="bottom" class="form-control" id="id_bottom">
                   <option value="" selected="">---------</option>
 
@@ -582,10 +1016,10 @@
                 </select>
 
               </p>
-
+              <div class='depart-items'></div>
               <p class="indentation">
                 <label for="id_shoes" class="label-title">Running Shoes</label>
-                <a id="sizeOpenButton">
+                <a id="sizeOpenButton-shoes">
                   Size check
                 </a>
                 <select name="shoes" class="form-control" id="id_shoes">
@@ -610,7 +1044,7 @@
                 </select>
 
               </p>
-
+              <div class='depart-items'></div>
               <p class="indentation">
                 <label for="id_bag" class="label-title">Phone Pouch</label>
                 <select name="bag" class="form-control" id="id_bag">
@@ -623,24 +1057,21 @@
                 </select>
 
               </p>
+              <div class='depart-items'></div>
 
+              <div class="label-head">Please upload a any image you want</div>
               <p class="indentation">
-                <label for="id_location" class="label-title forced">Location</label>
-                <input type="text" name="location" class="form-control" maxlength="50" required="" id="id_location">
-              </p>
-              <div class="label-head indentation">Please upload a any image you want</div>
-              <p class="indentation">
-                <label for="image_field" class="label-title">Click the button 'Select file'</label>
+                <label for="image_field" class="label-title">Click the button below</label>
                 <input type="file" name="image" id="image_field" class="form-control" accept="image/*">
 
               </p>
-
+              <div class="label-head">Feel free to write anything you would like to say</div>
               <p class="indentation">
                 <label for="id_desc" class="label-title">Note</label>
-                <textarea name="desc" cols="40" rows="10" class="form-control" id="id_desc">-</textarea>
+                <textarea name="desc" cols="35" rows="10" class="form-control" id="id_desc">-</textarea>
 
               </p>
-
+              <div style="height:20px;"></div>
               <div style="margin:auto;" class="tocenter">
                 <button type="submit" style="width:200px; display:flex; " class="tocenter card-button">
                   Submit
@@ -649,16 +1080,17 @@
             </form>
 
           </div>
-          <div style="margin-top:20px; display:flex; justify-content:center;">
-            <a href="{% url "reservation:data" %}">
-              <button style="padding-left:5%; width:200px; height:40px;" class="card-button">Previous</button>
-            </a>
+          <div style="display:flex;">
+            <div style="margin-left:auto;" class="tocenter">
+              <a href="{% url "reservation:book" %}">
+                <button style="width:200px; height:40px;" class="card-button">Previous</button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="navbar-space"></div>
   </div>
 
   <!-- mobile nav modal hedden-->
@@ -752,18 +1184,44 @@
       }
     );
 
-    const sizeOpenButton = document.getElementById('sizeOpenButton');
-    const sizeCloseButton = document.getElementById('sizeCloseButton');
-    const size = document.getElementById('sizeContainer');
+    const sizeOpenButton_top = document.getElementById('sizeOpenButton-top');
+    const sizeOpenButton_bottom = document.getElementById('sizeOpenButton-bottom');
+    const sizeOpenButton_shoes = document.getElementById('sizeOpenButton-shoes');
+    const sizeCloseButton_top = document.getElementById('sizeCloseButton-top');
+    const sizeCloseButton_bottom = document.getElementById('sizeCloseButton-bottom');
+    const sizeCloseButton_shoes = document.getElementById('sizeCloseButton-shoes');
+    const size_top = document.getElementById('sizeContainer-top');
+    const size_bottom = document.getElementById('sizeContainer-bottom');
+    const size_shoes = document.getElementById('sizeContainer-shoes');
 
-    sizeOpenButton.addEventListener('click', () => {
-      size
+    sizeOpenButton_top.addEventListener('click', () => {
+      size_top
+        .classList
+        .remove('hidden');
+    });
+    sizeOpenButton_bottom.addEventListener('click', () => {
+      size_bottom
+        .classList
+        .remove('hidden');
+    });
+    sizeOpenButton_shoes.addEventListener('click', () => {
+      size_shoes
         .classList
         .remove('hidden');
     });
 
-    sizeCloseButton.addEventListener('click', () => {
-      size
+    sizeCloseButton_top.addEventListener('click', () => {
+      size_top
+        .classList
+        .add('hidden');
+    });
+    sizeCloseButton_bottom.addEventListener('click', () => {
+      size_bottom
+        .classList
+        .add('hidden');
+    });
+    sizeCloseButton_shoes.addEventListener('click', () => {
+      size_shoes
         .classList
         .add('hidden');
     });

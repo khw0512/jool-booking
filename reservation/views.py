@@ -97,6 +97,10 @@ def bookKO(request):
     return render(request, "KO/book.html")
 
 
+def booked(request, id):
+    return render(request, "EN/booked.html", {"context": id})
+
+
 def checked(request):
     if request.method == "POST":
         checked = request.POST["checked"]
@@ -264,9 +268,9 @@ def register2(request):
             bag = Item.objects.get(pk=request.POST.get("bag"))
         else:
             bag = None
-
+        id = "ste-" + datetime.now().strftime("%Y%m%dT%H%M%S")
         reservation = Reservation(
-            reserv_id="ste-" + datetime.now().strftime("%Y%m%dT%H%M%S"),
+            reserv_id=id,
             client=request.POST.get("client"),
             contact=request.POST.get("contact"),
             desc=request.POST.get("desc"),
@@ -297,15 +301,16 @@ def register2(request):
             url,
             headers={"Authorization": "Bearer " + line_token},
             data={
-                "message": "새로운 예약이 접수되었습니다. 예약번호: "
+                "message": "새로운 예약이 접수되었습니다. 예약자: "
                 + str(request.POST.get("client"))
             },
         )
 
         # 요청 결과 출력
         print(response.text)
+        print({"context": id})
 
-        return redirect("reservation:data")
+        return redirect("reservation:booked", id)
     else:
         return render(request, "EN/register.html")
 
