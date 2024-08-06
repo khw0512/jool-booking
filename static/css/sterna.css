@@ -205,6 +205,11 @@ button {
     justify-content: center;
 }
 
+.flex-row-mix{
+    display: flex;
+    flex-direction: row;
+}
+
 .flex-row-notwrap {
     display: flex;
     flex-direction: row;
@@ -841,6 +846,11 @@ div.tabs div.current {
         align-items:center;
     }
 
+    .flex-row-mix{
+        display: flex;
+        flex-direction: column;
+    }
+
     .flex-row-notwrap{
         display: flex;
         flex-direction: row;
@@ -1031,7 +1041,6 @@ div.tabs div.current {
 
     .info-box {
         width:30px;
-        margin-bottom:20px;
         text-align: center;
     }
 
