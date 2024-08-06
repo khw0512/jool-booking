@@ -773,7 +773,6 @@ div.tabs div.current {
     border-radius: 20px;
     padding: 50px 30px 70px 30px;
     box-shadow: 5px 5px 5px grey;
-    
 }
 
 .checked-box::after{
@@ -1089,6 +1088,11 @@ div.tabs div.current {
     .checked-info2{
         font-size: 0.8rem;
     }
+    .checked-box{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
     
 }
 
