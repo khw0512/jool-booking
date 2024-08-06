@@ -223,7 +223,8 @@ td, th{
 #tab-1, #tab-2, #tab-3{
     max-height: 350px;
     overflow: scroll;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 40px 10px;
+    border-radius: 20px;
 }
 
 .modal-title{
@@ -231,8 +232,6 @@ td, th{
     padding:10px;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     background-color: var(--sterun-primary-color)
 }
 

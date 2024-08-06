@@ -75,7 +75,11 @@
                       <i class="fa-solid fa-arrow-right"></i>
                       {{result.reserv_id}}
                     </p>
-                    <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+                    {% if result.image != "" %}
+                      <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+                    {% else %}
+                      <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/static/img/logo-shoes-1.png" alt=""/>
+                    {% endif %}
                   </div>
                   <div style="width:90%;" class="flex-column fade-in">
                     <div class="reserv-box">{{result.start_date}}
