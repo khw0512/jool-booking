@@ -1092,6 +1092,11 @@ div.tabs div.current {
         margin-left: 10px;
         margin-right: 10px;
     }
+
+    .gotomypage{
+        position:relative; 
+        z-index:1000 !important;
+    }
     
     
 }
