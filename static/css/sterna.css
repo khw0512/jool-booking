@@ -272,6 +272,7 @@ button {
 }
 
 .main-button {
+    z-index: 10000;
     font-size: 1.2rem;
     font-weight: bold;
     transition: 0.2s;
@@ -1095,8 +1096,7 @@ div.tabs div.current {
 
     .gotomypage{
         font-size:1rem;
-        -webkit-transform-style: preserve-3d !important; 
-        -webkit-transform: translateZ(-5px) !important; 
+        z-index: 10001;
     }
     
     
