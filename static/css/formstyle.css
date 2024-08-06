@@ -30,10 +30,6 @@ td, th{
     border:solid 1px black;
 }
 
-.tg-baqh, .tg-baqhc{
-    font-weight: bold;
-}
-
 .formstyle{
     min-width: 700px;
     background-color: white;
@@ -130,8 +126,8 @@ td, th{
 }
 
 .gender-title{
-    font-size:1.3rem;
-    font-weight: 500;
+    font-size:1.2rem;
+    font-weight: 700;
     padding: 20px 0 5px 0;
 }
 
@@ -149,9 +145,7 @@ td, th{
 #sizeCloseButton-top, #sizeCloseButton-bottom, #sizeCloseButton-shoes{
     cursor: pointer;
     font-weight: bold;
-    color:var(--sterun-thirdary-color);
     padding-right:5px;
-    text-align: right;
 }
 
 #sizeContainer-top{
@@ -197,24 +191,21 @@ td, th{
   position: absolute;
   background-color: #ffffff;
   width: 700px;
-  height: 400px;
-  padding: 15px;
+  max-height: 400px;
   border-radius: 20px;
 }
 #sizeContent-bottom {
   position: absolute;
   background-color: #ffffff;
   width: 700px;
-  height: 400px;
-  padding: 15px;
+  max-height: 400px;
   border-radius: 20px;
 }
 #sizeContent-shoes {
   position: absolute;
   background-color: #ffffff;
   width: 700px;
-  height: 500px;
-  padding: 15px;
+  max-height: 400px;
   border-radius: 20px;
 }
 
@@ -227,6 +218,22 @@ td, th{
 }
 #sizeContainer-shoes.hidden {
   display: none;
+}
+
+#tab-1, #tab-2, #tab-3{
+    max-height: 350px;
+    overflow: scroll;
+    padding: 10px 0 0 0;
+}
+
+.modal-title{
+    font-weight: bold;
+    padding:10px;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: var(--sterun-primary-color)
 }
 
 #id_client{
@@ -292,7 +299,17 @@ td, th{
         padding:15px 0 7px 5px;
     }
 
-    #sizeContent {
+    .tg{
+        font-size:0.8rem;
+    }
+
+    #sizeContent-top {
+        width:100%;
+    }
+    #sizeContent-bottom {
+        width:100%;
+    }
+    #sizeContent-shoes {
         width:100%;
     }
 
@@ -332,4 +349,43 @@ td, th{
         margin-bottom: 10px;
     }
 
+}
+
+
+/*  Table Style   */
+
+/*top*/
+.tg-0lax{
+    position:sticky;
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+.tg-f4yw{
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+.tg-vbs7{
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+
+/*shoes*/
+.tg-baqh, .tg-baqhc{
+    position:sticky;
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+
+/*bottom*/
+.tg-cly1{
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+.tg-203s{
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
+}
+.tg-81wz{
+    font-weight: bold;
+    background-color: var(--sterun-grey-color);
 }
