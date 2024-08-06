@@ -105,7 +105,7 @@ td, th{
 }
 
 .background-wrap{
-    background-image: url('https://sterun.kr/static/img/running-2.jpg');
+    background-image: url('/static/img/running-2.jpg');
     background-size: cover;
     height: 130px;
     display: flex;
