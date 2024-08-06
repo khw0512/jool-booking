@@ -223,7 +223,7 @@ td, th{
 #tab-1, #tab-2, #tab-3{
     max-height: 350px;
     overflow: scroll;
-    padding: 10px 0 0 0;
+    padding: 10px 0 10px 0;
 }
 
 .modal-title{
@@ -299,8 +299,17 @@ td, th{
         padding:15px 0 7px 5px;
     }
 
+    .modal-title{
+        border-radius: 0;
+    }
+
+    .gender-title{
+        padding-left: 10px;
+    }
+
     .tg{
-        font-size:0.8rem;
+        margin-left:10px;
+        font-size:0.7rem;
     }
 
     #sizeContent-top {
