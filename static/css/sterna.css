@@ -1094,8 +1094,7 @@ div.tabs div.current {
     }
 
     .gotomypage{
-        position:relative; 
-        z-index:1000 !important;
+        font-size:1rem;
     }
     
     
