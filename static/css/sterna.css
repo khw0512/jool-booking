@@ -1173,8 +1173,12 @@ div.tabs div.current {
 
 .rwd-table {
     width: 500px;
+    max-width: 90%;
     border-collapse: collapse;
     box-shadow: 1px 1px 5px gray;
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
 }
 
 .table-item {
@@ -1226,12 +1230,6 @@ div.tabs div.current {
 .rwd-table th,
 .rwd-table td {
   text-align: left;
-}
-
-.rwd-table {
-  color: #333;
-  border-radius: .4em;
-  overflow: hidden;
 }
 
 .rwd-table tr {
