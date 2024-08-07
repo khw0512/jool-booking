@@ -62,12 +62,12 @@
     <div class="navbar-space"></div>
     <div style="height:20px;"></div>
     <div>
-      <div style="max-width:1000px; margin:auto;">
+      <div style="margin:auto;">
         <div style="min-height:100vh;">
           {% if checked != "" and result_amo != 0 %}
             {% for result in results %}
               <div class="tocenter">
-                <div style="width:95%;" class="flex-row-mix">
+                <div style="width:95%; max-width:1000px;" class="flex-row-mix">
                   <div class="flex-column">
                     <p class="reserv-ox">Reservation ID</p>
                     <div class="underline" style="width:120px; margin-top:-10px"></div>
@@ -195,10 +195,9 @@
               </div>
             {% endfor %}
           {% elif checked == "blank" %}
-            <div class="tocenter">
+            <div style="min-height:100vh; margin-top:-90px; padding-top: 90px; margin-bottom:-20px; width:100%;" class="tocenter check-page-img">
               <div>
                 <p class="check-message">Please enter the Reservation ID</p>
-                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
               </div>
               <form class="search" method="POST" action="{% url 'reservation:checked' %}">
                 {% csrf_token %}
@@ -211,10 +210,12 @@
               </form>
             </div>
           {% else %}
-            <div class="tocenter">
-              <div>
-                <p class="check-message">There is No Result</p>
-                <div style="width:100%; margin:-40px 0 40px 0;" class="underline"></div>
+            <div style="min-height:100vh; margin-top:-90px; padding-top: 90px; margin-bottom:-20px; width:100%;" class="tocenter check-page-img">
+              <div class="tocenter">
+                <p class="check-message">There is
+                  <span style="color:red;">No Result</span>
+                </p>
+                <p class="check-message" style="margin-top:-20px;">Please remind your Reservation ID.</p>
               </div>
               <form class="search" method="POST" action="{% url 'reservation:checked' %}">
                 {% csrf_token %}
@@ -230,7 +231,6 @@
         </div>
       </div>
     </div>
-    <div class="navbar-space"></div>
   </div>
 
   <!-- mobile nav modal hedden-->
