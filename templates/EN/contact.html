@@ -55,37 +55,51 @@
       </a>
     </nav>
     <div class="navbar-space"></div>
-    <div style="height:20px;"></div>
 
     <div style="min-height:100vh;">
 
-      <div class="navbar-space"></div>
+      <div class="pc-space-90"></div>
       <div style="min-height: 100vh" class="tocenter">
-        <div class="contact tocenter">
-          <a href="mailto:jasonkim@joollab.com?body=Please Enter Your Name First :)">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/email.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via E-mail</div>
-            </button>
-          </a>
-          <div style="height:40px;"></div>
-          <a href="https://lin.ee/VrtkbZK">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/LINE_logo.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via LINE</div>
-            </button>
-          </a>
-          <div style="height:40px;"></div>
-          <a href="http://pf.kakao.com/_hXxbYG/chat">
-            <button class="contact-button fade-in-long">
-              <img class="contact-img" src="{% static 'img/kakao_logo.png' %}" alt=""/>
-              <div style="width: 10px"></div>
-              <div class="contact-text">Contact Via Kakao</div>
-            </button>
-          </a>
+        <div class="contact-info">Please tell me &#x1F4E2</div>
+        <div class="flex-row">
+          <div class="contact-box fade-in-long">
+            <div class="flex-column">
+              <div class="contact-img tocenter">
+                <img src="{% static 'img/email.png' %}" alt="">
+              </div>
+              <a href="mailto:jasonkim@joollab.com?body=Please Enter Your Name First :)">
+                <button class="contact-button fade-in-long">
+                  <div class="contact-text">Send E-mail</div>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="contact-box fade-in-long">
+            <div class="flex-column">
+              <div class="contact-img tocenter">
+                <img src="{% static 'img/LINE_logo.png' %}" alt="">
+              </div>
+              <a href="https://lin.ee/VrtkbZK">
+                <button class="contact-button fade-in-long">
+                  <div class="contact-text">Open LINE</div>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="contact-box fade-in-long">
+            <div class="flex-column">
+              <div class="contact-img tocenter">
+                <img src="{% static 'img/kakao_logo.png' %}" alt="">
+              </div>
+              <a href="http://pf.kakao.com/_hXxbYG/chat">
+                <button class="contact-button fade-in-long">
+                  <div class="contact-text">Open Kakao</div>
+                </button>
+              </a>
+            </div>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -147,7 +161,7 @@
     const showBox = document.querySelectorAll(".showBox");
     const fadeIn = document.querySelectorAll(".fade-in-long");
     // 화면높이값 2/3 구하기
-    const screenH = window.innerHeight * 5 / 6;
+    const screenH = window.innerHeight * 9 / 10;
 
     // 등장액션 대상 위치값 리턴함수
     const retVal = ele => ele

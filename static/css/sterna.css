@@ -236,6 +236,10 @@ button {
     z-index:0;
 }
 
+.search{
+    width:250px;
+}
+
 .search-bar {
     padding:10px;
     border: var(--sterun-secondary-color) solid 1px;
@@ -355,6 +359,10 @@ button {
     height: 50px;
 }
 
+.pc-space-90 {
+    height: 90px;
+}
+
 .navbar-logo {
     margin: 25px 0 15px 15px;
 }
@@ -441,6 +449,7 @@ button {
     width:100%;
     background-image: url('/static/img/running-3.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 /* Footer */
@@ -508,17 +517,19 @@ button {
 .policy-section {
     max-width: 600px;
     height: 300px;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: var(--sterun-white-color);
     padding: 5px 10px 5px 10px;
+    box-shadow: 1px 1px 3px grey;
 }
 
 .refund-section {
     max-width: 600px;
     height: 200px;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: var(--sterun-white-color);
     padding: 5px 10px 5px 10px;
+    box-shadow: 1px 1px 3px grey;
 }
 
 .policy-section>p {
@@ -628,14 +639,30 @@ button {
   width: 400px;
 }
 
-.contact-img {
-  width: 2rem;
-  height:2rem;
+.contact-box {
+    width:150px;
+    border: solid 1px gainsboro;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 10px 10px;
+    background-color: var(--card-color);
+    box-shadow: inset 1px 1px 3px gainsboro;
+}
+
+.contact-img>img {
+  width: 80px;
+  margin:20px 0 10px 0;
+}
+
+.contact-info{
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .contact-text {
-  font-size: 1.3rem;
-  line-height: 2rem;
+  font-size: 1rem;
+  line-height: 1rem;
 }
 
 .contact a{
@@ -643,18 +670,19 @@ button {
 }
 
 .contact-button {
+    margin-top:20px;
     width:100%;
-  display:flex;
-  justify-content: center;
-  font-weight: bold;
-  transition: 0.2s;
-  color:var(--sterun-secondary-color);
-  background-color: var(--sterun-primary-color);
-  padding: 10px 20px 10px 20px;
-  border-radius: 30px;
-  border: var(--sterun-secondary-color) solid 1px;
-  cursor: pointer;
-  }
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.2s;
+    color:var(--sterun-secondary-color);
+    background-color: var(--sterun-primary-color);
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    border: var(--sterun-secondary-color) solid 1px;
+    cursor: pointer;
+}
 
 .contact-button:hover {
   font-weight: bold;
@@ -890,6 +918,9 @@ div.tabs div.current {
     .pc-space {
         height: 0px;
     }
+    .pc-space-90{
+        height: 50px;
+    }
 
     .navbar-menu {
         display: none;
@@ -1123,6 +1154,13 @@ div.tabs div.current {
         margin-left: 10px;
         margin-right: 10px;
     }
+    .contact-box{
+        padding:20px;
+    }
+    .contact-img>img {
+        width: 50px;
+        margin:10px 0 0 0;
+    }
 
     
     
@@ -1132,15 +1170,16 @@ div.tabs div.current {
 /* ------------ MEDIA END -------------- */
 
 /* ----- Table Design ----- */
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
 
 .rwd-table {
-  min-width: 300px;
-  max-width: 100%;
-  border-collapse: collapse;
+    width: 500px;
+    max-width: 90%;
+    border-collapse: collapse;
+    box-shadow: 1px 1px 5px gray;
 }
 
 .table-item {
+    text-align: center;
     font-weight: bold;
     color:var(--sterun-thirdary-color);
 }

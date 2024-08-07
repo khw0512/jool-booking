@@ -58,12 +58,12 @@
         <i class="fas fa-bars"></i>
       </a>
     </nav>
-    <div style="height:90px;"></div>
+    <div class="pc-space-90"></div>
 
     <div style="min-height: 100vh" class="tocenter check-page-img">
       <div>
         <div class="navbar-space"></div>
-        <p class="check-message">Search by the Reservation ID</p>
+        <p class="check-message">Search by the Reservation ID &#x1F3AB</p>
       </div>
       <form class="search" method="POST" action="{% url 'reservation:checked' %}">
         {% csrf_token %}
@@ -128,7 +128,7 @@
       const showBox = document.querySelectorAll(".showBox");
       const fadeIn = document.querySelectorAll(".fade-in");
       // 화면높이값 2/3 구하기
-      const screenH = window.innerHeight * 3 / 4;
+      const screenH = window.innerHeight * 9 / 10;
 
       // 등장액션 대상 위치값 리턴함수
       const retVal = ele => ele
