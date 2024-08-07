@@ -1172,7 +1172,6 @@ div.tabs div.current {
 /* ----- Table Design ----- */
 
 .rwd-table {
-    width: 500px;
     max-width: 90%;
     border-collapse: collapse;
     box-shadow: 1px 1px 5px gray;
