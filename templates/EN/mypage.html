@@ -72,13 +72,13 @@
                     <p class="reserv-ox">Reservation ID</p>
                     <div class="underline" style="width:120px; margin-top:-10px"></div>
                     <p>
-                      <i class="fa-solid fa-arrow-right"></i>
+                      &#x27A1
                       {{result.reserv_id}}
                     </p>
                     {% if result.image != "" %}
-                      <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/media/{{result.image}}" alt=""/>
+                      <img style="width:150px; padding:25px 0 20px 0;" class="fade-in" src="/media/{{result.image}}" alt=""/>
                     {% else %}
-                      <img style="width:150px; padding-left:25px; padding-top:25px;" class="fade-in" src="/static/img/logo-shoes-1.png" alt=""/>
+                      <img style="width:150px; padding:25px 0 20px 0;" class="fade-in" src="/static/img/logo-shoes-1.png" alt=""/>
                     {% endif %}
                   </div>
                   <div style="width:90%;" class="flex-column fade-in">
@@ -92,40 +92,58 @@
                     <div style="height:20px;"></div>
                     <p class="reserv-title">Rental List</p>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Running Shoes :
-                        {{result.shoes.name}}
-                        | size:
-                        {{result.shoes.size}}
-                      </p>
-                      <a target="_blank" href="{{result.shoes.link}}">
-                        <div class="info-box">info</div>
-                      </a>
+                      {% if result.shoes != None %}
+                        <p class="reserv-content">&#x2705 Running Shoes :
+                          {{result.shoes.name}}
+                          | size:
+                          {{result.shoes.size}}
+                        </p>
+                        <a target="_blank" href="{{result.shoes.link}}">
+                          <div class="info-box">info</div>
+                        </a>
+                      {% else %}
+                        <p class="reserv-content">&#x25FB Shoes : -</p>
+                      {% endif %}
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Top :
-                        {{result.top.name}}
-                        | sieze:
-                        {{result.top.size}}
-                      </p>
-                      <a target="_blank" href="{{result.top.link}}">
-                        <div class="info-box">info</div>
-                      </a>
+                      {% if result.top != None%}
+                        <p class="reserv-content">&#x2705 Top :
+                          {{result.top.name}}
+                          | sieze:
+                          {{result.top.size}}
+                        </p>
+                        <a target="_blank" href="{{result.top.link}}">
+                          <div class="info-box">info</div>
+                        </a>
+                      {% else %}
+                        <p class="reserv-content">&#x25FB Top : -</p>
+                      {% endif %}
+
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Bottom :
-                        {{result.bottom.name}}
-                        | size:
-                        {{result.bottom.size}}</p>
-                      <a target="_blank" href="{{result.bottom.link}}">
-                        <div class="info-box">info</div>
-                      </a>
+                      {% if result.bottom != None %}
+                        <p class="reserv-content">&#x25FC Bottom :
+                          {{result.bottom.name}}
+                          | size:
+                          {{result.bottom.size}}</p>
+                        <a target="_blank" href="{{result.bottom.link}}">
+                          <div class="info-box">info</div>
+                        </a>
+                      {% else %}
+                        <p class="reserv-content">&#x25FB Bottom : -</p>
+                      {% endif %}
                     </div>
                     <div class="flex-row-notwrap">
-                      <p class="reserv-content">- Bag :
-                        {{result.bag}}</p>
-                      <a target="_blank" href="{{result.bag.link}}">
-                        <div class="info-box">info</div>
-                      </a>
+                      {% if result.bag != None %}
+                        <p class="reserv-content">&#x2705 Phone Pouch :
+                          {{result.bag}}</p>
+                        <a target="_blank" href="{{result.bag.link}}">
+                          <div class="info-box">info</div>
+                        </a>
+                      {% else %}
+                        <p class="reserv-content">&#x25FB Phone Pouch : -</p>
+                      {% endif %}
+
                     </div>
                     <div style="height:20px;"></div>
                     <p class="reserv-title">Place to Stay</p>
