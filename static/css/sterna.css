@@ -1173,6 +1173,7 @@ div.tabs div.current {
 
 .rwd-table {
     width: 500px;
+    max-width: 90%;
     border-collapse: collapse;
     box-shadow: 1px 1px 5px gray;
     color: #333;
@@ -1243,6 +1244,10 @@ div.tabs div.current {
   .rwd-table tr:nth-child(2) {
     border-top: none;
   }
+  .rwd-table {
+        max-width: 90%;
+    }
+  
 }
 @media screen and (min-width: 600px) {
   .rwd-table tr:hover:not(:first-child) {
@@ -1268,4 +1273,7 @@ div.tabs div.current {
   .rwd-table td {
     padding: 1em !important;
   }
+  .rwd-table {
+        max-width: 90%;
+    }
 }
