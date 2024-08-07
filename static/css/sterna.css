@@ -1161,10 +1161,10 @@ div.tabs div.current {
         width: 50px;
         margin:10px 0 0 0;
     }
+    .rwd-table {
+    width: 90%;
+    }
 
-    
-    
-    
 }
 
 /* ------------ MEDIA END -------------- */
